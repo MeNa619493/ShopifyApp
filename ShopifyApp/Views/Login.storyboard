@@ -18,7 +18,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6K-mJ-GiX">
                                 <rect key="frame" x="0.0" y="29" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="Ynp-rB-Eso">
+                                    <navigationItem title="Login" id="Ynp-rB-Eso">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="sop-zR-8c1"/>
                                     </navigationItem>
                                 </items>

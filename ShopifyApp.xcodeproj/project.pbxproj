@@ -17,6 +17,7 @@
 		1EA8661F286FEB8C00BDB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA8661D286FEB8C00BDB2A9 /* LaunchScreen.storyboard */; };
 		1EA86627286FF09200BDB2A9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA86626286FF09200BDB2A9 /* Login.storyboard */; };
 		1EA86629286FF0B000BDB2A9 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA86628286FF0B000BDB2A9 /* Register.storyboard */; };
+		1EE093462870C70A00931A1A /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE093452870C70A00931A1A /* Products.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1EA86620286FEB8C00BDB2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EA86626286FF09200BDB2A9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		1EA86628286FF0B000BDB2A9 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		1EE093452870C70A00931A1A /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		1EA8660E286FEB8A00BDB2A9 /* ShopifyApp */ = {
 			isa = PBXGroup;
 			children = (
+				1EE093442870C6DC00931A1A /* Views */,
 				1EA8660F286FEB8A00BDB2A9 /* AppDelegate.swift */,
 				1EA86611286FEB8A00BDB2A9 /* SceneDelegate.swift */,
 				1EA86613286FEB8A00BDB2A9 /* ViewController.swift */,
@@ -72,11 +75,19 @@
 				1EA8661D286FEB8C00BDB2A9 /* LaunchScreen.storyboard */,
 				1EA86620286FEB8C00BDB2A9 /* Info.plist */,
 				1EA86618286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld */,
-				1EA86626286FF09200BDB2A9 /* Login.storyboard */,
-				1EA86628286FF0B000BDB2A9 /* Register.storyboard */,
-				1E95C28228705374000A6ADE /* ProductInfo.storyboard */,
 			);
 			path = ShopifyApp;
+			sourceTree = "<group>";
+		};
+		1EE093442870C6DC00931A1A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E95C28228705374000A6ADE /* ProductInfo.storyboard */,
+				1EA86628286FF0B000BDB2A9 /* Register.storyboard */,
+				1EA86626286FF09200BDB2A9 /* Login.storyboard */,
+				1EE093452870C70A00931A1A /* Products.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +154,7 @@
 				1EA8661C286FEB8C00BDB2A9 /* Assets.xcassets in Resources */,
 				1EA86617286FEB8A00BDB2A9 /* Main.storyboard in Resources */,
 				1EA86629286FF0B000BDB2A9 /* Register.storyboard in Resources */,
+				1EE093462870C70A00931A1A /* Products.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

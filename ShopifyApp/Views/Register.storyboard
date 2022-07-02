@@ -18,7 +18,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-Lq-Ubd">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="r3K-hb-IVa">
+                                    <navigationItem title="Register" id="r3K-hb-IVa">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="5gj-kq-EOv"/>
                                     </navigationItem>
                                 </items>
