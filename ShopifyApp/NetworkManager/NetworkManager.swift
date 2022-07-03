@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import Alamofire
 
 class NetworkManager: ApiService {
+    
     func register(newCustomer: NewCustomer, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         let urlStr = UrlServices(endPoint: EndPoint.customers.rawValue ).url
         guard let url = URL(string: urlStr) else { return }
@@ -33,5 +35,26 @@ class NetworkManager: ApiService {
         }.resume()
     }
     
-    
+    func getCustomers(email: String, complition: @escaping ([Customer]?, Error?)->Void) {
+        let urlStr = UrlServices(endPoint: EndPoint.customers.rawValue).url
+        guard let url = URL(string: urlStr) else { return }
+        
+        Alamofire.request(url, method: .get, parameters: ["email":email], encoding: JSONEncoding.default, headers: nil).response { response in
+            if let error = response.error {
+                complition(nil, error)
+            }
+            
+            guard let urlResponse = response.response else {return}
+            if !(200..<300).contains(urlResponse.statusCode) {
+                print("error in status code")
+            }
+            
+            guard let data = response.data else { return }
+            
+            let decodedJson: LoginResponse = convertFromJson(data: data) ?? LoginResponse(customers: [Customer]())
+                print(decodedJson.customers)
+                complition(decodedJson.customers, nil)
+                print("customer retreived")
+        }
+    }
 }

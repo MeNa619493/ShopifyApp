@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="kgA-cB-vPL">
             <objects>
-                <viewController id="vGy-3M-5ig" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="vGy-3M-5ig" customClass="LoginViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G2V-Kj-8pL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                                     <constraint firstAttribute="height" constant="50" id="VEB-DG-aA6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzf-Pa-IFm">
                                 <rect key="frame" x="48" y="551.5" width="318" height="50"/>
@@ -52,6 +52,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="onLoginButtonPressed:" destination="vGy-3M-5ig" eventType="touchUpInside" id="ufg-zc-zvh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-Au-4jT">
                                 <rect key="frame" x="48" y="617.5" width="318" height="50"/>
@@ -63,6 +66,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="onRegisterButtonPressed:" destination="vGy-3M-5ig" eventType="touchUpInside" id="tlR-SH-cDv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -89,6 +95,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GdZ-Gp-6rJ"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="HSH-gF-kmI" id="DdX-W4-jPl"/>
+                        <outlet property="loginButton" destination="uzf-Pa-IFm" id="kHr-HQ-GeJ"/>
+                        <outlet property="password" destination="4ZJ-L3-MLE" id="ZkQ-3i-dt7"/>
+                        <outlet property="registerButton" destination="cOo-Au-4jT" id="sGD-NH-adz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGc-HU-n95" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
