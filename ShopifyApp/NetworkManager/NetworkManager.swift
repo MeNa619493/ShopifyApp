@@ -12,7 +12,7 @@ import Alamofire
 class NetworkManager: ApiService {
     
     func register(newCustomer: NewCustomer, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let urlStr = UrlServices(endPoint: EndPoint.customers.rawValue ).url
+        let urlStr = UrlServices(endPoint: EndPoint.customers.rawValue).url
         guard let url = URL(string: urlStr) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -29,7 +29,6 @@ class NetworkManager: ApiService {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-          
                 completion(data, response, error)
             
         }.resume()
@@ -39,7 +38,7 @@ class NetworkManager: ApiService {
         let urlStr = UrlServices(endPoint: EndPoint.customers.rawValue).url
         guard let url = URL(string: urlStr) else { return }
         
-        Alamofire.request(url, method: .get, parameters: ["email":email], encoding: JSONEncoding.default, headers: nil).response { response in
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { response in
             if let error = response.error {
                 complition(nil, error)
             }
@@ -52,7 +51,6 @@ class NetworkManager: ApiService {
             guard let data = response.data else { return }
             
             let decodedJson: LoginResponse = convertFromJson(data: data) ?? LoginResponse(customers: [Customer]())
-                print(decodedJson.customers)
                 complition(decodedJson.customers, nil)
                 print("customer retreived")
         }

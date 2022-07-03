@@ -18,22 +18,26 @@ class LoginViewModel {
     
     func Login(email: String, password: String, completion: @escaping (Customer?)-> Void){
         networkManager?.getCustomers(email: email){ customers, error in
-            guard error != nil else {return}
+            guard error == nil else {return}
             guard let customers = customers else {return}
-            let filetredCustomers = customers.filter { customer in
-                return customer.email == email && customer.tags == password
+            var currentCustomer: Customer?
+            
+            for customer in customers {
+                if customer.email == email && customer.tags == password {
+                    currentCustomer = customer
+                }
             }
             
-            if filetredCustomers.count != 0{
-                guard let customerID = filetredCustomers[0].id else {return}
-                guard let userFirstName = filetredCustomers[0].first_name else {return}
-                guard let userEmail = filetredCustomers[0].email  else {return}
-                
+            if currentCustomer != nil{
+                guard let customerID = currentCustomer?.id else {return}
+                guard let userFirstName = currentCustomer?.first_name else {return}
+                guard let userEmail = currentCustomer?.email  else {return}
+
                 self.userDefaults.setUserID(customerID: customerID)
                 self.userDefaults.setUserName(userName: userFirstName)
                 self.userDefaults.setUserEmail(userEmail: userEmail)
-                
-                completion(filetredCustomers[0])
+
+                completion(currentCustomer)
             } else {
                 completion(nil)
             }
