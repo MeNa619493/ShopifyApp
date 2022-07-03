@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="99a-Si-FbU">
             <objects>
-                <viewController id="svg-WJ-IaB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" id="svg-WJ-IaB" customClass="RegisterViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="myR-Gw-1N6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Register" id="r3K-hb-IVa">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="5gj-kq-EOv"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="5gj-kq-EOv">
+                                            <connections>
+                                                <action selector="onBackButtonPressed:" destination="svg-WJ-IaB" id="ekc-x6-We5"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -68,6 +72,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="onRegisterButtonPressed:" destination="svg-WJ-IaB" eventType="touchUpInside" id="qUN-AE-y2k"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -97,6 +104,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VZ7-Hm-Gno"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassword" destination="FwB-x4-Adw" id="yif-Jd-NWV"/>
+                        <outlet property="customerName" destination="MKN-a6-5tn" id="BNo-b3-YSh"/>
+                        <outlet property="email" destination="kyC-f4-Rt8" id="V1x-PC-khC"/>
+                        <outlet property="password" destination="nb6-qW-qzK" id="t0f-10-bCg"/>
+                        <outlet property="registerButton" destination="CdQ-Zs-Uxk" id="1Ul-UT-BhU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MA4-Bf-amw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
