@@ -17,6 +17,15 @@
 		1EA8661F286FEB8C00BDB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA8661D286FEB8C00BDB2A9 /* LaunchScreen.storyboard */; };
 		1EA86627286FF09200BDB2A9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA86626286FF09200BDB2A9 /* Login.storyboard */; };
 		1EA86629286FF0B000BDB2A9 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA86628286FF0B000BDB2A9 /* Register.storyboard */; };
+		1EDD78982871075C00E47EC0 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78972871075C00E47EC0 /* Customer.swift */; };
+		1EDD789B287108A900E47EC0 /* UrlServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD789A287108A900E47EC0 /* UrlServices.swift */; };
+		1EDD789D2871094900E47EC0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD789C2871094900E47EC0 /* ApiService.swift */; };
+		1EDD789F287109A200E47EC0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD789E287109A200E47EC0 /* NetworkManager.swift */; };
+		1EDD78A228710C7900E47EC0 /* JsonDecodere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78A128710C7900E47EC0 /* JsonDecodere.swift */; };
+		1EDD78A528710FE500E47EC0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78A428710FE500E47EC0 /* UserDefaults.swift */; };
+		1EDD78A72871107000E47EC0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78A62871107000E47EC0 /* RegisterViewModel.swift */; };
+		1EDD78A92871130000E47EC0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78A82871130000E47EC0 /* RegisterViewController.swift */; };
+		1EDD78AB2871155000E47EC0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78AA2871155000E47EC0 /* Alert.swift */; };
 		1EE093462870C70A00931A1A /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE093452870C70A00931A1A /* Products.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +42,15 @@
 		1EA86620286FEB8C00BDB2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EA86626286FF09200BDB2A9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		1EA86628286FF0B000BDB2A9 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		1EDD78972871075C00E47EC0 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		1EDD789A287108A900E47EC0 /* UrlServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlServices.swift; sourceTree = "<group>"; };
+		1EDD789C2871094900E47EC0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		1EDD789E287109A200E47EC0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1EDD78A128710C7900E47EC0 /* JsonDecodere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecodere.swift; sourceTree = "<group>"; };
+		1EDD78A428710FE500E47EC0 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		1EDD78A62871107000E47EC0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		1EDD78A82871130000E47EC0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1EDD78AA2871155000E47EC0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1EE093452870C70A00931A1A /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +84,10 @@
 		1EA8660E286FEB8A00BDB2A9 /* ShopifyApp */ = {
 			isa = PBXGroup;
 			children = (
+				1EDD78A328710DAD00E47EC0 /* ViewModel */,
+				1EDD78A028710C5B00E47EC0 /* Utilitis */,
+				1EDD78992871088E00E47EC0 /* NetworkManager */,
+				1EDD78962871069800E47EC0 /* Model */,
 				1EE093442870C6DC00931A1A /* Views */,
 				1EA8660F286FEB8A00BDB2A9 /* AppDelegate.swift */,
 				1EA86611286FEB8A00BDB2A9 /* SceneDelegate.swift */,
@@ -79,9 +101,54 @@
 			path = ShopifyApp;
 			sourceTree = "<group>";
 		};
+		1EDD78952871067000E47EC0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1EDD78A82871130000E47EC0 /* RegisterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1EDD78962871069800E47EC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1EDD78972871075C00E47EC0 /* Customer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1EDD78992871088E00E47EC0 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				1EDD789A287108A900E47EC0 /* UrlServices.swift */,
+				1EDD789C2871094900E47EC0 /* ApiService.swift */,
+				1EDD789E287109A200E47EC0 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		1EDD78A028710C5B00E47EC0 /* Utilitis */ = {
+			isa = PBXGroup;
+			children = (
+				1EDD78A128710C7900E47EC0 /* JsonDecodere.swift */,
+				1EDD78A428710FE500E47EC0 /* UserDefaults.swift */,
+				1EDD78AA2871155000E47EC0 /* Alert.swift */,
+			);
+			path = Utilitis;
+			sourceTree = "<group>";
+		};
+		1EDD78A328710DAD00E47EC0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1EDD78A62871107000E47EC0 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		1EE093442870C6DC00931A1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1EDD78952871067000E47EC0 /* ViewController */,
 				1E95C28228705374000A6ADE /* ProductInfo.storyboard */,
 				1EA86628286FF0B000BDB2A9 /* Register.storyboard */,
 				1EA86626286FF09200BDB2A9 /* Login.storyboard */,
@@ -166,8 +233,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EA86614286FEB8A00BDB2A9 /* ViewController.swift in Sources */,
+				1EDD78982871075C00E47EC0 /* Customer.swift in Sources */,
 				1EA86610286FEB8A00BDB2A9 /* AppDelegate.swift in Sources */,
+				1EDD78A92871130000E47EC0 /* RegisterViewController.swift in Sources */,
 				1EA8661A286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld in Sources */,
+				1EDD78AB2871155000E47EC0 /* Alert.swift in Sources */,
+				1EDD78A72871107000E47EC0 /* RegisterViewModel.swift in Sources */,
+				1EDD789F287109A200E47EC0 /* NetworkManager.swift in Sources */,
+				1EDD78A228710C7900E47EC0 /* JsonDecodere.swift in Sources */,
+				1EDD78A528710FE500E47EC0 /* UserDefaults.swift in Sources */,
+				1EDD789B287108A900E47EC0 /* UrlServices.swift in Sources */,
+				1EDD789D2871094900E47EC0 /* ApiService.swift in Sources */,
 				1EA86612286FEB8A00BDB2A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
