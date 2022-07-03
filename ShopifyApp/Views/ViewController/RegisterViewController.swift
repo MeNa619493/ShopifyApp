@@ -86,7 +86,7 @@ extension RegisterViewController {
     
     func register(firstName: String, email: String, password: String, confirmPassword: String){
         
-        let customer = Customer(first_name: firstName, email: email, phone: nil, tags: password, id: nil, verified_email: true, addresses: nil)
+        let customer = Customer(first_name: firstName, email: email, tags: password, id: nil, addresses: nil)
         let newCustomer = NewCustomer(customer: customer)
         
         self.registerViewModel?.createNewCustomer(newCustomer: newCustomer) { data, response, error in
@@ -96,10 +96,18 @@ extension RegisterViewController {
                 return
             }
                     
-            //Navigation
-            print("register is success")
+            
+            print("registered successfully")
+            
+            DispatchQueue.main.async {
+                let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
         }
             
     }
     
 }
+
+

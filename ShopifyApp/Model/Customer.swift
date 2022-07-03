@@ -12,23 +12,46 @@ struct NewCustomer: Codable {
     let customer: Customer
 }
 
-struct Customers: Codable {
+struct LoginResponse: Codable {
     let customers: [Customer]
 }
-
 struct Customer: Codable {
-    let first_name, email, phone, tags: String?
-    let id: Int?
-    let verified_email: Bool?
-    let addresses: [Address]?
+    var first_name, email, tags: String?
+    var id: Int?
+    var addresses: [Address]?
+    
 }
 
 struct Address: Codable {
-    var address1, city, province, phone: String?
-    var zip, last_name, first_name, country: String?
-    let id: Int?
+    var id : Int?
+    var customer_id : Int?
+    var address1, city: String?
+    var country: String?
+    var phone : String?
 }
 
-struct LoginResponse: Codable {
-    let customers: [Customer]
+struct NewAddress : Codable{
+    var customer_address : Address?
+}
+
+struct CustomerAddress: Codable {
+    var addresses: [Address]?
+}
+
+struct Addresses: Codable {
+    var addresses: Address
+}
+
+struct PutAddress: Codable {
+    let customer: CustomerAddress?
+}
+
+extension Encodable {
+  func asDictionary() throws -> [String: Any] {
+    let data = try JSONEncoder().encode(self)
+    guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+      throw NSError()
+    }
+    return dictionary
+  }
 }
