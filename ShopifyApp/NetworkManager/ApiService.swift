@@ -10,4 +10,5 @@ import Foundation
 
 protocol ApiService {
     func register(newCustomer: NewCustomer, completion:@escaping (Data?, URLResponse?, Error?)->())
+    func getCustomers(email: String, complition: @escaping ([Customer]?, Error?)->Void)
 }

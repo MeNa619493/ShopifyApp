@@ -47,9 +47,13 @@ class RegisterViewController: UIViewController {
     
     func setupView() {
         customerName.layer.cornerRadius = 15
+        customerName.layer.borderWidth = 2
         email.layer.cornerRadius = 15
+        email.layer.borderWidth = 2
         password.layer.cornerRadius = 15
+        password.layer.borderWidth = 2
         confirmPassword.layer.cornerRadius = 15
+        confirmPassword.layer.borderWidth = 2
         registerButton.layer.cornerRadius = 15
     }
 }

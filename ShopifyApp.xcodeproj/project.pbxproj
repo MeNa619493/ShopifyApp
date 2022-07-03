@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		1EA8661F286FEB8C00BDB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA8661D286FEB8C00BDB2A9 /* LaunchScreen.storyboard */; };
 		1EA86627286FF09200BDB2A9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA86626286FF09200BDB2A9 /* Login.storyboard */; };
 		1EA86629286FF0B000BDB2A9 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA86628286FF0B000BDB2A9 /* Register.storyboard */; };
+		1EC6C5B928713A76008B33DA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC6C5B828713A76008B33DA /* LoginViewModel.swift */; };
+		1EC6C5BB28713B4A008B33DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC6C5BA28713B4A008B33DA /* LoginViewController.swift */; };
 		1EDD78982871075C00E47EC0 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78972871075C00E47EC0 /* Customer.swift */; };
 		1EDD789B287108A900E47EC0 /* UrlServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD789A287108A900E47EC0 /* UrlServices.swift */; };
 		1EDD789D2871094900E47EC0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD789C2871094900E47EC0 /* ApiService.swift */; };
@@ -27,6 +29,7 @@
 		1EDD78A92871130000E47EC0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78A82871130000E47EC0 /* RegisterViewController.swift */; };
 		1EDD78AB2871155000E47EC0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDD78AA2871155000E47EC0 /* Alert.swift */; };
 		1EE093462870C70A00931A1A /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE093452870C70A00931A1A /* Products.storyboard */; };
+		76C41206EFA0385EFDDB4664 /* Pods_ShopifyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ADB3F99CF1C60F0BA0DDC5 /* Pods_ShopifyApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,8 @@
 		1EA86620286FEB8C00BDB2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EA86626286FF09200BDB2A9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		1EA86628286FF0B000BDB2A9 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		1EC6C5B828713A76008B33DA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		1EC6C5BA28713B4A008B33DA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1EDD78972871075C00E47EC0 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		1EDD789A287108A900E47EC0 /* UrlServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlServices.swift; sourceTree = "<group>"; };
 		1EDD789C2871094900E47EC0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -52,6 +57,9 @@
 		1EDD78A82871130000E47EC0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1EDD78AA2871155000E47EC0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1EE093452870C70A00931A1A /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
+		20ADB3F99CF1C60F0BA0DDC5 /* Pods_ShopifyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68CAC10B07C7471F6593879F /* Pods-ShopifyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		82FCBA31A7500DEE103DCE6C /* Pods-ShopifyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.release.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,17 +67,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76C41206EFA0385EFDDB4664 /* Pods_ShopifyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		097E5C09607890B3DAF695E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20ADB3F99CF1C60F0BA0DDC5 /* Pods_ShopifyApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1EA86603286FEB8A00BDB2A9 = {
 			isa = PBXGroup;
 			children = (
 				1EA8660E286FEB8A00BDB2A9 /* ShopifyApp */,
 				1EA8660D286FEB8A00BDB2A9 /* Products */,
+				BE6DC752DB4CDE634AAA878B /* Pods */,
+				097E5C09607890B3DAF695E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				1EDD78A82871130000E47EC0 /* RegisterViewController.swift */,
+				1EC6C5BA28713B4A008B33DA /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -141,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				1EDD78A62871107000E47EC0 /* RegisterViewModel.swift */,
+				1EC6C5B828713A76008B33DA /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -157,6 +178,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BE6DC752DB4CDE634AAA878B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68CAC10B07C7471F6593879F /* Pods-ShopifyApp.debug.xcconfig */,
+				82FCBA31A7500DEE103DCE6C /* Pods-ShopifyApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +194,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1EA86623286FEB8C00BDB2A9 /* Build configuration list for PBXNativeTarget "ShopifyApp" */;
 			buildPhases = (
+				8796242E2940008DAB8E6535 /* [CP] Check Pods Manifest.lock */,
 				1EA86608286FEB8A00BDB2A9 /* Sources */,
 				1EA86609286FEB8A00BDB2A9 /* Frameworks */,
 				1EA8660A286FEB8A00BDB2A9 /* Resources */,
+				2C9DA5D4C183B9C3AB0CBA76 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,6 +259,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C9DA5D4C183B9C3AB0CBA76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8796242E2940008DAB8E6535 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShopifyApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1EA86608286FEB8A00BDB2A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -235,9 +309,11 @@
 				1EA86614286FEB8A00BDB2A9 /* ViewController.swift in Sources */,
 				1EDD78982871075C00E47EC0 /* Customer.swift in Sources */,
 				1EA86610286FEB8A00BDB2A9 /* AppDelegate.swift in Sources */,
+				1EC6C5BB28713B4A008B33DA /* LoginViewController.swift in Sources */,
 				1EDD78A92871130000E47EC0 /* RegisterViewController.swift in Sources */,
 				1EA8661A286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld in Sources */,
 				1EDD78AB2871155000E47EC0 /* Alert.swift in Sources */,
+				1EC6C5B928713A76008B33DA /* LoginViewModel.swift in Sources */,
 				1EDD78A72871107000E47EC0 /* RegisterViewModel.swift in Sources */,
 				1EDD789F287109A200E47EC0 /* NetworkManager.swift in Sources */,
 				1EDD78A228710C7900E47EC0 /* JsonDecodere.swift in Sources */,
@@ -386,6 +462,7 @@
 		};
 		1EA86624286FEB8C00BDB2A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68CAC10B07C7471F6593879F /* Pods-ShopifyApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -403,6 +480,7 @@
 		};
 		1EA86625286FEB8C00BDB2A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82FCBA31A7500DEE103DCE6C /* Pods-ShopifyApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
