@@ -29,7 +29,7 @@ class NetworkManager: ApiService {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-                completion(data, response, error)
+            completion(data, response, error)
             
         }.resume()
     }

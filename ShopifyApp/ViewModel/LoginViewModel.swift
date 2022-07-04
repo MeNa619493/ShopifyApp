@@ -29,19 +29,22 @@ class LoginViewModel {
             }
             
             if currentCustomer != nil{
-                guard let customerID = currentCustomer?.id else {return}
-                guard let userFirstName = currentCustomer?.first_name else {return}
-                guard let userEmail = currentCustomer?.email  else {return}
-
-                self.userDefaults.setUserID(customerID: customerID)
-                self.userDefaults.setUserName(userName: userFirstName)
-                self.userDefaults.setUserEmail(userEmail: userEmail)
-
+                self.saveCustomerDataToUserDefaults(customer: currentCustomer!)
                 completion(currentCustomer)
             } else {
                 completion(nil)
             }
         }
+    }
+    
+    func saveCustomerDataToUserDefaults(customer: Customer){
+        guard let customerID = customer.id else {return}
+        guard let userFirstName = customer.first_name else {return}
+        guard let userEmail = customer.email  else {return}
+
+        self.userDefaults.setUserID(customerID: customerID)
+        self.userDefaults.setUserName(userName: userFirstName)
+        self.userDefaults.setUserEmail(userEmail: userEmail)
     }
     
 }

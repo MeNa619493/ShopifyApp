@@ -17,6 +17,15 @@ class RegisterViewModel{
         self.networkManager = networkManager
     }
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    func isValidPassword(password: String, confirmPassword: String) -> Bool{
+        return !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword
+    }
     
     func ValdiateCustomerInfomation(firstName: String, email: String, password: String, confirmPassword: String, compeltion: @escaping (String?) ->Void){
         
@@ -36,34 +45,38 @@ class RegisterViewModel{
         }
     }
     
-    func createNewCustomer(newCustomer: NewCustomer, completion:@escaping (Data?, URLResponse? , Error?)->()){
+    func createNewCustomer(newCustomer: NewCustomer, completion:@escaping (Data?, HTTPURLResponse? , Error?)->()){
         networkManager?.register(newCustomer: newCustomer) { data, response, error in
-            if error == nil {
-                guard let data = data else {return}
-                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
-                let customer = json["customer"] as? Dictionary<String,Any>
-                let customerID = customer?["id"] as? Int ?? 0
-                let customerFirstName = customer?["first_name"] as? String ?? ""
-                let customerEmail = customer?["email"] as? String ?? ""
-                self.userDefaults.setUserID(customerID: customerID)
-                self.userDefaults.setUserName(userName: customerFirstName)
-                self.userDefaults.setUserEmail(userEmail: customerEmail)
-                self.userDefaults.setUserStatus(userIsLogged: true)
-                completion(data, response, nil)
-            }else{
+            guard error == nil else {
                 completion(nil, nil, error)
+                return
             }
+            
+            guard let data = data else {
+                completion(nil, response as? HTTPURLResponse, error)
+                return
+            }
+            
+            let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+            let customer = json["customer"] as? Dictionary<String,Any>
+            self.saveCustomerDataToUserDefaults(customer: customer)
+            completion(data, response as? HTTPURLResponse, nil)
+            
         }
     }
     
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
+    func saveCustomerDataToUserDefaults(customer: Dictionary<String,Any>?) {
+        
+        let customerID = customer?["id"] as? Int ?? 0
+        let customerFirstName = customer?["first_name"] as? String ?? ""
+        let customerEmail = customer?["email"] as? String ?? ""
+        
+        self.userDefaults.setUserID(customerID: customerID)
+        self.userDefaults.setUserName(userName: customerFirstName)
+        self.userDefaults.setUserEmail(userEmail: customerEmail)
+        self.userDefaults.setUserStatus(userIsLogged: true)
     }
     
-    func isValidPassword(password: String, confirmPassword: String) -> Bool{
-        return !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword
-    }
+    
     
 }
