@@ -15,11 +15,11 @@ struct NewCustomer: Codable {
 struct LoginResponse: Codable {
     let customers: [Customer]
 }
+
 struct Customer: Codable {
     var first_name, email, tags: String?
     var id: Int?
     var addresses: [Address]?
-    
 }
 
 struct Address: Codable {
