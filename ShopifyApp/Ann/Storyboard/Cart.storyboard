@@ -239,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejo-AW-rzN">
-                                <rect key="frame" x="0.0" y="64" width="414" height="598"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="398"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzF-ux-eU4">
                                         <rect key="frame" x="25" y="20" width="72" height="21"/>
@@ -265,13 +265,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ugl-jA-6pj">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Coupon" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ugl-jA-6pj">
                                         <rect key="frame" x="25" y="112" width="150" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="SPP-Zh-Mis"/>
                                             <constraint firstAttribute="height" constant="50" id="klI-NJ-x6s"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -347,7 +347,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WB8-uR-Swa" firstAttribute="trailing" secondItem="Ejo-AW-rzN" secondAttribute="trailing" id="2Cf-PJ-Efx"/>
-                            <constraint firstItem="WB8-uR-Swa" firstAttribute="bottom" secondItem="Ejo-AW-rzN" secondAttribute="bottom" constant="200" id="Fis-0G-7Mz"/>
+                            <constraint firstItem="WB8-uR-Swa" firstAttribute="bottom" secondItem="Ejo-AW-rzN" secondAttribute="bottom" constant="400" id="Fis-0G-7Mz"/>
                             <constraint firstItem="Ejo-AW-rzN" firstAttribute="leading" secondItem="WB8-uR-Swa" secondAttribute="leading" id="RFq-1R-BD0"/>
                             <constraint firstItem="Ejo-AW-rzN" firstAttribute="top" secondItem="WB8-uR-Swa" secondAttribute="top" constant="20" id="uXW-M0-3Lu"/>
                         </constraints>
@@ -356,6 +356,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHC-Zk-nJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="847.82608695652175" y="91.741071428571431"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GXq-bi-DT7">
+            <objects>
+                <viewController id="6OQ-t9-KN0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FP4-XN-029">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-bt-9Bi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eSg-53-o0d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oLN-bt-9Bi" firstAttribute="top" secondItem="eSg-53-o0d" secondAttribute="top" id="Q4Q-vD-lQH"/>
+                            <constraint firstItem="oLN-bt-9Bi" firstAttribute="leading" secondItem="eSg-53-o0d" secondAttribute="leading" id="cSq-JK-yQB"/>
+                            <constraint firstItem="eSg-53-o0d" firstAttribute="trailing" secondItem="oLN-bt-9Bi" secondAttribute="trailing" id="ipO-Rm-8pK"/>
+                            <constraint firstItem="eSg-53-o0d" firstAttribute="bottom" secondItem="oLN-bt-9Bi" secondAttribute="bottom" id="oqm-87-aZN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDg-gK-gpm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="92"/>
         </scene>
     </scenes>
     <resources>
