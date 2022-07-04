@@ -38,7 +38,7 @@ class RegisterViewController: UIViewController {
         guard let emailText = email.text else {return}
         guard let password = password.text else {return}
         guard let confirmPass = confirmPassword.text else {return}
-        if validateInformation(firstName: name, email: emailText, password: password, confirmPassword: confirmPass) {
+        if ValdiateCustomerInfomation(firstName: name, email: emailText, password: password, confirmPassword: confirmPass) {
             register(firstName: name, email: emailText, password: password, confirmPassword: confirmPass)
         } else {
             showAlertError(title: "Couldnot register", message: "Please try again later.")
@@ -59,29 +59,29 @@ class RegisterViewController: UIViewController {
 }
 
 extension RegisterViewController {
-    func validateInformation(firstName: String, email: String, password: String, confirmPassword: String) -> Bool{
+    func ValdiateCustomerInfomation(firstName: String, email: String, password: String, confirmPassword: String) -> Bool{
             
-        var checkIsSuccess = true
+        var isSuccess = true
         self.registerViewModel?.ValdiateCustomerInfomation(firstName: firstName, email: email, password: password, confirmPassword: confirmPassword) { message in
                 
                 switch message {
                 case "ErrorAllInfoIsNotFound":
-                    checkIsSuccess = false
-                    self.showAlertError(title: "Missing Information", message: "to register you must fill all the information below.")
+                    isSuccess = false
+                    self.showAlertError(title: "Missing Information", message: "please, enter all the required information.")
                     
                 case "ErrorPassword":
-                    checkIsSuccess = false
-                    self.showAlertError(title: "Check Password", message: "please enter password again")
+                    isSuccess = false
+                    self.showAlertError(title: "Check Password", message: "please, enter password again.")
                     
                 case "ErrorEmail":
-                    checkIsSuccess = false
-                    self.showAlertError(title: "Invalid Email", message: "please enter correct email")
+                    isSuccess = false
+                    self.showAlertError(title: "Invalid Email", message: "please, enter correct email.")
                     
                 default:
-                    checkIsSuccess = true
+                    isSuccess = true
                 }
             }
-        return checkIsSuccess
+        return isSuccess
     }
     
     func register(firstName: String, email: String, password: String, confirmPassword: String){
@@ -92,11 +92,19 @@ extension RegisterViewController {
         self.registerViewModel?.createNewCustomer(newCustomer: newCustomer) { data, response, error in
                     
             guard error == nil else {
-                self.showAlertError(title: "Couldnot register", message: "Please try again later.")
+                DispatchQueue.main.async {
+                    self.showAlertError(title: "Couldnot register", message: "Please, try again later.")
+                }
+                return
+            }
+            
+            guard response?.statusCode != 422 else {
+                DispatchQueue.main.async {
+                    self.showAlertError(title: "Couldnot register", message: "Please, try another email.")
+                }
                 return
             }
                     
-            
             print("registered successfully")
             
             DispatchQueue.main.async {
