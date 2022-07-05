@@ -23,6 +23,9 @@ class ProductInfoViewController: UIViewController {
     
     @IBOutlet weak var cosmosView: CosmosView!
     
+    @IBOutlet weak var productDescription: UILabel!
+    
+    
     let images = ["https://cdn.shopify.com/s/files/1/0659/3796/5270/products/85cc58608bf138a50036bcfe86a3a362.jpg?v=1656280580", "https://cdn.shopify.com/s/files/1/0659/3796/5270/products/8a029d2035bfb80e473361dfc08449be.jpg?v=1656280580","https://cdn.shopify.com/s/files/1/0659/3796/5270/products/ad50775123e20f3d1af2bd07046b777d.jpg?v=1656280580","https://cdn.shopify.com/s/files/1/0659/3796/5270/products/85cc58608bf138a50036bcfe86a3a362.jpg?v=1656280580"]
     
     var pageControlIndex = 0
@@ -32,6 +35,7 @@ class ProductInfoViewController: UIViewController {
         registerNibFile()
         pageControl.numberOfPages = images.count
         cosmosView.rating = 3
+        productDescription.text = "hjgdashjgadjkgfdhfgdjgfsgfhjadghjdgshjfsgjhgfsdhgfjsgfjdshgfjdgf∂˙gfjdgf§dsgfjhdsgfhdsgfhdgsjfdsjgf∂©fhdsgfhsdgfjhdsgfjhdsgfjhdsgfjdsgf∂ß©fhhjsgfhjdsgfjhdgjhgdjfgjdjshgfhjgdfjhgdsjgfjdhgfjdsgfdjhgfjdgfjhdsgfjdgfhdgfdjgfdshgfdhgfdhsgfdshgfjgfjdgfdhgfdjsfhgdsgfjdgfhdghjgfdshgfdjsgfdsgfjhdgfhgfjdgfdjgfhdgfdsjgfdsjgfdghfhjgdsgfdsjgfsdgfjdgfdshgfdshgfdsjgfjhgfdsjgfdshgfdsjgfdsjgfhdsgf∂ß©fdsgfjdsgfjhdgf"
     }
     
     func registerNibFile() {
