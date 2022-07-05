@@ -572,11 +572,15 @@
 				9DAF2177287399C00051FFC1 /* SubTotalTableViewCell.xib in Resources */,
 				1EA86617286FEB8A00BDB2A9 /* Main.storyboard in Resources */,
 				1EA86629286FF0B000BDB2A9 /* Register.storyboard in Resources */,
+<<<<<<< HEAD
 				9DAF217B287399DB0051FFC1 /* ProceedToCheckoutTableViewCell.xib in Resources */,
-				1ED6D8592873B0D50064138D /* Favorites.storyboard in Resources */,
 				1EE093462870C70A00931A1A /* Products.storyboard in Resources */,
 				9DAF2173287399A00051FFC1 /* CartProductTableViewCell.xib in Resources */,
+=======
+				1ED6D8592873B0D50064138D /* Favorites.storyboard in Resources */,
+				1EE093462870C70A00931A1A /* Products.storyboard in Resources */,
 				1EB09CD42873C10B004C6D04 /* ProductInfoCollectionViewCell.xib in Resources */,
+>>>>>>> a9d81f6c905e749c6d5a6edc9330b6534e88f0f5
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,11 +639,14 @@
 				1EA86610286FEB8A00BDB2A9 /* AppDelegate.swift in Sources */,
 				1EC6C5BB28713B4A008B33DA /* LoginViewController.swift in Sources */,
 				1EDD78A92871130000E47EC0 /* RegisterViewController.swift in Sources */,
+<<<<<<< HEAD
 				9DC9921F2874C0D900102F36 /* SettingViewController.swift in Sources */,
 				9DAF217A287399DB0051FFC1 /* ProceedToCheckoutTableViewCell.swift in Sources */,
 				9DAF218428739F2C0051FFC1 /* SettingTableViewCell.swift in Sources */,
 				9DC992252874EC5E00102F36 /* ConfirmOrderViewController.swift in Sources */,
+=======
 				1EB09CD32873C10B004C6D04 /* ProductInfoCollectionViewCell.swift in Sources */,
+>>>>>>> a9d81f6c905e749c6d5a6edc9330b6534e88f0f5
 				1EA8661A286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld in Sources */,
 				1EDD78AB2871155000E47EC0 /* Alert.swift in Sources */,
 				1ED6D85D2873B49F0064138D /* FavoritesViewModel.swift in Sources */,
