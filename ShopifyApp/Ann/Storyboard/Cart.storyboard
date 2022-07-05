@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cart View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartViewController" id="Y6W-OH-hqX" customClass="CartViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,28 +31,49 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gJu-Qv-SX7" secondAttribute="trailing" id="ocU-m9-tlR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cartTableView" destination="gJu-Qv-SX7" id="8sM-e0-OG0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-567" y="92"/>
         </scene>
-        <!--View Controller-->
+        <!--Payment View Controller-->
         <scene sceneID="ynl-H0-Khs">
             <objects>
-                <viewController id="XAV-M4-1ZE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentViewController" id="XAV-M4-1ZE" customClass="PaymentViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bPz-7v-ACr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdA-2p-ptm">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuo-MA-JQg">
+                                        <rect key="frame" x="25" y="44" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="31X-62-aa6"/>
+                                            <constraint firstAttribute="height" constant="25" id="kRp-AX-HrF"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="chevron.backward" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="bold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="XAV-M4-1ZE" eventType="touchUpInside" id="3Em-1L-ueF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="8Ua-Uc-fkc"/>
+                                    <constraint firstAttribute="height" constant="90" id="8Ua-Uc-fkc"/>
+                                    <constraint firstItem="vuo-MA-JQg" firstAttribute="top" secondItem="ZdA-2p-ptm" secondAttribute="top" constant="44" id="ZWW-e9-DXl"/>
+                                    <constraint firstItem="vuo-MA-JQg" firstAttribute="leading" secondItem="ZdA-2p-ptm" secondAttribute="leading" constant="25" id="j7I-nS-z0m"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXq-fc-uY4">
-                                <rect key="frame" x="0.0" y="125" width="414" height="737"/>
+                                <rect key="frame" x="0.0" y="90" width="414" height="772"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQd-0p-tu7">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -77,16 +98,17 @@
                                         <rect key="frame" x="0.0" y="60" width="414" height="150"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC0-2n-Zs2">
-                                                <rect key="frame" x="20" y="62.5" width="25" height="25"/>
+                                                <rect key="frame" x="40" y="62.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="6Nk-uE-cIP"/>
                                                     <constraint firstAttribute="width" constant="25" id="fnL-3F-NFr"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="circle" catalog="system"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple pay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX5-RA-OL5">
-                                                <rect key="frame" x="65" y="45" width="150" height="60"/>
+                                                <rect key="frame" x="85" y="45" width="150" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="CVx-1n-BZd"/>
                                                     <constraint firstAttribute="height" constant="60" id="tsJ-BU-cMR"/>
@@ -98,12 +120,18 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="nC0-2n-Zs2" firstAttribute="leading" secondItem="B3D-IP-WoQ" secondAttribute="leading" constant="20" id="0yJ-iJ-fx8"/>
+                                            <constraint firstItem="nC0-2n-Zs2" firstAttribute="leading" secondItem="B3D-IP-WoQ" secondAttribute="leading" constant="40" id="0yJ-iJ-fx8"/>
                                             <constraint firstItem="sX5-RA-OL5" firstAttribute="centerY" secondItem="nC0-2n-Zs2" secondAttribute="centerY" id="5FN-7O-fEk"/>
                                             <constraint firstItem="nC0-2n-Zs2" firstAttribute="centerY" secondItem="B3D-IP-WoQ" secondAttribute="centerY" id="FkT-Z6-BJA"/>
                                             <constraint firstItem="sX5-RA-OL5" firstAttribute="leading" secondItem="nC0-2n-Zs2" secondAttribute="trailing" constant="20" id="p3e-Zc-2cf"/>
@@ -133,16 +161,17 @@
                                         <rect key="frame" x="0.0" y="271" width="414" height="150"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFu-5z-CPO">
-                                                <rect key="frame" x="20" y="62.5" width="25" height="25"/>
+                                                <rect key="frame" x="40" y="62.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="2PF-iu-8m7"/>
                                                     <constraint firstAttribute="height" constant="25" id="TCv-YH-9wZ"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="circle" catalog="system"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash on deleivery (COD)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0g-MS-w7e">
-                                                <rect key="frame" x="65" y="45" width="220" height="60"/>
+                                                <rect key="frame" x="85" y="45" width="220" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="5sw-s7-x2o"/>
                                                     <constraint firstAttribute="height" constant="60" id="FRO-sf-VUi"/>
@@ -154,12 +183,18 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="rFu-5z-CPO" firstAttribute="leading" secondItem="QCd-ed-fBF" secondAttribute="leading" constant="20" id="Mnq-6t-Szm"/>
+                                            <constraint firstItem="rFu-5z-CPO" firstAttribute="leading" secondItem="QCd-ed-fBF" secondAttribute="leading" constant="40" id="Mnq-6t-Szm"/>
                                             <constraint firstItem="d0g-MS-w7e" firstAttribute="leading" secondItem="rFu-5z-CPO" secondAttribute="trailing" constant="20" id="Qjv-FD-hLw"/>
                                             <constraint firstItem="d0g-MS-w7e" firstAttribute="centerY" secondItem="rFu-5z-CPO" secondAttribute="centerY" id="ZJA-oF-D5N"/>
                                             <constraint firstItem="rFu-5z-CPO" firstAttribute="centerY" secondItem="QCd-ed-fBF" secondAttribute="centerY" id="bh2-Ce-F12"/>
@@ -167,7 +202,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4L7-af-UQH">
-                                        <rect key="frame" x="0.0" y="537" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="572" width="414" height="200"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBp-KV-MhH">
                                                 <rect key="frame" x="25" y="75" width="364" height="50"/>
@@ -181,9 +216,12 @@
                                                         <real key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="continueToPayButtonAction:" destination="XAV-M4-1ZE" eventType="touchUpInside" id="oL1-oo-3Mb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="ETA-fE-vgH"/>
                                             <constraint firstItem="UBp-KV-MhH" firstAttribute="centerY" secondItem="4L7-af-UQH" secondAttribute="centerY" id="i6Y-xy-ZH3"/>
@@ -220,20 +258,23 @@
                             <constraint firstItem="ZdA-2p-ptm" firstAttribute="top" secondItem="bPz-7v-ACr" secondAttribute="top" id="0YM-wZ-haM"/>
                             <constraint firstItem="ZdA-2p-ptm" firstAttribute="leading" secondItem="I9z-14-EM2" secondAttribute="leading" id="EjA-hA-0RH"/>
                             <constraint firstItem="I9z-14-EM2" firstAttribute="trailing" secondItem="ZdA-2p-ptm" secondAttribute="trailing" id="bKq-Lp-ZYI"/>
-                            <constraint firstItem="wXq-fc-uY4" firstAttribute="top" secondItem="ZdA-2p-ptm" secondAttribute="bottom" constant="5" id="dUO-k5-C3h"/>
+                            <constraint firstItem="wXq-fc-uY4" firstAttribute="top" secondItem="ZdA-2p-ptm" secondAttribute="bottom" id="dUO-k5-C3h"/>
                             <constraint firstItem="wXq-fc-uY4" firstAttribute="leading" secondItem="I9z-14-EM2" secondAttribute="leading" id="wL9-SG-7qz"/>
                             <constraint firstItem="I9z-14-EM2" firstAttribute="trailing" secondItem="wXq-fc-uY4" secondAttribute="trailing" id="xMw-iS-075"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerOfContinueToPaymentView" destination="4L7-af-UQH" id="U24-zH-uT2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jqu-Fp-RCr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="146" y="92"/>
         </scene>
-        <!--View Controller-->
+        <!--Confirm Order View Controller-->
         <scene sceneID="gNP-Uc-Las">
             <objects>
-                <viewController id="aaW-5G-Mxi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmOrderViewController" id="aaW-5G-Mxi" customClass="ConfirmOrderViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cZC-ro-EoW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -276,6 +317,12 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -386,8 +433,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
