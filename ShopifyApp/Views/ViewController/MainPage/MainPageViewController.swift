@@ -29,9 +29,9 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      let BrandsViewModel = BrandsViewModel()
-        BrandsViewModel.fetchData(endPoint: "smart_collections.json#")
-        BrandsViewModel.bindingData = { brands, error in
+      let brandsViewModel = BrandsViewModel()
+        brandsViewModel.fetchData(endPoint: "smart_collections.json#")
+        brandsViewModel.bindingData = { brands, error in
             if let brands = brands {
                 self.BrandsArray = brands
                 DispatchQueue.main.async {
