@@ -11,7 +11,7 @@
         <!--Favorites View Controller-->
         <scene sceneID="YPw-DP-KBC">
             <objects>
-                <viewController id="mFG-rN-nKo" customClass="FavoritesViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesVC" id="mFG-rN-nKo" customClass="FavoritesViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gRe-CL-my0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
