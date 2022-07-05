@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorites View Controller-->
+        <scene sceneID="YPw-DP-KBC">
+            <objects>
+                <viewController id="mFG-rN-nKo" customClass="FavoritesViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gRe-CL-my0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZR-pw-NGL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Favorites" id="KqB-2s-WtG">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="OJo-fF-emt"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pIx-W5-uwE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GwU-8a-Kus">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ecd-GG-B88">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3LJ-bT-tT2">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yZR-pw-NGL" firstAttribute="leading" secondItem="HxB-af-t9p" secondAttribute="leading" id="7hA-Cj-vE1"/>
+                            <constraint firstItem="pIx-W5-uwE" firstAttribute="leading" secondItem="HxB-af-t9p" secondAttribute="leading" id="9Ng-Rj-6FZ"/>
+                            <constraint firstItem="yZR-pw-NGL" firstAttribute="top" secondItem="HxB-af-t9p" secondAttribute="top" id="BbH-uL-ZFS"/>
+                            <constraint firstItem="pIx-W5-uwE" firstAttribute="top" secondItem="yZR-pw-NGL" secondAttribute="bottom" id="P6o-zG-hrR"/>
+                            <constraint firstItem="HxB-af-t9p" firstAttribute="trailing" secondItem="pIx-W5-uwE" secondAttribute="trailing" id="Q6R-Bf-a4v"/>
+                            <constraint firstItem="HxB-af-t9p" firstAttribute="bottom" secondItem="pIx-W5-uwE" secondAttribute="bottom" id="mas-me-XeZ"/>
+                            <constraint firstAttribute="trailing" secondItem="yZR-pw-NGL" secondAttribute="trailing" id="tMI-wo-E6c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HxB-af-t9p"/>
+                    </view>
+                    <connections>
+                        <outlet property="favoritesCollectionView" destination="pIx-W5-uwE" id="MfW-zA-byF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lo6-E4-II2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-33" y="48"/>
+        </scene>
+    </scenes>
+</document>
