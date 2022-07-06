@@ -12,8 +12,7 @@ protocol ApiService {
     func register(newCustomer: NewCustomer, completion:@escaping (Data?, URLResponse?, Error?)->())
     func getCustomers(email: String, complition: @escaping ([Customer]?, Error?)->Void)
     func getProduct(endPoint: String, complition: @escaping (Product?, Error?)->Void)
-}
-
-protocol BrandsApiService {
     func fetchBrands(endPoint: String, completion: @escaping (([SmartCollection]?, Error?) -> Void))
+    func fetchProducts(endPoint: String, completion: @escaping (([Product]?, Error?) -> Void))
+
 }

@@ -77,11 +77,21 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
         return cell2
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-//
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if (collectionView == brandsCollectionView){
+
+            let productVC = UIStoryboard(name: "Product", bundle: nil).instantiateViewController(withIdentifier: "ProductVCID")
+            
+
+            productVC.modalPresentationStyle = .fullScreen
+            self.present(productVC, animated: true, completion: nil)
+            print("The brand title is \(BrandsArray[indexPath.row].title)")}
+           
+        }
+        
+
+
 
     /*
     // MARK: - Navigation

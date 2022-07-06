@@ -75,6 +75,41 @@ class NetworkManager: ApiService {
             }
         }
     }
+    
+    func fetchBrands(endPoint: String, completion: @escaping (([SmartCollection]?, Error?) -> Void)) {
+        if let  url = URL(string: UrlServices(endPoint: endPoint).url) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                print ("The response is \(response) The error is \(error) and the data is \(data)")
+                if let data = data {
+                    print("data is here")
+                    guard let decodedData : Brands = try? convertFromJson(data: data) else{ return}
+                    completion(decodedData.smartCollections,nil)
+                }
+                if let error = error {
+                   completion(nil, error)
+                }
+            }.resume()
+        }
+
+    }
+    
+    func fetchProducts(endPoint: String, completion: @escaping (([Product]?, Error?) -> Void)) {
+        if let  url = URL(string: UrlServices(endPoint: endPoint).url) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    print("product data is here")
+                    guard let decodedData : AllProducts = try? convertFromJson(data: data) else{ return}
+                    completion(decodedData.products,nil)
+                }
+                if let error = error {
+                   completion(nil, error)
+                }
+            }.resume()
+        }
+
+    }
+
+    
 }
 
 
