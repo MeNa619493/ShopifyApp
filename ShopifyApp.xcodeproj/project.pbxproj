@@ -249,8 +249,8 @@
 				1E95C28228705374000A6ADE /* ProductInfo.storyboard */,
 				1EA86628286FF0B000BDB2A9 /* Register.storyboard */,
 				1EA86626286FF09200BDB2A9 /* Login.storyboard */,
-				1EE093452870C70A00931A1A /* Products.storyboard */,
 				1ED6D8582873B0D50064138D /* Favorites.storyboard */,
+				1EE093452870C70A00931A1A /* Products.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
