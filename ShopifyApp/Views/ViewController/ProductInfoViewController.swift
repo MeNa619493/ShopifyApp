@@ -25,17 +25,33 @@ class ProductInfoViewController: UIViewController {
     
     @IBOutlet weak var productDescription: UILabel!
     
-    
-    let images = ["https://cdn.shopify.com/s/files/1/0659/3796/5270/products/85cc58608bf138a50036bcfe86a3a362.jpg?v=1656280580", "https://cdn.shopify.com/s/files/1/0659/3796/5270/products/8a029d2035bfb80e473361dfc08449be.jpg?v=1656280580","https://cdn.shopify.com/s/files/1/0659/3796/5270/products/ad50775123e20f3d1af2bd07046b777d.jpg?v=1656280580","https://cdn.shopify.com/s/files/1/0659/3796/5270/products/85cc58608bf138a50036bcfe86a3a362.jpg?v=1656280580"]
+    var productId: Int?
+    var product: Product?
     
     var pageControlIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibFile()
-        pageControl.numberOfPages = images.count
-        cosmosView.rating = 3
-        productDescription.text = "hjgdashjgadjkgfdhfgdjgfsgfhjadghjdgshjfsgjhgfsdhgfjsgfjdshgfjdgf∂˙gfjdgf§dsgfjhdsgfhdsgfhdgsjfdsjgf∂©fgjfhdgsjfhdgjahfjahgjgfdsjfhghadsgfhjdgsagfjadgagsjdshgfdhgfjadgjjhfdgsjfgdsgfjdsghfhjsgfdhagfjhadgfhdgafhgjdghasjghfsjghfjdsgjfgdsjgfdfgdshgfdshgfdshgf∂agjhghdgshjgdsjgfshdgfdjsgfdshgfjdgfdshgf∂ß©fhdsgfhdsgfhdgsfjgdsjgfsdjfgdjhfgdshgfhsdgfjdsgjdshhdsgfhsdgfjhdsgfjhdsgfjhdsgfjdsgf∂ß©fhhjsgfhjdsgfjhdgjhgdjfgjdjshgfhjgdfjhgdsjgfjdhgfjdsgfdjhgfjdgfjhdsgfjdgfhdgfdjgfdshgfdhgfdhsgfdshgfjgfjdgfdhgfdjsfhgdsgfjdgfhdghjgfdshgfdjsgfdsgfjhdgfhgfjdgfdjgfhdgfdsjgfdsjgfdghfhjgdsgfdsjgfsdgfjdgfdshgfdshgfdsjgfjhgfdsjgfdshgfdsjgfdsjgfhdsgf∂ß©fdsgfjdsgfjhdgf"
+        
+        let productViewModel = ProductInfoViewModel()
+            productViewModel.getProduct(endPoint: "products/7730623709398.json")
+            productViewModel.bindingData = { product, error in
+                if let product = product {
+                    self.product = product
+                    DispatchQueue.main.async {
+                        self.productImageCollectionView.reloadData()
+                        self.pageControl.numberOfPages = product.images.count
+                        self.productDescription.text = product.description
+                        self.cosmosView.rating = 3
+                    }
+                }
+                
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        
     }
     
     func registerNibFile() {
@@ -46,12 +62,12 @@ class ProductInfoViewController: UIViewController {
 
 extension ProductInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        product?.images.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductInfoCell", for: indexPath) as! ProductInfoCollectionViewCell
-        let url = URL(string: images[indexPath.item])
+        let url = URL(string: product?.images[indexPath.item].src ?? "")
         cell.productImage.kf.setImage(with: url)
         return cell
     }

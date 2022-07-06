@@ -8,25 +8,29 @@
 
 import Foundation
 
-struct AllProducts:Codable{
-    let products:[Product]
+struct AllProducts: Codable{
+    let products: [Product]
     enum CodingKeys : String , CodingKey {
         case products = "products"
     }
 }
-struct Product:Codable {
-    let id:Int
-    let title:String
-    let description:String
-    let vendor:String?
-    let productType:String?
-    let images:[ProductImage]
-    let options:[OptionList]?
-    let varients:[Varient]?
-    var count: Int = 0
+
+struct Model: Codable {
+    let product: Product
+}
+
+struct Product: Codable {
+    let id: Int
+    let title: String
+    let description: String
+    let vendor: String?
+    let productType: String?
+    let images: [ProductImage]
+    let options: [OptionList]?
+    let varients: [Varient]?
+    let image: ProductImage
     
     enum CodingKeys : String , CodingKey {
-            
             case id = "id"
             case title = "title"
             case description = "body_html"
@@ -35,21 +39,20 @@ struct Product:Codable {
             case images = "images"
             case options = "options"
             case varients = "variants"
-
+            case image = "image"
         }
-      
 }
-struct ProductImage:Codable {
-    let id:Int
-    let productID:Int
-    let position:Int
-    let width:Double
-    let height:Double
-    let src:String
-    let graphQlID:String
+
+struct ProductImage: Codable {
+    let id: Int
+    let productID: Int
+    let position: Int
+    let width: Double
+    let height: Double
+    let src: String
+    let graphQlID: String
     
    enum CodingKeys : String , CodingKey {
-          
           case id = "id"
           case productID = "product_id"
           case position = "position"
@@ -57,42 +60,36 @@ struct ProductImage:Codable {
           case height = "height"
           case src = "src"
           case graphQlID = "admin_graphql_api_id"
-
       }
-    
 }
-struct OptionList:Codable{
+
+struct OptionList: Codable{
     
-    let id:Int
-    let productID :Int
-    let name:String
-    let position:Int
-    let values:[String]?
+    let id: Int
+    let productID: Int
+    let name: String
+    let position: Int
+    let values: [String]?
     
     enum CodingKeys : String , CodingKey {
-          
           case id = "id"
           case productID = "product_id"
           case name = "name"
           case position = "position"
           case values = "values"
-          
       }
-    
 }
 
-struct Varient:Codable {
-    let id:Int
-    let productID:Int
-    let title:String
-    let price :String
+struct Varient: Codable {
+    let id: Int
+    let productID: Int
+    let title: String
+    let price: String
     
     enum CodingKeys : String , CodingKey {
-            
             case id = "id"
             case productID = "product_id"
             case title = "title"
             case price = "price"
-            
         }
 }
