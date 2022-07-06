@@ -60,9 +60,6 @@ class NetworkManager: ApiService {
         guard let url = URL(string: urlStr) else { return }
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { response in
-            print("response \(response)")
-            print("data \(response.data)")
-            print("error \(response.error)")
             if let data = response.data {
                 let decodedJson: Model = convertFromJson(data: data) ?? Model(product: Product(id: 0, title: "", description: "", vendor: nil, productType: nil, images: [], options: nil, varients: nil, image: ProductImage(id: 0, productID: 0, position: 0, width: 0, height: 0, src: "", graphQlID: "")))
                 print(decodedJson.product)
