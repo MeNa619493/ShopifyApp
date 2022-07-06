@@ -1,17 +1,17 @@
 //
-//  BrandsViewModel.swift
+//  ProductViewModel.swift
 //  ShopifyApp
 //
-//  Created by Abdelrahman Magdy on 05/07/2022.
+//  Created by Abdelrahman Magdy on 06/07/2022.
 //  Copyright © 2022 Mina Ezzat. All rights reserved.
 //
 
 import Foundation
 
-class BrandsViewModel {
-    var brandsArray: [SmartCollection]? {
+class ProductsViewModel {
+    var productsArray: [Product]? {
         didSet {
-            bindingData(brandsArray,nil)
+            bindingData(productsArray,nil)
         }
     }
     var error: Error? {
@@ -20,14 +20,14 @@ class BrandsViewModel {
         }
     }
     let apiService: ApiService
-    var bindingData: (([SmartCollection]?,Error?) -> Void) = {_, _ in }
+    var bindingData: (([Product]?,Error?) -> Void) = {_, _ in }
     init(apiService: ApiService = NetworkManager()) {
         self.apiService = apiService
     }
     func fetchData(endPoint: String) {
-        apiService.fetchBrands(endPoint: endPoint) { brands, error in
-            if let brands = brands {
-                self.brandsArray = brands
+        apiService.fetchProducts(endPoint: endPoint) { products, error in
+            if let products = products {
+                self.productsArray = products
             }
             if let error = error {
                 self.error = error
