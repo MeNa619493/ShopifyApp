@@ -14,7 +14,7 @@ class DatabaseManager: DatabaseService {
     func addProduct(appDelegate: AppDelegate, product: Product) {
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "ProductCoreData", in: managedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "ProductCD", in: managedContext)
         
         let productCD = NSManagedObject(entity: entity!, insertInto: managedContext)
         productCD.setValue(product.varients?[0].id ?? 0, forKey: "id")
@@ -31,7 +31,7 @@ class DatabaseManager: DatabaseService {
     
     func deleteProduct(appDelegate: AppDelegate, id: Int) {
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ProductCoreData")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ProductCD")
         fetchRequest.predicate = NSPredicate(format: "id = \(id)")
         do{
             let productsArray = try managedContext.fetch(fetchRequest)
@@ -48,7 +48,7 @@ class DatabaseManager: DatabaseService {
     func addFavourite(appDelegate: AppDelegate, product: Product) {
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "FavouriteCoreData", in: managedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "FavouriteCD", in: managedContext)
             
         let productCD = NSManagedObject(entity: entity!, insertInto: managedContext)
         productCD.setValue(product.varients?[0].id ?? 0, forKey: "id")
@@ -66,7 +66,7 @@ class DatabaseManager: DatabaseService {
     func getFavourites(appDelegate: AppDelegate, complition: @escaping ([Product]?, Error?)->Void){
         var favouriteList = [Product]()
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCoreData")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCD")
         do{
             let productArray = try managedContext.fetch(fetchRequest)
     
@@ -89,7 +89,7 @@ class DatabaseManager: DatabaseService {
     
     func deleteFavourite(appDelegate: AppDelegate, id: Int) {
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCoreData")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCD")
         fetchRequest.predicate = NSPredicate(format: "id = \(id)")
         do{
             let productsArray = try managedContext.fetch(fetchRequest)
