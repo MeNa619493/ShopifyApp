@@ -35,7 +35,7 @@ class ProductInfoViewController: UIViewController {
         registerNibFile()
         pageControl.numberOfPages = images.count
         cosmosView.rating = 3
-        productDescription.text = "hjgdashjgadjkgfdhfgdjgfsgfhjadghjdgshjfsgjhgfsdhgfjsgfjdshgfjdgf∂˙gfjdgf§dsgfjhdsgfhdsgfhdgsjfdsjgf∂©fhdsgfhsdgfjhdsgfjhdsgfjhdsgfjdsgf∂ß©fhhjsgfhjdsgfjhdgjhgdjfgjdjshgfhjgdfjhgdsjgfjdhgfjdsgfdjhgfjdgfjhdsgfjdgfhdgfdjgfdshgfdhgfdhsgfdshgfjgfjdgfdhgfdjsfhgdsgfjdgfhdghjgfdshgfdjsgfdsgfjhdgfhgfjdgfdjgfhdgfdsjgfdsjgfdghfhjgdsgfdsjgfsdgfjdgfdshgfdshgfdsjgfjhgfdsjgfdshgfdsjgfdsjgfhdsgf∂ß©fdsgfjdsgfjhdgf"
+        productDescription.text = "hjgdashjgadjkgfdhfgdjgfsgfhjadghjdgshjfsgjhgfsdhgfjsgfjdshgfjdgf∂˙gfjdgf§dsgfjhdsgfhdsgfhdgsjfdsjgf∂©fgjfhdgsjfhdgjahfjahgjgfdsjfhghadsgfhjdgsagfjadgagsjdshgfdhgfjadgjjhfdgsjfgdsgfjdsghfhjsgfdhagfjhadgfhdgafhgjdghasjghfsjghfjdsgjfgdsjgfdfgdshgfdshgfdshgf∂agjhghdgshjgdsjgfshdgfdjsgfdshgfjdgfdshgf∂ß©fhdsgfhdsgfhdgsfjgdsjgfsdjfgdjhfgdshgfhsdgfjdsgjdshhdsgfhsdgfjhdsgfjhdsgfjhdsgfjdsgf∂ß©fhhjsgfhjdsgfjhdgjhgdjfgjdjshgfhjgdfjhgdsjgfjdhgfjdsgfdjhgfjdgfjhdsgfjdgfhdgfdjgfdshgfdhgfdhsgfdshgfjgfjdgfdhgfdjsfhgdsgfjdgfhdghjgfdshgfdjsgfdsgfjhdgfhgfjdgfdjgfhdgfdsjgfdsjgfdghfhjgdsgfdsjgfsdgfjdgfdshgfdshgfdsjgfjhgfdsjgfdshgfdsjgfdsjgfhdsgf∂ß©fdsgfjdsgfjhdgf"
     }
     
     func registerNibFile() {
