@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import Cosmos
+import NVActivityIndicatorView
 
 class ProductInfoViewController: UIViewController {
 
@@ -34,10 +35,15 @@ class ProductInfoViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var pageControlIndex = 0
     var productInfoViewModel: ProductInfoViewModel?
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballClipRotateMultiple, color: .label, padding: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibFile()
+        
+        DispatchQueue.main.async {
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
+        }
         
         productInfoViewModel = ProductInfoViewModel()
         productInfoViewModel?.getProduct(endPoint: "products/7730623709398.json")
@@ -48,6 +54,7 @@ class ProductInfoViewController: UIViewController {
                     self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, id: product.id)
                     self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, id: product.id)
                     self.setupView()
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 }
             }
                 
@@ -111,6 +118,11 @@ class ProductInfoViewController: UIViewController {
         }
         isFavourite = !isFavourite!
     }
+    
+    @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 

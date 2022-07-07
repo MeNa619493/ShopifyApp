@@ -26,7 +26,7 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func onBackButtonPressed(_ sender: Any) {
-        //Navigation
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onRegisterButtonPressed(_ sender: Any) {
