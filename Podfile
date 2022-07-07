@@ -11,5 +11,6 @@ target 'ShopifyApp' do
 	pod 'NVActivityIndicatorView'
 	pod 'ReachabilitySwift'
 	pod 'Cosmos', '~> 23.0'
+	pod 'lottie-ios'
 
 end

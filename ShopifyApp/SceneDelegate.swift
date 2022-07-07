@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let viewController = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainPageID")
+        let viewController = UIStoryboard(name: Storyboards.splashScreen.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.splashScreen.rawValue)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
