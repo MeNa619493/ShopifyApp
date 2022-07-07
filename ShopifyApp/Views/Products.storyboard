@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBq-tU-oku">
-                                <rect key="frame" x="0.0" y="30" width="414" height="37.5"/>
+                                <rect key="frame" x="0.0" y="30" width="414" height="16"/>
                                 <items>
                                     <navigationItem title="Products" id="TIn-Ip-0oa">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="qzw-4P-FUp"/>
@@ -25,20 +25,20 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T8u-yt-mor">
-                                <rect key="frame" x="0.0" y="75.5" width="414" height="751"/>
+                                <rect key="frame" x="0.0" y="62" width="414" height="764.5"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XP5-yR-UX9">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="56"/>
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="barTintColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iXl-FN-KaA">
-                                        <rect key="frame" x="0.0" y="64" width="310.5" height="20.5"/>
+                                        <rect key="frame" x="16" y="64" width="382" height="36.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbl-tQ-EZM">
-                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="20.5"/>
+                                                <rect key="frame" x="70" y="8" width="85.5" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkV-OF-M9j">
                                                         <rect key="frame" x="0.0" y="0.0" width="43.5" height="20.5"/>
@@ -55,12 +55,13 @@
                                                 </subviews>
                                             </stackView>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-YN-kqa">
-                                                <rect key="frame" x="99.5" y="0.0" width="213" height="21.5"/>
+                                                <rect key="frame" x="169.5" y="8" width="144.5" height="21.5"/>
                                             </slider>
                                         </subviews>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="70" bottom="8" trailing="70"/>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8zC-2s-QzG">
-                                        <rect key="frame" x="0.0" y="92.5" width="414" height="658.5"/>
+                                        <rect key="frame" x="16" y="108.5" width="382" height="656"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Tri-BV-gnT">
                                             <size key="itemSize" width="50" height="50"/>
@@ -80,11 +81,7 @@
                                         </cells>
                                     </collectionView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="8zC-2s-QzG" firstAttribute="width" secondItem="T8u-yt-mor" secondAttribute="width" id="b2c-6l-xMk"/>
-                                    <constraint firstAttribute="trailing" secondItem="XP5-yR-UX9" secondAttribute="trailing" id="cuO-pe-y75"/>
-                                    <constraint firstItem="iXl-FN-KaA" firstAttribute="width" secondItem="T8u-yt-mor" secondAttribute="width" multiplier="3/4" id="gI6-ay-sxz"/>
-                                </constraints>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="16" bottom="0.0" trailing="16"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -95,7 +92,7 @@
                             <constraint firstItem="CBq-tU-oku" firstAttribute="leading" secondItem="Wq3-0b-ZaG" secondAttribute="leading" id="UD8-95-aEQ"/>
                             <constraint firstItem="CBq-tU-oku" firstAttribute="top" secondItem="Hb6-f1-nLE" secondAttribute="top" constant="30" id="W4c-yT-hMu"/>
                             <constraint firstItem="CBq-tU-oku" firstAttribute="trailing" secondItem="Wq3-0b-ZaG" secondAttribute="trailing" id="Yjx-o4-6oE"/>
-                            <constraint firstItem="T8u-yt-mor" firstAttribute="top" secondItem="CBq-tU-oku" secondAttribute="bottom" constant="8" id="kZ3-cZ-oG8"/>
+                            <constraint firstItem="T8u-yt-mor" firstAttribute="top" secondItem="CBq-tU-oku" secondAttribute="bottom" constant="16" id="kZ3-cZ-oG8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wq3-0b-ZaG"/>
                     </view>
