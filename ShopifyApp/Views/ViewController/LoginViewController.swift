@@ -11,15 +11,11 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var password: UITextField!
-    
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var registerButton: UIButton!
     
     var loginViewModel: LoginViewModel?
-    
     let userDefaults = UserDefaultsManager()
     
     override func viewDidLoad() {
