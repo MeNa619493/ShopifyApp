@@ -11,13 +11,9 @@ import UIKit
 class RegisterViewController: UIViewController {
 
     @IBOutlet weak var customerName: UITextField!
-    
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var password: UITextField!
-    
     @IBOutlet weak var confirmPassword: UITextField!
-    
     @IBOutlet weak var registerButton: UIButton!
     
     var registerViewModel: RegisterViewModel?
@@ -30,7 +26,7 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func onBackButtonPressed(_ sender: Any) {
-        //Navigation
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onRegisterButtonPressed(_ sender: Any) {
@@ -54,7 +50,7 @@ class RegisterViewController: UIViewController {
         password.layer.borderWidth = 2
         confirmPassword.layer.cornerRadius = 15
         confirmPassword.layer.borderWidth = 2
-        registerButton.layer.cornerRadius = 15
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2
     }
 }
 
@@ -108,7 +104,7 @@ extension RegisterViewController {
             print("registered successfully")
             
             DispatchQueue.main.async {
-                let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+                let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }

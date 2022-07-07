@@ -44,6 +44,12 @@ class FavoritesViewController: UIViewController {
                 }
             }
     }
+    
+    @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource{

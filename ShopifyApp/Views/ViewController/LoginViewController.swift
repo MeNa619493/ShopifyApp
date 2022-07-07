@@ -11,15 +11,11 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var password: UITextField!
-    
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var registerButton: UIButton!
     
     var loginViewModel: LoginViewModel?
-    
     let userDefaults = UserDefaultsManager()
     
     override func viewDidLoad() {
@@ -33,6 +29,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onRegisterButtonPressed(_ sender: Any) {
+        let vc = UIStoryboard(name: Storyboards.register.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.register.rawValue) as! RegisterViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     func setupView() {
@@ -40,8 +39,12 @@ class LoginViewController: UIViewController {
         email.layer.borderWidth = 2
         password.layer.cornerRadius = 15
         password.layer.borderWidth = 2
-        loginButton.layer.cornerRadius = 15
-        registerButton.layer.cornerRadius = 15
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2
+    }
+    
+    @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

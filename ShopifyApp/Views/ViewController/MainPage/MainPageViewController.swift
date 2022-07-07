@@ -12,26 +12,36 @@ import Kingfisher
 
 class MainPageViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource{
 
-    var imagesExamples = ["image1","image3","image3"]
 
-    @IBOutlet weak var adsCollectionView: UICollectionView!{didSet {adsCollectionView.delegate = self
-        adsCollectionView.dataSource = self}}
-    
-    @IBOutlet weak var brandsCollectionView: UICollectionView!{didSet {brandsCollectionView.delegate = self
-        brandsCollectionView.dataSource = self}}
-    
-    var BrandsArray = [SmartCollection](){
-        didSet{
-            print("the count is \(BrandsArray.count)")
+    @IBOutlet weak var adsCollectionView: UICollectionView! {
+        didSet {
+            adsCollectionView.delegate = self
+            adsCollectionView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var brandsCollectionView: UICollectionView! {
+        didSet {
+            brandsCollectionView.delegate = self
+            brandsCollectionView.dataSource = self
+        }
+    }
+    
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
+    
+    var BrandsArray = [SmartCollection]()
+    var brandsViewModel: BrandsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      let brandsViewModel = BrandsViewModel()
-        brandsViewModel.fetchData(endPoint: "smart_collections.json#")
-        brandsViewModel.bindingData = { brands, error in
+        brandsViewModel = BrandsViewModel()
+        brandsViewModel?.fetchData()
+        brandsViewModel?.bindingData = { brands, error in
             if let brands = brands {
                 self.BrandsArray = brands
                 DispatchQueue.main.async {
@@ -49,7 +59,6 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
         
         brandsCollectionView.register(UINib(nibName: "BrandsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "brandsCellID")
         
-        // Do any additional setup after loading the view.
     }
     
     
@@ -66,8 +75,8 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
         if (collectionView == brandsCollectionView){
         let cell1 = brandsCollectionView.dequeueReusableCell(withReuseIdentifier: "brandsCellID", for: indexPath) as! BrandsCollectionViewCell
         cell1.brandName.text = BrandsArray[indexPath.row].title
-        var imgLink = (BrandsArray[indexPath.row].image?.src)!
-        var url = URL(string: imgLink)
+        let imgLink = (BrandsArray[indexPath.row].image?.src)!
+        let url = URL(string: imgLink)
             cell1.brandLogo.kf.setImage(with: url)
             
             return cell1
@@ -89,23 +98,15 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
             self.present(productVC, animated: true, completion: nil)
             print("The brand title is \(BrandsArray[indexPath.row].title)")
         }
-        
-           
+
         }
-        
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+           
     }
-    */
 
+extension MainPageViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        brandsViewModel?.search(searchInput: searchText)
+    }
 }
 
 
