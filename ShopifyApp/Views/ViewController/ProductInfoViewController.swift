@@ -20,17 +20,11 @@ class ProductInfoViewController: UIViewController {
     }
     
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var cosmosView: CosmosView!
-    
     @IBOutlet weak var productDescription: UILabel!
-    
     @IBOutlet weak var productTitle: UILabel!
-    
     @IBOutlet weak var productPrice: UILabel!
-    
     @IBOutlet weak var addToCartButton: UIButton!
-    
     @IBOutlet weak var favoriteButton: UIButton!
     
     var productId: Int?
@@ -65,7 +59,7 @@ class ProductInfoViewController: UIViewController {
     }
     
     func registerNibFile() {
-        productImageCollectionView.register(UINib(nibName: "ProductInfoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductInfoCell")
+        productImageCollectionView.register(UINib(nibName: NibFiles.productInfoCell.rawValue , bundle: nil), forCellWithReuseIdentifier: IdentifierCell.productInfoCell.rawValue)
     }
     
     func checkIsFavourite() {
@@ -126,7 +120,7 @@ extension ProductInfoViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductInfoCell", for: indexPath) as! ProductInfoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IdentifierCell.productInfoCell.rawValue, for: indexPath) as! ProductInfoCollectionViewCell
         let url = URL(string: product?.images[indexPath.item].src ?? "")
         cell.productImage.kf.setImage(with: url)
         return cell

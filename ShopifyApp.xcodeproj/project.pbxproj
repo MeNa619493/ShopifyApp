@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E64F0EC2877042A00287333 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64F0EB2877042A00287333 /* Constants.swift */; };
 		1E95C28328705374000A6ADE /* ProductInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E95C28228705374000A6ADE /* ProductInfo.storyboard */; };
 		1E9F53552875A9680033FAD1 /* ProductInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F53542875A9680033FAD1 /* ProductInfoViewModel.swift */; };
 		1EA86610286FEB8A00BDB2A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA8660F286FEB8A00BDB2A9 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E64F0EB2877042A00287333 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1E95C28228705374000A6ADE /* ProductInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductInfo.storyboard; sourceTree = "<group>"; };
 		1E9F53542875A9680033FAD1 /* ProductInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoViewModel.swift; sourceTree = "<group>"; };
 		1EA8660C286FEB8A00BDB2A9 /* ShopifyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopifyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +226,7 @@
 				1EDD78A128710C7900E47EC0 /* JsonDecodere.swift */,
 				1EDD78A428710FE500E47EC0 /* UserDefaults.swift */,
 				1EDD78AA2871155000E47EC0 /* Alert.swift */,
+				1E64F0EB2877042A00287333 /* Constants.swift */,
 			);
 			path = Utilitis;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				1EDD78982871075C00E47EC0 /* Customer.swift in Sources */,
 				1EA86610286FEB8A00BDB2A9 /* AppDelegate.swift in Sources */,
 				1EC6C5BB28713B4A008B33DA /* LoginViewController.swift in Sources */,
+				1E64F0EC2877042A00287333 /* Constants.swift in Sources */,
 				1EDD78A92871130000E47EC0 /* RegisterViewController.swift in Sources */,
 				1EB09CD32873C10B004C6D04 /* ProductInfoCollectionViewCell.swift in Sources */,
 				1ED09A2F28758309009735CF /* DatabaseService.swift in Sources */,
