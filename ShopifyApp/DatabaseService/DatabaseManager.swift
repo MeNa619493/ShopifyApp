@@ -65,7 +65,7 @@ class DatabaseManager: DatabaseService {
                 managedContext.delete(product)
             }
             try managedContext.save()
-            
+            print("product deleted successfully")
         }catch{
             print("failed to delete product from core data \(error)")
         }
@@ -80,7 +80,7 @@ class DatabaseManager: DatabaseService {
                 managedContext.delete(product)
             }
             try managedContext.save()
-            
+            print("products deleted successfully")
         }catch{
             print("failed to delete product from core data \(error)")
         }
@@ -110,7 +110,7 @@ class DatabaseManager: DatabaseService {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCD")
         do{
             let productArray = try managedContext.fetch(fetchRequest)
-    
+            print("get products from favourites successfully")
             for product in productArray{
                 let id = product.value(forKey: "id") as! Int
    
@@ -138,7 +138,7 @@ class DatabaseManager: DatabaseService {
                 managedContext.delete(product)
             }
             try managedContext.save()
-            
+            print("product deleted successfully")
         }catch{
             print("failed to delete favourite from core data \(error)")
         }

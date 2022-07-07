@@ -40,8 +40,8 @@ class LoginViewController: UIViewController {
         email.layer.borderWidth = 2
         password.layer.cornerRadius = 15
         password.layer.borderWidth = 2
-        loginButton.layer.cornerRadius = 15
-        registerButton.layer.cornerRadius = 15
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2
     }
 }
 
