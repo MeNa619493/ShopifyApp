@@ -80,7 +80,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0P-np-ZIv" customClass="CosmosView" customModule="Cosmos">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0P-np-ZIv" customClass="CosmosView" customModule="Cosmos">
                                                         <rect key="frame" x="194" y="78" width="170" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <userDefinedRuntimeAttributes>
@@ -363,11 +363,14 @@
                                 <rect key="frame" x="16" y="812" width="382" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ux3-La-cXK">
-                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="76.5" height="50"/>
                                         <state key="normal" image="heart" catalog="system"/>
+                                        <connections>
+                                            <action selector="onFavouritePressed:" destination="JEA-kv-PCe" eventType="touchUpInside" id="wgc-D6-qOB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcO-XY-7Qs">
-                                        <rect key="frame" x="111.5" y="0.0" width="270.5" height="50"/>
+                                        <rect key="frame" x="92.5" y="0.0" width="289.5" height="50"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="SWM-v7-bBn"/>
@@ -375,10 +378,13 @@
                                         <state key="normal" title="ADD TO BAG">
                                             <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onAddToCartPressed:" destination="JEA-kv-PCe" eventType="touchUpInside" id="AIX-w4-8hh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ux3-La-cXK" firstAttribute="width" secondItem="7wG-Sj-1jn" secondAttribute="width" multiplier="1/4" id="3Xa-MK-Pdi"/>
+                                    <constraint firstItem="Ux3-La-cXK" firstAttribute="width" secondItem="7wG-Sj-1jn" secondAttribute="width" multiplier="0.2" id="3Xa-MK-Pdi"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -398,10 +404,14 @@
                         <viewLayoutGuide key="safeArea" id="3Wa-36-Oaf"/>
                     </view>
                     <connections>
+                        <outlet property="addToCartButton" destination="VcO-XY-7Qs" id="38P-JV-vqT"/>
                         <outlet property="cosmosView" destination="cd4-cz-ihB" id="tMN-wG-dqL"/>
+                        <outlet property="favoriteButton" destination="Ux3-La-cXK" id="dgY-uC-KdA"/>
                         <outlet property="pageControl" destination="RZ1-LB-mch" id="qNy-fr-Swx"/>
                         <outlet property="productDescription" destination="EPe-tx-VrQ" id="ocK-kt-UMT"/>
                         <outlet property="productImageCollectionView" destination="h1c-JI-RLT" id="aCM-Nm-Qlr"/>
+                        <outlet property="productPrice" destination="9Kp-D2-wdO" id="p4X-2y-b8v"/>
+                        <outlet property="productTitle" destination="vh5-cS-Z5D" id="7sl-GD-8XY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inz-dN-y3u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

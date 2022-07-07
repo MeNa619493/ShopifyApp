@@ -54,7 +54,7 @@ class RegisterViewController: UIViewController {
         password.layer.borderWidth = 2
         confirmPassword.layer.cornerRadius = 15
         confirmPassword.layer.borderWidth = 2
-        registerButton.layer.cornerRadius = 15
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2
     }
 }
 

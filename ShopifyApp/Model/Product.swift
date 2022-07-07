@@ -29,6 +29,7 @@ struct Product: Codable {
     let options: [OptionList]?
     let varients: [Varient]?
     let image: ProductImage
+    var count: Int = 0
     
     enum CodingKeys : String , CodingKey {
             case id = "id"
@@ -85,11 +86,13 @@ struct Varient: Codable {
     let productID: Int
     let title: String
     let price: String
+    let quantity: Int
     
     enum CodingKeys : String , CodingKey {
             case id = "id"
             case productID = "product_id"
             case title = "title"
             case price = "price"
+            case quantity = "inventory_quantity"
         }
 }
