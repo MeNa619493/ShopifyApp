@@ -90,17 +90,18 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
         
         if (collectionView == brandsCollectionView){
 
-            let productVC = UIStoryboard(name: "Product", bundle: nil).instantiateViewController(withIdentifier: "ProductVCID")
+            let productVC = UIStoryboard(name: "Product", bundle: nil).instantiateViewController(withIdentifier: "ProductVCID") as! ProductViewController
             
-
+            productVC.brandTitle = BrandsArray[indexPath.row].title
+            
             productVC.modalPresentationStyle = .fullScreen
             self.present(productVC, animated: true, completion: nil)
             print("The brand title is \(BrandsArray[indexPath.row].title)")
         }
+
+        }
            
     }
-        
-}
 
 extension MainPageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
