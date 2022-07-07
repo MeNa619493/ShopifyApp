@@ -17,4 +17,5 @@ struct UrlServices {
 
 enum EndPoint: String {
     case customers = "customers.json"
+    case smartCollections = "smart_collections.json"
 }

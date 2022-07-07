@@ -73,10 +73,9 @@ class NetworkManager: ApiService {
         }
     }
     
-    func fetchBrands(endPoint: String, completion: @escaping (([SmartCollection]?, Error?) -> Void)) {
-        if let  url = URL(string: UrlServices(endPoint: endPoint).url) {
+    func fetchBrands(completion: @escaping (([SmartCollection]?, Error?) -> Void)) {
+        if let  url = URL(string: UrlServices(endPoint: EndPoint.smartCollections.rawValue).url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
-                print ("The response is \(response) The error is \(error) and the data is \(data)")
                 if let data = data {
                     print("data is here")
                     guard let decodedData : Brands = try? convertFromJson(data: data) else{ return}
