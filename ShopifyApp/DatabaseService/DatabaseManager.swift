@@ -51,9 +51,32 @@ class DatabaseManager: DatabaseService {
             try managedContext.save()
             print("product saved successfully")
         }catch let error as NSError{
-            print("failed to add product in core data \(error.localizedDescription)")
+            print("failed to add product to core data \(error.localizedDescription)")
         }
     }
+    
+    func updateProductFromList(appDelegate: AppDelegate, product: Product) {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ProductCD")
+        fetchRequest.predicate = NSPredicate(format: "id = \(product.id)")
+            do{
+                let productsArray = try managedContext.fetch(fetchRequest)
+                for productCD in productsArray{
+                    
+                    productCD.setValue(product.id , forKey: "id")
+                    productCD.setValue(product.count, forKey: "count")
+                    productCD.setValue(product.varients?[0].price ?? "0.0", forKey: "price")
+                    productCD.setValue(product.varients?[0].quantity ?? "0", forKey: "quantity")
+                    productCD.setValue(product.title, forKey: "title")
+                    productCD.setValue(product.image.src, forKey: "imgUrl")
+                    
+                }
+                try managedContext.save()
+                print("product updated successfully")
+            }catch{
+                print("failed to update product in core data \(error.localizedDescription)")
+            }
+        }
     
     func deleteProduct(appDelegate: AppDelegate, id: Int) {
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -100,7 +123,7 @@ class DatabaseManager: DatabaseService {
             try managedContext.save()
             print("favourite saved successfully")
         }catch let error as NSError{
-            print("failed to add favourite in core data \(error.localizedDescription)")
+            print("failed to add favourite to core data \(error.localizedDescription)")
         }
     }
         

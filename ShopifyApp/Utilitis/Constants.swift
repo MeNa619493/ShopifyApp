@@ -13,6 +13,7 @@ enum Storyboards: String {
     case register = "Register"
     case login = "Login"
     case favourites = "Favorites"
+    case splashScreen = "SplashScreen"
 }
 
 enum StoryboardID: String {
@@ -20,6 +21,7 @@ enum StoryboardID: String {
     case register = "RegisterVC"
     case login = "LoginVC"
     case favourites = "FavoritesVC"
+    case splashScreen = "SplashScreenVC"
 }
 
 enum NibFiles: String {
