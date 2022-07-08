@@ -136,6 +136,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1E20F7BB2877B68F00DB3859 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				1EE093452870C70A00931A1A /* Products.storyboard */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		1EA86603286FEB8A00BDB2A9 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +151,7 @@
 				1EA8660D286FEB8A00BDB2A9 /* Products */,
 				BE6DC752DB4CDE634AAA878B /* Pods */,
 				097E5C09607890B3DAF695E1 /* Frameworks */,
+				1E20F7BB2877B68F00DB3859 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
