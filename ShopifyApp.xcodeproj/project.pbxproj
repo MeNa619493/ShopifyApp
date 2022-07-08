@@ -42,7 +42,6 @@
 		1EDDC24D2877524400A5A2A8 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EDDC24C2877524400A5A2A8 /* SplashScreen.storyboard */; };
 		1EDDC2502877529400A5A2A8 /* 85849-shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 1EDDC24F2877529400A5A2A8 /* 85849-shopping.json */; };
 		1EDDC252287752DA00A5A2A8 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDC251287752DA00A5A2A8 /* SplashScreenViewController.swift */; };
-		1EE093462870C70A00931A1A /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE093452870C70A00931A1A /* Products.storyboard */; };
 		76C41206EFA0385EFDDB4664 /* Pods_ShopifyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ADB3F99CF1C60F0BA0DDC5 /* Pods_ShopifyApp.framework */; };
 		BC49CE0528760E6E000906DB /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC49CE0428760E6E000906DB /* MainPage.storyboard */; };
 		BC9027092874B5E9000AD5C4 /* AdsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9027042874B5E9000AD5C4 /* AdsCollectionViewCell.swift */; };
@@ -98,7 +97,6 @@
 		1EDDC24C2877524400A5A2A8 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		1EDDC24F2877529400A5A2A8 /* 85849-shopping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "85849-shopping.json"; sourceTree = "<group>"; };
 		1EDDC251287752DA00A5A2A8 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
-		1EE093452870C70A00931A1A /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
 		20ADB3F99CF1C60F0BA0DDC5 /* Pods_ShopifyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68CAC10B07C7471F6593879F /* Pods-ShopifyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		82FCBA31A7500DEE103DCE6C /* Pods-ShopifyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyApp.release.xcconfig"; path = "Target Support Files/Pods-ShopifyApp/Pods-ShopifyApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 				1EA86617286FEB8A00BDB2A9 /* Main.storyboard in Resources */,
 				1EA86629286FF0B000BDB2A9 /* Register.storyboard in Resources */,
 				1ED6D8592873B0D50064138D /* Favorites.storyboard in Resources */,
-				1EE093462870C70A00931A1A /* Products.storyboard in Resources */,
 				1EDDC24D2877524400A5A2A8 /* SplashScreen.storyboard in Resources */,
 				1EB09CD42873C10B004C6D04 /* ProductInfoCollectionViewCell.xib in Resources */,
 			);

@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oIl-FP-7ZZ">
-                        <rect key="frame" x="0.0" y="0.0" width="339" height="287"/>
+                        <rect key="frame" x="0.0" y="0.0" width="309" height="287"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-Ah-ZNa">
@@ -51,15 +51,16 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="oIl-FP-7ZZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="81q-ja-vnd"/>
+                <constraint firstItem="oIl-FP-7ZZ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="9jX-Nh-y9q"/>
+                <constraint firstItem="oIl-FP-7ZZ" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="ANG-j1-By2"/>
                 <constraint firstAttribute="bottom" secondItem="mXf-IQ-OVL" secondAttribute="bottom" constant="8" id="WTc-Kr-reR"/>
                 <constraint firstItem="mXf-IQ-OVL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="c8l-Ee-RbQ"/>
                 <constraint firstItem="oIl-FP-7ZZ" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.6" constant="77" id="j2R-jL-LWT"/>
                 <constraint firstItem="cXe-Ah-ZNa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="jQe-du-YgV"/>
-                <constraint firstItem="oIl-FP-7ZZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ll7-jO-nuq"/>
+                <constraint firstItem="oIl-FP-7ZZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lqX-8d-cIZ"/>
                 <constraint firstItem="mXf-IQ-OVL" firstAttribute="top" secondItem="oIl-FP-7ZZ" secondAttribute="bottom" constant="14" id="qJe-nJ-SIZ"/>
                 <constraint firstAttribute="trailing" secondItem="cXe-Ah-ZNa" secondAttribute="trailing" constant="5" id="w7M-sk-G53"/>
                 <constraint firstAttribute="trailing" secondItem="mXf-IQ-OVL" secondAttribute="trailing" constant="10" id="wAW-Ms-4Qq"/>
-                <constraint firstAttribute="trailing" secondItem="oIl-FP-7ZZ" secondAttribute="trailing" constant="-30" id="z3I-dE-3cl"/>
             </constraints>
             <size key="customSize" width="275" height="350"/>
             <connections>
