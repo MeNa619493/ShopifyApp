@@ -11,6 +11,11 @@ import Kingfisher
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+  
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //ProductCellID
     var brandTitle = ""
     var productsArray = [Product](){
@@ -77,7 +82,8 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         var imgLink = (filteredProductsArray[indexPath.row].image.src)
         var url = URL(string: imgLink)
         cell.productImage.kf.setImage(with: url)
-//        cell.productPrice.text = filteredProductsArray[indexPath.row].
+        cell.productPrice.text = filteredProductsArray[indexPath.row].varients?[0].price
+//        cell.productName.text = filteredProductsArray[indexPath.row].title
         return cell
     }
 

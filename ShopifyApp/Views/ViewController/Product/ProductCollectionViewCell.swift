@@ -12,10 +12,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var productImage: UIImageView!
     
-    @IBOutlet weak var favoriteProduct: UIButton!
+    @IBAction func favoriteProduct(_ sender: Any) {
+    }
     
     @IBOutlet weak var productPrice: UILabel!
     
+    @IBOutlet weak var productName: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
