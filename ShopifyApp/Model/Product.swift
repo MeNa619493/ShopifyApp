@@ -30,6 +30,7 @@ struct Product: Codable {
     let varients: [Varient]?
     let image: ProductImage
     var count: Int = 0
+    var userID: Int = 0
     
     enum CodingKeys : String , CodingKey {
             case id = "id"

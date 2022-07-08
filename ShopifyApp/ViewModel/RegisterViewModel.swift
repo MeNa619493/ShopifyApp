@@ -11,7 +11,6 @@ import Foundation
 class RegisterViewModel{
     
     let networkManager: ApiService?
-    let userDefaults = UserDefaultsManager()
     
     init(networkManager: ApiService) {
         self.networkManager = networkManager
@@ -71,12 +70,10 @@ class RegisterViewModel{
         let customerFirstName = customer?["first_name"] as? String ?? ""
         let customerEmail = customer?["email"] as? String ?? ""
         
-        self.userDefaults.setUserID(customerID: customerID)
-        self.userDefaults.setUserName(userName: customerFirstName)
-        self.userDefaults.setUserEmail(userEmail: customerEmail)
-        self.userDefaults.setUserStatus(userIsLogged: true)
+        UserDefaultsManager.shared.setUserID(customerID: customerID)
+        UserDefaultsManager.shared.setUserName(userName: customerFirstName)
+        UserDefaultsManager.shared.setUserEmail(userEmail: customerEmail)
+        UserDefaultsManager.shared.setUserStatus(userIsLogged: true)
     }
-    
-    
     
 }

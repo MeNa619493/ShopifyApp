@@ -28,8 +28,8 @@ class FavoritesViewModel {
         self.databaseService = databaseService
     }
 
-    func fetchfavorites(appDelegate: AppDelegate) {
-        databaseService.getFavourites(appDelegate: appDelegate) { favorites, error in
+    func fetchfavorites(appDelegate: AppDelegate, userId: Int) {
+        databaseService.getFavourites(appDelegate: appDelegate, userId: userId) { favorites, error in
 
             if let favorites = favorites {
                 self.favoritesArray = favorites

@@ -35,7 +35,7 @@ class ProductInfoViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var pageControlIndex = 0
     var productInfoViewModel: ProductInfoViewModel?
-    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballClipRotateMultiple, color: .label, padding: 0)
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +51,8 @@ class ProductInfoViewController: UIViewController {
             if let product = product {
                 self.product = product
                 DispatchQueue.main.async {
-                    self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, id: product.id)
-                    self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, id: product.id)
+                    self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product)
+                    self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product)
                     self.setupView()
                     self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 }
@@ -100,7 +100,7 @@ class ProductInfoViewController: UIViewController {
     @IBAction func onAddToCartPressed(_ sender: Any) {
         if isAddedToCart! {
             addToCartButton.setTitle("ADD TO CART", for: .normal)
-            productInfoViewModel?.removeProductFromCart(appDelegate: appDelegate, id: product!.id)
+            productInfoViewModel?.removeProductFromCart(appDelegate: appDelegate, product: product!)
         } else {
             addToCartButton.setTitle("REMOVE FROM CART", for: .normal)
             productInfoViewModel?.addProductToCart(appDelegate: appDelegate, product: product!)
@@ -111,7 +111,7 @@ class ProductInfoViewController: UIViewController {
     @IBAction func onFavouritePressed(_ sender: Any) {
         if isFavourite! {
             favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            productInfoViewModel?.removeProductFromFavourites(appDelegate: appDelegate, id: product!.id)
+            productInfoViewModel?.removeProductFromFavourites(appDelegate: appDelegate, product: product!)
         } else {
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             productInfoViewModel?.addProductToFavourites(appDelegate: appDelegate, product: product!)

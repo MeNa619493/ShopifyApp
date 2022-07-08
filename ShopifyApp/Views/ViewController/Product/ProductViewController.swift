@@ -43,8 +43,8 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
                 self.productsArray = products
                     
                     for index in 0..<self.productsArray.count{
-                        if brandTitle == self.productsArray[index].vendor{
-                        self.filteredProductsArray.append(productsArray[index])}}
+                        if self.brandTitle == self.productsArray[index].vendor{
+                            self.filteredProductsArray.append(self.productsArray[index])}}
                     
                     DispatchQueue.main.async {
                         self.ProductsCollectionView.reloadData()
