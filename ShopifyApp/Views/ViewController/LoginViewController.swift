@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     var loginViewModel: LoginViewModel?
-    let userDefaults = UserDefaultsManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +57,11 @@ extension LoginViewController {
         loginViewModel?.Login(email: email, password: password) { customerLogged in
             
             if customerLogged != nil {
-                self.userDefaults.setUserStatus(userIsLogged: true)
+                UserDefaultsManager.shared.setUserStatus(userIsLogged: true)
                 print("customer logged in successfully")
                 //Navigation
             }else{
-                self.userDefaults.setUserStatus(userIsLogged: false)
+                UserDefaultsManager.shared.setUserStatus(userIsLogged: false)
                 self.showAlertError(title: "failed to login", message: "please check your email or password")
                 print("failed to login")
             }
