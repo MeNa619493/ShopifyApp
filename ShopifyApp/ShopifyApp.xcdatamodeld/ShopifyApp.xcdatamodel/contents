@@ -5,6 +5,7 @@
         <attribute name="imgUrl" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="ProductCD" representedClassName="ProductCD" syncable="YES" codeGenerationType="class">
         <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -13,9 +14,10 @@
         <attribute name="price" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="ProductCD" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="FavouriteCD" positionX="-54" positionY="36" width="128" height="103"/>
+        <element name="FavouriteCD" positionX="-54" positionY="36" width="128" height="118"/>
+        <element name="ProductCD" positionX="-63" positionY="-18" width="128" height="148"/>
     </elements>
 </model>

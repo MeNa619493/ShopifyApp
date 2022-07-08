@@ -43,34 +43,34 @@ class ProductInfoViewModel {
         }
     }
     
-    func getProductsInShopingCart(appDelegate: AppDelegate, id: Int) -> Bool {
+    func getProductsInShopingCart(appDelegate: AppDelegate, product: Product) -> Bool {
         var productsArray = [Product]()
         var isInShoppingCart: Bool = false
-        databaseService.getShoppingCartProductList(appDelegate: appDelegate) { (products, error) in
+        databaseService.getItemFromShoppingCartProductList(appDelegate: appDelegate, product: product) { (products, error) in
             if let products = products {
                 productsArray = products
             }
         }
         
         for item in productsArray {
-            if item.id == id {
+            if item.id == product.id {
                 isInShoppingCart = true
             }
         }
         return isInShoppingCart
     }
     
-    func getProductsInFavourites(appDelegate: AppDelegate, id: Int) -> Bool {
+    func getProductsInFavourites(appDelegate: AppDelegate, product: Product) -> Bool {
         var productsArray = [Product]()
         var isFavourite: Bool = false
-        databaseService.getFavourites(appDelegate: appDelegate) { (products, error) in
+        databaseService.getItemFromFavourites(appDelegate: appDelegate, product: product) { (products, error) in
             if let products = products {
                 productsArray = products
             }
         }
         
         for item in productsArray {
-            if item.id == id {
+            if item.id == product.id {
                 isFavourite = true
             }
         }
@@ -81,15 +81,15 @@ class ProductInfoViewModel {
         databaseService.addProduct(appDelegate: appDelegate, product: product)
     }
     
-    func removeProductFromCart(appDelegate: AppDelegate, id: Int) {
-        databaseService.deleteProduct(appDelegate: appDelegate, id: id)
+    func removeProductFromCart(appDelegate: AppDelegate, product: Product) {
+        databaseService.deleteProduct(appDelegate: appDelegate, product: product)
     }
     
     func addProductToFavourites(appDelegate: AppDelegate, product: Product) {
         databaseService.addFavourite(appDelegate: appDelegate, product: product)
     }
     
-    func removeProductFromFavourites(appDelegate: AppDelegate, id: Int) {
-        databaseService.deleteFavourite(appDelegate: appDelegate, id: id)
+    func removeProductFromFavourites(appDelegate: AppDelegate, product: Product) {
+        databaseService.deleteFavourite(appDelegate: appDelegate, product: product)
     }
 }

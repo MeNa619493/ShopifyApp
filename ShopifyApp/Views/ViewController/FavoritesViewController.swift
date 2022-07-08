@@ -22,27 +22,31 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFavoritesFromCoreData()
         
+        
+        if UserDefaultsManager.shared.getUserStatus() {
+            self.getFavoritesFromCoreData()
+        }
     }
     
     func getFavoritesFromCoreData(){
         let favoritesViewModel = FavoritesViewModel()
-        favoritesViewModel.fetchfavorites(appDelegate: appDelegate)
+        
+        favoritesViewModel.fetchfavorites(appDelegate: appDelegate, userId: UserDefaultsManager.shared.getUserID() ?? 0)
+        
+        favoritesViewModel.bindingData = { favorites, error in
+            if let favorites = favorites {
+                self.favoritesArray = favorites
 
-            favoritesViewModel.bindingData = { favorites, error in
-                if let favorites = favorites {
-                    self.favoritesArray = favorites
-
-                    DispatchQueue.main.async {
-                        self.favoritesCollectionView.reloadData()
-                    }
-                }
-
-                if let error = error {
-                    print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.favoritesCollectionView.reloadData()
                 }
             }
+
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
