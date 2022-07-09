@@ -20,3 +20,4 @@ protocol DatabaseService{
     func getItemFromFavourites(appDelegate: AppDelegate, product: Product, complition: @escaping ([Product]?, Error?)->Void)
     func deleteFavourite(appDelegate: AppDelegate, product: Product)
 }
+

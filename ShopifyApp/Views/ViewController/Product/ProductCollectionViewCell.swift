@@ -17,7 +17,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productPrice: UILabel!
     
-    @IBOutlet weak var productName: UILabel!
 
     
     override func awakeFromNib() {

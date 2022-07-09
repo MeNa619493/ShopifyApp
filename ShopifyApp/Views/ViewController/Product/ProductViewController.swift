@@ -37,7 +37,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             super.viewDidLoad()
             
           let productsViewModel = ProductsViewModel()
-            productsViewModel.fetchData(endPoint: "products.json")
+            productsViewModel.fetchProducts(endPoint: "products.json")
         productsViewModel.bindingData = { [self] products, error in
                 if let products = products {
                 self.productsArray = products
