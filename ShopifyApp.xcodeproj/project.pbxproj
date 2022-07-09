@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E007AD92879918400F6C1F9 /* FavouriteActionProductScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E007AD82879918400F6C1F9 /* FavouriteActionProductScreen.swift */; };
 		1E64F0EC2877042A00287333 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64F0EB2877042A00287333 /* Constants.swift */; };
 		1E95C28328705374000A6ADE /* ProductInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E95C28228705374000A6ADE /* ProductInfo.storyboard */; };
 		1E9F53552875A9680033FAD1 /* ProductInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F53542875A9680033FAD1 /* ProductInfoViewModel.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E007AD82879918400F6C1F9 /* FavouriteActionProductScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteActionProductScreen.swift; sourceTree = "<group>"; };
 		1E64F0EB2877042A00287333 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1E95C28228705374000A6ADE /* ProductInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductInfo.storyboard; sourceTree = "<group>"; };
 		1E9F53542875A9680033FAD1 /* ProductInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoViewModel.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				BCAA8F5E2875F380000B8434 /* ProductCollectionViewCell.xib */,
 				BCA59EFF287892F400B63808 /* ProductCollectionViewCellOLD.xib */,
 				BCAA8F612875F380000B8434 /* ProductCollectionViewCell.swift */,
+				1E007AD82879918400F6C1F9 /* FavouriteActionProductScreen.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				1EB09CCF2873BFD8004C6D04 /* ProductInfoViewController.swift in Sources */,
 				1EA86614286FEB8A00BDB2A9 /* ViewController.swift in Sources */,
 				1EDD78982871075C00E47EC0 /* Customer.swift in Sources */,
+				1E007AD92879918400F6C1F9 /* FavouriteActionProductScreen.swift in Sources */,
 				1EDDC252287752DA00A5A2A8 /* SplashScreenViewController.swift in Sources */,
 				1EA86610286FEB8A00BDB2A9 /* AppDelegate.swift in Sources */,
 				1EC6C5BB28713B4A008B33DA /* LoginViewController.swift in Sources */,

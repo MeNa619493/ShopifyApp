@@ -7,21 +7,44 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProductCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var productImage: UIImageView!
-    
-    @IBAction func favoriteProduct(_ sender: Any) {
-    }
-    
     @IBOutlet weak var productPrice: UILabel!
-    
-
+    var isFavourite: Bool?
+    var product: Product?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var productsView: FavouriteActionProductScreen?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
+    func configureCell(product: Product, isFavourite: Bool) {
+        let imgLink = (product.image.src)
+        let url = URL(string: imgLink)
+        productImage.kf.setImage(with: url)
+        productPrice.text = product.varients?[0].price
+        if isFavourite {
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+        self.product = product
+        self.isFavourite = isFavourite
+    }
+    
+    @IBAction func favoriteProduct(_ sender: Any) {
+        if isFavourite! {
+            productsView?.deleteFavourite(appDelegate: appDelegate, product: product!)
+            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        } else {
+            productsView?.addFavourite(appDelegate: appDelegate, product: product!)
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+        isFavourite = !isFavourite!
+    }
 }

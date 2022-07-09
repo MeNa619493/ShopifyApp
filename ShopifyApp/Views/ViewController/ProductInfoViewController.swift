@@ -45,14 +45,23 @@ class ProductInfoViewController: UIViewController {
             self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         }
         
+        let queue = DispatchQueue(label: "io.queue", attributes: .concurrent)
+        
         productInfoViewModel = ProductInfoViewModel()
-        productInfoViewModel?.getProduct(endPoint: "products/7730623709398.json")
+        productInfoViewModel?.getProduct(endPoint: "products/\(productId ?? 7730623709398).json")
         productInfoViewModel?.bindingData = { product, error in
             if let product = product {
                 self.product = product
-                DispatchQueue.main.async {
+                
+                queue.sync {
                     self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product)
+                }
+                
+                queue.sync {
                     self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product)
+                }
+                
+                DispatchQueue.main.async {
                     self.setupView()
                     self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 }
@@ -122,8 +131,6 @@ class ProductInfoViewController: UIViewController {
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
 }
 
 extension ProductInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{

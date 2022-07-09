@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,17 +29,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZw-2Y-NW7">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZw-2Y-NW7">
                         <rect key="frame" x="81" y="99" width="27" height="20"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                        <state key="normal" image="heart" catalog="system"/>
                         <connections>
                             <action selector="favoriteProduct:" destination="gTV-IL-0wX" eventType="touchUpInside" id="m1D-bT-cfA"/>
                         </connections>
                     </button>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="Fw3-8g-WS6" firstAttribute="top" secondItem="eGU-Lh-Nzb" secondAttribute="bottom" constant="2" id="4rK-vY-wwC"/>
                 <constraint firstItem="kZw-2Y-NW7" firstAttribute="bottom" secondItem="Fw3-8g-WS6" secondAttribute="bottom" id="5rv-8I-F7S"/>
@@ -55,8 +52,10 @@
                 <constraint firstItem="eGU-Lh-Nzb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wWs-ZI-iIL"/>
                 <constraint firstItem="Fw3-8g-WS6" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="xe5-t5-u2L"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="322" height="337"/>
             <connections>
+                <outlet property="favoriteButton" destination="kZw-2Y-NW7" id="X8m-nU-3mY"/>
                 <outlet property="productImage" destination="eGU-Lh-Nzb" id="9RS-ki-JSN"/>
                 <outlet property="productPrice" destination="Fw3-8g-WS6" id="A98-Ds-xG4"/>
             </connections>
@@ -64,6 +63,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart" catalog="system" width="64" height="54"/>
     </resources>
 </document>
