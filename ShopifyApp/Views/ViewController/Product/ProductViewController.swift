@@ -7,93 +7,96 @@
 //
 
 import UIKit
-import Kingfisher
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-  
-    @IBAction func backButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     //ProductCellID
     var brandTitle = ""
-    var productsArray = [Product](){
-        didSet{
-            print("the count is \(productsArray.count)")
-        }
-    }
-    var filteredProductsArray = [Product](){
-        didSet{
-            print("the filtered products count is \(filteredProductsArray.count)")
+    var productsArray = [Product]()
+    var productsViewModel: ProductsViewModel?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    @IBOutlet weak var ProductsCollectionView: UICollectionView!{
+        didSet {
+                ProductsCollectionView.delegate = self
+                ProductsCollectionView.dataSource = self
         }
     }
     
-    @IBOutlet weak var ProductsCollectionView: UICollectionView!{
-        didSet {ProductsCollectionView.delegate = self
-                ProductsCollectionView.dataSource = self}}
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
     
     override func viewDidLoad() {
-            super.viewDidLoad()
-            
-          let productsViewModel = ProductsViewModel()
-            productsViewModel.fetchProducts(endPoint: "products.json")
-        productsViewModel.bindingData = { [self] products, error in
+        super.viewDidLoad()
+
+        registerNibFile()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        productsViewModel = ProductsViewModel()
+        productsViewModel?.fetchProducts(endPoint: "products.json", brandTitle: brandTitle)
+        productsViewModel?.bindingData = { [self] products, error in
                 if let products = products {
-                self.productsArray = products
-                    
-                    for index in 0..<self.productsArray.count{
-                        if self.brandTitle == self.productsArray[index].vendor{
-                            self.filteredProductsArray.append(self.productsArray[index])}}
-                    
+                    self.productsArray = products
                     DispatchQueue.main.async {
                         self.ProductsCollectionView.reloadData()
                     }
                 }
+            
                 if let error = error {
                     print(error.localizedDescription)
                 }
             }
-
-        ProductsCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCellID")
-                        // Do any additional setup after loading the view.
-        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func registerNibFile() {
+        ProductsCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCellID")
     }
-    */
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            print("the number of filtered products array items is \(filteredProductsArray.count)")
-            return filteredProductsArray.count
+            return productsArray.count
     }
 
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = ProductsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCellID", for: indexPath) as! ProductCollectionViewCell
-        var imgLink = (filteredProductsArray[indexPath.row].image.src)
-        var url = URL(string: imgLink)
-        cell.productImage.kf.setImage(with: url)
-        cell.productPrice.text = filteredProductsArray[indexPath.row].varients?[0].price
-//        cell.productName.text = filteredProductsArray[indexPath.row].title
+        cell.productsView = self
+        let isFavorite = productsViewModel!.getProductsInFavourites(appDelegate: appDelegate, product: productsArray[indexPath.row])
+        cell.configureCell(product: productsArray[indexPath.row], isFavourite: isFavorite)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let productInfoVC = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "MProductInfoVC") as! ProductInfoViewController
+        productInfoVC.productId = productsArray[indexPath.row].id
         productInfoVC.modalPresentationStyle = .fullScreen
-            self.present(productInfoVC, animated: true, completion: nil)
-           
-        }
+        self.present(productInfoVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProductViewController: FavouriteActionProductScreen {
+    func addFavourite(appDelegate: AppDelegate, product: Product) {
+        productsViewModel?.addFavourite(appDelegate: appDelegate, product: product)
+    }
+    
+    func deleteFavourite(appDelegate: AppDelegate, product: Product) {
+        productsViewModel?.deleteFavourite(appDelegate: appDelegate, product: product)
+    }
+}
+
+extension ProductViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        productsViewModel?.search(searchInput: searchText)
+    }
 }
 
  

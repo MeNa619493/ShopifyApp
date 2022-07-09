@@ -48,7 +48,7 @@ class ProductInfoViewController: UIViewController {
         let queue = DispatchQueue(label: "io.queue", attributes: .concurrent)
         
         productInfoViewModel = ProductInfoViewModel()
-        productInfoViewModel?.getProduct(endPoint: "products/7730623709398.json")
+        productInfoViewModel?.getProduct(endPoint: "products/\(productId ?? 7730623709398).json")
         productInfoViewModel?.bindingData = { product, error in
             if let product = product {
                 self.product = product

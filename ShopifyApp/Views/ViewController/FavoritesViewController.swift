@@ -23,7 +23,6 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         if UserDefaultsManager.shared.getUserStatus() {
             self.getFavoritesFromCoreData()
         }
@@ -52,8 +51,6 @@ class FavoritesViewController: UIViewController {
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
 }
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource{
