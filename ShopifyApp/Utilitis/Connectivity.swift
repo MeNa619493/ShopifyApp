@@ -14,7 +14,7 @@ class Connectivity {
     
     private init(){}
     
-    class var isConnectedToInternet:Bool {
+    func isConnectedToInternet() -> Bool {
         return NetworkReachabilityManager()!.isReachable
     }
 }

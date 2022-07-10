@@ -37,6 +37,11 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        guard Connectivity.shared.isConnectedToInternet() else {
+            self.showAlertForInterNetConnection()
+            return
+        }
+        
         productsViewModel = ProductsViewModel()
         productsViewModel?.fetchProducts(endPoint: "products.json", brandTitle: brandTitle)
         productsViewModel?.bindingData = { [self] products, error in
