@@ -18,11 +18,11 @@ extension UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showAlert(title:String, message:String, complition:@escaping (Bool)->Void) {
+    func showAlert(title:String, message:String, complition:@escaping ()->Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okButton = UIAlertAction(title: "OK", style: .destructive) { _ in
-            complition(true)
+            complition()
         }
         alert.addAction(cancelButton)
         alert.addAction(okButton)

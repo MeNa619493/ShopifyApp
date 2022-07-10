@@ -41,6 +41,11 @@ class ProductInfoViewController: UIViewController {
         super.viewDidLoad()
         registerNibFile()
         
+        guard Connectivity.shared.isConnectedToInternet() else {
+            self.showAlertForInterNetConnection()
+            return
+        }
+        
         DispatchQueue.main.async {
             self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         }

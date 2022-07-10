@@ -24,11 +24,18 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibFile()
+        
         favoritesViewModel = FavoritesViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        guard Connectivity.shared.isConnectedToInternet() else {
+            self.showAlertForInterNetConnection()
+            return
+        }
+        
         //should get user id from user defaults and use it here
         favoritesViewModel?.bindingData = { favourites, error in
             if let favourites = favourites {

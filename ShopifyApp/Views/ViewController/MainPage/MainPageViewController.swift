@@ -38,6 +38,12 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerNibFiles()
+        
+        guard Connectivity.shared.isConnectedToInternet() else {
+            self.showAlertForInterNetConnection()
+            return
+        }
         
         brandsViewModel = BrandsViewModel()
         brandsViewModel?.fetchData()
@@ -55,6 +61,10 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
             }
         }
 
+        
+    }
+    
+    func registerNibFiles() {
         adsCollectionView.register(UINib(nibName: "AdsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AdsCellID")
         
         brandsCollectionView.register(UINib(nibName: "BrandsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "brandsCellID")
