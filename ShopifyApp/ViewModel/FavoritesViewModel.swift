@@ -9,36 +9,39 @@
 import Foundation
 
 class FavoritesViewModel {
-//    var favoritesArray: [Favorites]? {
-//        didSet {
-//            bindingData(favoritesArray,nil)
-//        }
-//    }
-//
-//    var error: Error? {
-//        didSet {
-//            bindingData(nil, error)
-//        }
-//    }
-//
-//    let DatabaseService: CoredataService
-//    var bindingData: (([Favorites]?,Error?) -> Void) = {_, _ in }
-//
-//    init(DatabaseService: CoredataService = DatabaseManager()) {
-//        self.DatabaseService = DatabaseService
-//    }
-//
-//    func fetchfavorites(appDelegate: AppDelegate) {
-//        DatabaseService.fetchfavorites(AppDelegate: appDelegate) { favorites, error in
-//
-//            if let favorites = favorites {
-//                self.favoritesArray = favorites
-//            }
-//
-//            if let error = error {
-//                self.error = error
-//            }
-//        }
-//    }
+    var favoritesArray: [Product]? {
+        didSet {
+            bindingData(favoritesArray, nil)
+        }
+    }
+
+    var error: Error? {
+        didSet {
+            bindingData(nil, error)
+        }
+    }
+
+    let databaseService: DatabaseService
+    var bindingData: (([Product]?,Error?) -> Void) = {_, _ in }
+
+    init(databaseService: DatabaseService = DatabaseManager()) {
+        self.databaseService = databaseService
+    }
+
+    func fetchfavorites(appDelegate: AppDelegate, userId: Int) {
+        databaseService.getFavourites(appDelegate: appDelegate, userId: userId) { favorites, error in
+
+            if let favorites = favorites {
+                self.favoritesArray = favorites
+            }
+
+            if let error = error {
+                self.error = error
+            }
+        }
+    }
     
+    func deleteFavourite(appDelegate: AppDelegate, product: Product){
+        databaseService.deleteFavourite(appDelegate: appDelegate, product: product)
+    }
 }

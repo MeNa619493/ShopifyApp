@@ -20,7 +20,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Favorites" id="KqB-2s-WtG">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="OJo-fF-emt"/>
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="OJo-fF-emt">
+                                            <connections>
+                                                <action selector="onBackButtonPressed:" destination="mFG-rN-nKo" id="fkE-jV-gBd"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

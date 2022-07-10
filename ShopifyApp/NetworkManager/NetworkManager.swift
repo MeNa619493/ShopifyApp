@@ -29,7 +29,6 @@ class NetworkManager: ApiService {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print(response)
             completion(data, response, error)
         }.resume()
     }
@@ -55,4 +54,58 @@ class NetworkManager: ApiService {
                 print("customer retreived")
         }
     }
+    
+    func getProduct(endPoint: String, complition: @escaping (Product?, Error?)->Void) {
+        let urlStr = UrlServices(endPoint: endPoint).url
+        guard let url = URL(string: urlStr) else { return }
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { response in
+            if let data = response.data {
+                let decodedJson: Model = convertFromJson(data: data) ?? Model(product: Product(id: 0, title: "", description: "", vendor: nil, productType: nil, images: [], options: nil, varients: nil, image: ProductImage(id: 0, productID: 0, position: 0, width: 0, height: 0, src: "", graphQlID: "")))
+                print(decodedJson.product)
+                complition(decodedJson.product, nil)
+                print("Product retreived")
+            }
+            
+            if let error = response.error {
+                complition(nil, error)
+            }
+        }
+    }
+    
+    func fetchBrands(completion: @escaping (([SmartCollection]?, Error?) -> Void)) {
+        if let  url = URL(string: UrlServices(endPoint: EndPoint.smartCollections.rawValue).url) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    print("data is here")
+                    guard let decodedData : Brands = try? convertFromJson(data: data) else{ return}
+                    completion(decodedData.smartCollections,nil)
+                }
+                if let error = error {
+                   completion(nil, error)
+                }
+            }.resume()
+        }
+
+    }
+    
+    func fetchProducts(endPoint: String, completion: @escaping (([Product]?, Error?) -> Void)) {
+        if let  url = URL(string: UrlServices(endPoint: endPoint).url) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    print("product data is here")
+                    guard let decodedData : AllProducts = try? convertFromJson(data: data) else{ return}
+                    completion(decodedData.products,nil)
+                }
+                if let error = error {
+                   completion(nil, error)
+                }
+            }.resume()
+        }
+
+    }
+
+    
 }
+
+

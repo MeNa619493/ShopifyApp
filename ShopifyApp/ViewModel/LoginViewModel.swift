@@ -10,7 +10,6 @@ import Foundation
 
 class LoginViewModel {
     let networkManager: ApiService?
-    let userDefaults = UserDefaultsManager()
        
     init(networkManager: ApiService) {
         self.networkManager = networkManager
@@ -42,9 +41,9 @@ class LoginViewModel {
         guard let userFirstName = customer.first_name else {return}
         guard let userEmail = customer.email  else {return}
 
-        self.userDefaults.setUserID(customerID: customerID)
-        self.userDefaults.setUserName(userName: userFirstName)
-        self.userDefaults.setUserEmail(userEmail: userEmail)
+        UserDefaultsManager.shared.setUserID(customerID: customerID)
+        UserDefaultsManager.shared.setUserName(userName: userFirstName)
+        UserDefaultsManager.shared.setUserEmail(userEmail: userEmail)
     }
     
 }

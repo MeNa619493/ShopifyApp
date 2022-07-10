@@ -10,6 +10,12 @@ import Foundation
 
 class UserDefaultsManager{
     
+    static let shared = UserDefaultsManager()
+    
+    private init() {
+        
+    }
+    
     func setUserID(customerID: Int?){
         UserDefaults.standard.set(customerID, forKey: "User_ID")
     }
