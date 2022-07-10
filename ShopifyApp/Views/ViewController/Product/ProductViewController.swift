@@ -81,6 +81,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    
 }
 
 extension ProductViewController: FavouriteActionProductScreen {

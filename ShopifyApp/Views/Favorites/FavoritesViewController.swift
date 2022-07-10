@@ -18,34 +18,34 @@ class FavoritesViewController: UIViewController {
     }
     
     var favoritesArray = [Product]()
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var favoritesViewModel: FavoritesViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerNibFile()
         
-        if UserDefaultsManager.shared.getUserStatus() {
-            self.getFavoritesFromCoreData()
-        }
-    }
-    
-    func getFavoritesFromCoreData(){
-        let favoritesViewModel = FavoritesViewModel()
-        
-        favoritesViewModel.fetchfavorites(appDelegate: appDelegate, userId: UserDefaultsManager.shared.getUserID() ?? 0)
-        
-        favoritesViewModel.bindingData = { favorites, error in
-            if let favorites = favorites {
-                self.favoritesArray = favorites
-
+        favoritesViewModel = FavoritesViewModel()
+        //should get user id from user defaults and use it here
+        favoritesViewModel?.bindingData = { favourites, error in
+            if let favourites = favourites {
+                self.favoritesArray = favourites
                 DispatchQueue.main.async {
                     self.favoritesCollectionView.reloadData()
                 }
             }
-
+            
             if let error = error {
-                print(error.localizedDescription)
+                print(error)
             }
         }
+        favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: 0)
+        
+    }
+    
+    func registerNibFile() {
+        favoritesCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCellID")
     }
     
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
@@ -59,7 +59,17 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "identifier", for: indexPath) 
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCellID", for: indexPath) as! ProductCollectionViewCell
+        cell.favouritesView = self
+        cell.configureCell(product: favoritesArray[indexPath.row], isFavourite: true, isInFavouriteScreen: true)
         return cell
+    }
+}
+
+extension FavoritesViewController: FavoriteActionFavoritesScreen {
+    func deleteFavourite(appDelegate: AppDelegate, product: Product) {
+        favoritesViewModel?.deleteFavourite(appDelegate: appDelegate, product: product)
+        favoritesArray = favoritesArray.filter { $0.id != product.id }
+        favoritesCollectionView.reloadData()
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 class FavoritesViewModel {
     var favoritesArray: [Product]? {
         didSet {
-            bindingData(favoritesArray,nil)
+            bindingData(favoritesArray, nil)
         }
     }
 
@@ -32,6 +32,7 @@ class FavoritesViewModel {
         databaseService.getFavourites(appDelegate: appDelegate, userId: userId) { favorites, error in
 
             if let favorites = favorites {
+                print(favorites.count)
                 self.favoritesArray = favorites
             }
 
@@ -41,4 +42,7 @@ class FavoritesViewModel {
         }
     }
     
+    func deleteFavourite(appDelegate: AppDelegate, product: Product){
+        databaseService.deleteFavourite(appDelegate: appDelegate, product: product)
+    }
 }

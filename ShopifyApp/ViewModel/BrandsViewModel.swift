@@ -13,7 +13,7 @@ class BrandsViewModel {
     
     var brandsArray: [SmartCollection]? {
         didSet {
-            bindingData(brandsArray,nil)
+            bindingData(brandsArray, nil)
         }
     }
     

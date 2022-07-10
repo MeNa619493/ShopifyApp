@@ -11,7 +11,7 @@ import Foundation
 class ProductInfoViewModel {
     var product: Product? {
         didSet {
-            bindingData(product ,nil)
+            bindingData(product, nil)
         }
     }
 

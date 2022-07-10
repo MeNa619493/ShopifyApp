@@ -18,12 +18,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var product: Product?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var productsView: FavouriteActionProductScreen?
+    var favouritesView: FavoriteActionFavoritesScreen?
+    var isInFavouriteScreen: Bool?
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func configureCell(product: Product, isFavourite: Bool) {
+    func configureCell(product: Product, isFavourite: Bool, isInFavouriteScreen: Bool = false) {
         let imgLink = (product.image.src)
         let url = URL(string: imgLink)
         productImage.kf.setImage(with: url)
@@ -35,9 +37,18 @@ class ProductCollectionViewCell: UICollectionViewCell {
         }
         self.product = product
         self.isFavourite = isFavourite
+        self.isInFavouriteScreen = isInFavouriteScreen
     }
     
     @IBAction func favoriteProduct(_ sender: Any) {
+        if isInFavouriteScreen! {
+            actionTakenInCellInFavouritesView()
+        } else {
+            actionTakenInCellInProductsView()
+        }
+    }
+    
+    func actionTakenInCellInProductsView() {
         if isFavourite! {
             productsView?.deleteFavourite(appDelegate: appDelegate, product: product!)
             favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -47,4 +58,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
         }
         isFavourite = !isFavourite!
     }
+    
+    func actionTakenInCellInFavouritesView() {
+        favouritesView?.deleteFavourite(appDelegate: appDelegate, product: product!)
+    }
+    
 }

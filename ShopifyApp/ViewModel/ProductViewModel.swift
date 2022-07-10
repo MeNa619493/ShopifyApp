@@ -68,11 +68,11 @@ class ProductsViewModel {
         return isFavourite
     }
     
-     func addFavourite (appDelegate: AppDelegate, product: Product){
+     func addFavourite(appDelegate: AppDelegate, product: Product){
          databaseService.addFavourite(appDelegate: appDelegate, product: product)
      }
     
-     func deleteFavourite (appDelegate: AppDelegate, product: Product){
+     func deleteFavourite(appDelegate: AppDelegate, product: Product){
          databaseService.deleteFavourite(appDelegate: appDelegate, product: product)
      }
     
