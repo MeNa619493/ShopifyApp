@@ -45,7 +45,7 @@ class ProductInfoViewController: UIViewController {
             self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         }
         
-        let queue = DispatchQueue(label: "io.queue", attributes: .concurrent)
+        let group = DispatchGroup()
         
         productInfoViewModel = ProductInfoViewModel()
         productInfoViewModel?.getProduct(endPoint: "products/\(productId ?? 7730623709398).json")
@@ -53,15 +53,14 @@ class ProductInfoViewController: UIViewController {
             if let product = product {
                 self.product = product
                 
-                queue.sync {
-                    self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product)
-                }
+                group.enter()
+                self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product)
+                group.leave()
+                group.enter()
+                self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product)
+                group.leave()
                 
-                queue.sync {
-                    self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product)
-                }
-                
-                DispatchQueue.main.async {
+                group.notify(queue: .main) {
                     self.setupView()
                     self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 }
