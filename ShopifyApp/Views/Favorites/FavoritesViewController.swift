@@ -18,15 +18,17 @@ class FavoritesViewController: UIViewController {
     }
     
     var favoritesArray = [Product]()
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var favoritesViewModel: FavoritesViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibFile()
-        
         favoritesViewModel = FavoritesViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         //should get user id from user defaults and use it here
         favoritesViewModel?.bindingData = { favourites, error in
             if let favourites = favourites {
@@ -41,7 +43,6 @@ class FavoritesViewController: UIViewController {
             }
         }
         favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: 0)
-        
     }
     
     func registerNibFile() {
@@ -63,6 +64,13 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.favouritesView = self
         cell.configureCell(product: favoritesArray[indexPath.row], isFavourite: true, isInFavouriteScreen: true)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productInfoVC = UIStoryboard(name: Storyboards.productInfo.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.productInfo.rawValue) as! ProductInfoViewController
+        productInfoVC.productId = favoritesArray[indexPath.row].id
+        productInfoVC.modalPresentationStyle = .fullScreen
+        self.present(productInfoVC, animated: true, completion: nil)
     }
 }
 

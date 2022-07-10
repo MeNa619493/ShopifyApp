@@ -32,7 +32,6 @@ class FavoritesViewModel {
         databaseService.getFavourites(appDelegate: appDelegate, userId: userId) { favorites, error in
 
             if let favorites = favorites {
-                print(favorites.count)
                 self.favoritesArray = favorites
             }
 
