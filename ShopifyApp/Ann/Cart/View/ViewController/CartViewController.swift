@@ -12,6 +12,8 @@ class CartViewController: UIViewController {
     
     @IBOutlet weak var cartTableView: UITableView!
     
+    var totalPrice: Double?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,66 @@ class CartViewController: UIViewController {
     
 }
 
+extension CartViewController {
+    
+    // to get events data from server
+//    private func getData() {
+//        
+//        let url = "https://ios-q3-mansoura.myshopify.com/admin/api/2022-01/carts.json"
+//        
+//        guard let endPoint = URL(string: url) else { return }
+//        
+//        
+//        let task = URLSession.shared.dataTask(with: endPoint) { data, response, error in
+//                    if let error = error {
+//                        
+//                        print(error)
+//                        
+//                        return
+//                    }
+//                    
+//                    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                        
+//                        print("invalid url")
+//                        
+//                        return
+//                    }
+//                    
+//                    guard let data = data else{
+//                        
+//                        print("invalid data")
+//                        
+//                        return
+//                    }
+//                    
+//                    do {
+//                        
+//                        let decoder = JSONDecoder()
+//                        decoder.keyDecodingStrategy = .convertFromSnakeCase
+//                        let events = try decoder.decode(EventsModel.self, from: data)
+//                        print(events)
+//                        
+//                        self.eventsData = events.events ?? []
+//                        print("league Data model : \(self.eventsData)")
+//                        
+//                        DispatchQueue.main.async { [weak self] in
+//                            guard let self = self else  { return }
+//                            self.detailsTableView.reloadData()
+//                        }
+//                        
+//                        
+//                    } catch {
+//                        
+//                        print(error)
+//                        
+//                    }
+//                }
+//                task.resume()
+//        
+//    }
+    
+}
+
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,11 +116,52 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
             
             guard let cell = cartTableView.dequeueReusableCell(withIdentifier: "CartProductTableViewCell", for: indexPath) as? CartProductTableViewCell else { return UITableViewCell() }
             
+            cell.MinusTapped = { [weak self] in
+                guard let self = self else { return }
+                
+                // to calculate time
+                let dispatchAfter = DispatchTimeInterval.seconds(Int(1))  //0.1
+                //To call or execute function after some time(After sec)
+                DispatchQueue.main.asyncAfter(deadline: .now() + dispatchAfter) { [weak self] in
+                    guard let self = self else { return }
+                    
+                    if  (Int(cell.countLabelOutlet.text ?? "0") ?? 0) != 1 {
+                        cell.countLabelOutlet.text = String((Int(cell.countLabelOutlet.text ?? "0") ?? 0) - 1)
+                        
+                        // call function => send quantity to server
+                        
+                    }
+                    
+                }
+                
+            }
+            
+            cell.plusTapped = { [weak self] in
+                guard let self = self else { return }
+                
+                // to calculate time
+                let dispatchAfter = DispatchTimeInterval.seconds(Int(1)) //0.1
+                //To call or execute function after some time(After sec)
+                DispatchQueue.main.asyncAfter(deadline: .now() + dispatchAfter) { [weak self] in
+                    guard let self = self else { return }
+                    
+                    cell.countLabelOutlet.text = String((Int(cell.countLabelOutlet.text ?? "0") ?? 0) + 1)
+                    
+                }
+                
+            }
+            
             return cell
             
         }else if indexPath.section == 1 {
             
             guard let cell = cartTableView.dequeueReusableCell(withIdentifier: "SubTotalTableViewCell", for: indexPath) as? SubTotalTableViewCell else { return UITableViewCell() }
+            
+//            let item = CartModel[indexPath.row]
+//
+//            let totalPrice = item.map { Int($0.price ?? 0 * $0.quantity) }.reduce(0, +)
+//
+//            cell.textLabel?.text = "\(totalPrice)"
             
             return cell
             
@@ -70,8 +173,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 guard let self = self else { return }
                 
-                let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+                let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AddressesViewController") as! AddressesViewController
                 VC.modalPresentationStyle = .fullScreen
+                VC.totalPrice = self.totalPrice
                 self.present(VC, animated: false, completion: nil)
                 
             }

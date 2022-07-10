@@ -9,7 +9,17 @@
 import UIKit
 
 class CartProductTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var productImageOutlet: UIImageView!
+    @IBOutlet weak var titleLabelOutlet: UILabel!
+    @IBOutlet weak var priceLabelOutlet: PaddingLabel!
+    @IBOutlet weak var minusButtonOutlet: UIButton!
+    @IBOutlet weak var plusButtonOutlet: UIButton!
+    @IBOutlet weak var countLabelOutlet: UILabel!
+    
+    var MinusTapped: (() -> Void)?
+    var plusTapped: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +30,14 @@ class CartProductTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func minusButtonAction(_ sender: Any) {
+        MinusTapped?()
+    }
+    
+    @IBAction func plusButtonAction(_ sender: Any) {
+        plusTapped?()
     }
     
 }

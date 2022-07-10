@@ -87,6 +87,9 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="minusButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5fv-uI-sAU"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-Eb-Cdu">
                                         <rect key="frame" x="30" y="7.5" width="20" height="25"/>
@@ -119,6 +122,9 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="plusButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FDG-Me-y1Q"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -174,6 +180,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="countLabelOutlet" destination="1ah-Eb-Cdu" id="KGl-JO-407"/>
+                <outlet property="minusButtonOutlet" destination="RcY-3c-Eqw" id="URx-i5-p7j"/>
+                <outlet property="plusButtonOutlet" destination="TP8-cO-fit" id="LWY-tf-V5j"/>
+                <outlet property="priceLabelOutlet" destination="fGh-OR-7eL" id="om1-hl-qre"/>
+                <outlet property="productImageOutlet" destination="GLV-sR-wvB" id="ngK-ew-ki2"/>
+                <outlet property="titleLabelOutlet" destination="uz3-kD-hf9" id="mgD-Al-gsS"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
         </tableViewCell>
     </objects>
