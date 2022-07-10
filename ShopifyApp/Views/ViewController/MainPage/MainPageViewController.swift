@@ -58,7 +58,6 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
         adsCollectionView.register(UINib(nibName: "AdsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AdsCellID")
         
         brandsCollectionView.register(UINib(nibName: "BrandsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "brandsCellID")
-        
     }
     
     
@@ -98,10 +97,15 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
             self.present(productVC, animated: true, completion: nil)
             print("The brand title is \(BrandsArray[indexPath.row].title)")
         }
-
-        }
-           
     }
+    
+    
+    @IBAction func onFavouritesButton(_ sender: Any) {
+        let vc = UIStoryboard(name: Storyboards.favourites.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.favourites.rawValue) as! FavoritesViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+}
 
 extension MainPageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
