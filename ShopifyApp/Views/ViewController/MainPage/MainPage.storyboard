@@ -193,7 +193,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-cc-82w">
                                         <rect key="frame" x="0.0" y="0.0" width="86" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="women"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Women"/>
                                         <connections>
                                             <action selector="women:" destination="lOe-as-rBn" eventType="touchUpInside" id="SUC-Io-wKp"/>
                                         </connections>
@@ -201,7 +201,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pD-zJ-vWI">
                                         <rect key="frame" x="96" y="0.0" width="86" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="men"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Men"/>
                                         <connections>
                                             <action selector="men:" destination="lOe-as-rBn" eventType="touchUpInside" id="ne7-Ih-C9B"/>
                                         </connections>
@@ -209,7 +209,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-QX-aHU">
                                         <rect key="frame" x="192" y="0.0" width="86" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="kids"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Kds"/>
                                         <connections>
                                             <action selector="kids:" destination="lOe-as-rBn" eventType="touchUpInside" id="Nvo-cN-fyZ"/>
                                         </connections>
@@ -217,7 +217,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-7t-x4m">
                                         <rect key="frame" x="288" y="0.0" width="86" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="sale"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sale"/>
                                         <connections>
                                             <action selector="sale:" destination="lOe-as-rBn" eventType="touchUpInside" id="GlN-hm-uZy"/>
                                         </connections>
