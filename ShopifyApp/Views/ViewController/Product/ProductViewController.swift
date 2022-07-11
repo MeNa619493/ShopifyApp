@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -15,6 +16,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     var productsArray = [Product]()
     var productsViewModel: ProductsViewModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     @IBOutlet weak var ProductsCollectionView: UICollectionView!{
         didSet {
                 ProductsCollectionView.delegate = self
@@ -42,6 +44,10 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             return
         }
         
+        DispatchQueue.main.async {
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
+        }
+        
         productsViewModel = ProductsViewModel()
         productsViewModel?.fetchProducts(endPoint: "products.json", brandTitle: brandTitle)
         productsViewModel?.bindingData = { [self] products, error in
@@ -49,11 +55,13 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
                     self.productsArray = products
                     DispatchQueue.main.async {
                         self.ProductsCollectionView.reloadData()
+                        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                     }
                 }
             
                 if let error = error {
                     print(error.localizedDescription)
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 }
             }
     }

@@ -73,6 +73,7 @@ class ProductInfoViewController: UIViewController {
                 
             if let error = error {
                 print(error.localizedDescription)
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
         
