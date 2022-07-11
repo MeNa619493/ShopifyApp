@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class FavoritesViewController: UIViewController {
 
@@ -20,6 +21,7 @@ class FavoritesViewController: UIViewController {
     var favoritesArray = [Product]()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var favoritesViewModel: FavoritesViewModel?
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,17 +38,23 @@ class FavoritesViewController: UIViewController {
             return
         }
         
+        DispatchQueue.main.async {
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
+        }
+        
         //should get user id from user defaults and use it here
         favoritesViewModel?.bindingData = { favourites, error in
             if let favourites = favourites {
                 self.favoritesArray = favourites
                 DispatchQueue.main.async {
                     self.favoritesCollectionView.reloadData()
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 }
             }
             
             if let error = error {
-                print(error)
+                print(error.localizedDescription)
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
         favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: 0)

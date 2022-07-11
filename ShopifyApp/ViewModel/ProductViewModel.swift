@@ -54,12 +54,12 @@ class ProductsViewModel {
         var productsArray = [Product]()
         var isFavourite: Bool = false
         //should change user id and get it from user defaults
-        databaseService.getFavourites(appDelegate: appDelegate, userId: product.userID , complition: { (products, error) in
+        databaseService.getItemFromFavourites(appDelegate: appDelegate, product: product, complition: { (products, error) in
             if let products = products {
                 productsArray = products
             }
         })
-        
+
         for item in productsArray {
             if item.id == product.id {
                 isFavourite = true
@@ -68,13 +68,13 @@ class ProductsViewModel {
         return isFavourite
     }
     
-     func addFavourite(appDelegate: AppDelegate, product: Product){
+    func addFavourite(appDelegate: AppDelegate, product: Product){
          databaseService.addFavourite(appDelegate: appDelegate, product: product)
-     }
+    }
     
-     func deleteFavourite(appDelegate: AppDelegate, product: Product){
+    func deleteFavourite(appDelegate: AppDelegate, product: Product){
          databaseService.deleteFavourite(appDelegate: appDelegate, product: product)
-     }
+    }
     
     func search(searchInput: String) {
         if searchInput.isEmpty {
