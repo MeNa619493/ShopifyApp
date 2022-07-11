@@ -38,13 +38,12 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
               super.viewDidLoad()
              
               // MARK: - FETCHING PRODUCTS DATA
-          let productsViewModel = ProductsViewModel()
-            productsViewModel.fetchProducts(endPoint: "products.json")
-            productsViewModel.bindingData = { [self] products, error in
+          let categoriesViewModel = CategoriesViewModel()
+          categoriesViewModel.fetchProducts(endPoint: "products.json")
+          categoriesViewModel.bindingData = { [self] products, error in
                 if let products = products{
                 self.productsArray = products
 //                    self.shownProductsArray = products
-                    
                     for item in productsArray{
                         if item.tags!.contains("women"){
                             self.shownProductsArray.append(item)
