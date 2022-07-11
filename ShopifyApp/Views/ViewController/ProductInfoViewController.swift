@@ -41,18 +41,31 @@ class ProductInfoViewController: UIViewController {
         super.viewDidLoad()
         registerNibFile()
         
+        guard Connectivity.shared.isConnectedToInternet() else {
+            self.showAlertForInterNetConnection()
+            return
+        }
+        
         DispatchQueue.main.async {
             self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         }
         
+        let group = DispatchGroup()
+        
         productInfoViewModel = ProductInfoViewModel()
-        productInfoViewModel?.getProduct(endPoint: "products/7730623709398.json")
+        productInfoViewModel?.getProduct(endPoint: "products/\(productId ?? 7730623709398).json")
         productInfoViewModel?.bindingData = { product, error in
             if let product = product {
                 self.product = product
-                DispatchQueue.main.async {
-                    self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product)
-                    self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product)
+                
+                group.enter()
+                self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product)
+                group.leave()
+                group.enter()
+                self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product)
+                group.leave()
+                
+                group.notify(queue: .main) {
                     self.setupView()
                     self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 }
@@ -60,6 +73,7 @@ class ProductInfoViewController: UIViewController {
                 
             if let error = error {
                 print(error.localizedDescription)
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
         
@@ -122,8 +136,6 @@ class ProductInfoViewController: UIViewController {
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
 }
 
 extension ProductInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
