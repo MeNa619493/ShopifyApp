@@ -27,7 +27,7 @@ class DatabaseManager: DatabaseService {
                     let quantity = product.value(forKey: "quantity") as! Int
                     let title = product.value(forKey: "title") as! String
                     let imgUrl = product.value(forKey: "imgUrl") as! String
-                    let product = Product(id: id, title: title, description: "", vendor: nil, productType: "", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price,quantity: quantity)], image: ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: ""),count: count, userID: userID)
+                    let product = Product(id: id, title: title, description: "", vendor: nil, productType: "", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price,quantity: quantity)], tags: "", image: ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: ""),count: count, userID: userID)
                     productList.append(product)
                 }
                 complition(productList, nil)
@@ -54,7 +54,7 @@ class DatabaseManager: DatabaseService {
                 let quantity = product.value(forKey: "quantity") as! Int
                 let title = product.value(forKey: "title") as! String
                 let imgUrl = product.value(forKey: "imgUrl") as! String
-                let product = Product(id: id, title: title, description: "", vendor: nil, productType: "", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price,quantity: quantity)], image: ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: ""),count: count, userID: userID)
+                let product = Product(id: id, title: title, description: "", vendor: nil, productType: "", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price,quantity: quantity)], tags: "", image: ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: ""),count: count, userID: userID)
                 productList.append(product)
             }
             complition(productList, nil)
@@ -171,7 +171,7 @@ class DatabaseManager: DatabaseService {
                 let price = product.value(forKey: "price") as! String
                 let title = product.value(forKey: "title") as! String
                 let imgUrl = product.value(forKey: "imgUrl") as! String
-                let product = Product(id: id, title: title, description: "", vendor: nil, productType: "", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price,quantity: 0)], image: ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: ""), count: 0, userID: userID)
+                let product = Product(id: id, title: title, description: "", vendor: nil, productType: "", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price,quantity: 0)], tags: "", image: ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: ""), count: 0, userID: userID)
     
                     favouriteList.append(product)
             }
@@ -196,7 +196,7 @@ class DatabaseManager: DatabaseService {
                 let price = product.value(forKey: "price") as! String
                 let title = product.value(forKey: "title") as! String
                 let imgUrl = product.value(forKey: "imgUrl") as! String
-                let product = Product(id: id, title: title, description: "", vendor: nil, productType: "", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price,quantity: 0)], image: ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: ""), count: 0, userID: userID)
+                let product = Product(id: id, title: title, description: "", vendor: nil, productType: "", images: [ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: "")], options: nil, varients: [Varient(id: id, productID: 0, title: "", price: price,quantity: 0)], tags: "", image: ProductImage(id: id, productID: 1, position: 1, width: 1, height: 1, src: imgUrl, graphQlID: ""), count: 0, userID: userID)
     
                     favouriteList.append(product)
             }

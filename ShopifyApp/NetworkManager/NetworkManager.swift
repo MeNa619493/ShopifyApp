@@ -61,7 +61,7 @@ class NetworkManager: ApiService {
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { response in
             if let data = response.data {
-                let decodedJson: Model = convertFromJson(data: data) ?? Model(product: Product(id: 0, title: "", description: "", vendor: nil, productType: nil, images: [], options: nil, varients: nil, image: ProductImage(id: 0, productID: 0, position: 0, width: 0, height: 0, src: "", graphQlID: "")))
+                let decodedJson: Model = convertFromJson(data: data) ?? Model(product: Product(id: 0, title: "", description: "", vendor: nil, productType: nil, images: [], options: nil, varients: nil, tags: "", image: ProductImage(id: 0, productID: 0, position: 0, width: 0, height: 0, src: "", graphQlID: "")))
                 print(decodedJson.product)
                 complition(decodedJson.product, nil)
                 print("Product retreived")
@@ -104,8 +104,41 @@ class NetworkManager: ApiService {
         }
 
     }
-
     
+    func fetchCollects(endPoint: String, completion: @escaping (([Collect]?, Error?) -> Void)) {
+             if let  url = URL(string: UrlServices(endPoint: endPoint).url) {
+                 URLSession.shared.dataTask(with: url) { data, response, error in
+                     if let data = data {
+                         print("Collections data is here - line 112")
+                         guard let decodedData : Collects = try? JSONDecoder().decode(Collects.self, from: data)
+                         else {return}
+                         completion(decodedData.collects,nil)
+                     }
+                     if let error = error {
+                        completion(nil, error)
+                     }
+                 }.resume()
+             }
+         }
+
 }
 
 
+//func fetchCollects(endPoint: String, completion: @escaping (([Collect]?, Error?) -> Void)) {
+//    if let  url = URL(string: UrlServices(endPoint: endPoint).url) {
+//        URLSession.shared.dataTask(with: url) { data, response, error in
+//            if let data = data {
+//                print("Collections data is here line 122")
+//                let decodedData:[Collect] = convertFromJson(data: data) ?? []
+//                completion(decodedData ,nil)
+//                print("the data is \(data)")
+//            }
+//            if let error = error {
+//               completion(nil, error)
+//                print("ERROR line 121")
+//
+//            }
+//        }.resume()
+//    }
+//
+//}

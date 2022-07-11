@@ -38,13 +38,12 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             
           let productsViewModel = ProductsViewModel()
             productsViewModel.fetchProducts(endPoint: "products.json")
-        productsViewModel.bindingData = { [self] products, error in
+            productsViewModel.bindingData = { [self] products, error in
                 if let products = products {
                 self.productsArray = products
-                    
                     for index in 0..<self.productsArray.count{
                         if self.brandTitle == self.productsArray[index].vendor{
-                            self.filteredProductsArray.append(self.productsArray[index])}}
+                        self.filteredProductsArray.append(self.productsArray[index])}}
                     
                     DispatchQueue.main.async {
                         self.ProductsCollectionView.reloadData()
@@ -56,20 +55,13 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
 
         ProductsCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCellID")
-                        // Do any additional setup after loading the view.
         
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    // MARK: - COLLECTION VIEW FUNCTIONS
+ 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             print("the number of filtered products array items is \(filteredProductsArray.count)")

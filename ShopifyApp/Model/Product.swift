@@ -28,6 +28,7 @@ struct Product: Codable {
     let images: [ProductImage]
     let options: [OptionList]?
     let varients: [Varient]?
+    let tags: String?
     let image: ProductImage
     var count: Int = 0
     var userID: Int = 0
@@ -40,6 +41,7 @@ struct Product: Codable {
             case productType = "product_type"
             case images = "images"
             case options = "options"
+            case tags = "tags"
             case varients = "variants"
             case image = "image"
         }
