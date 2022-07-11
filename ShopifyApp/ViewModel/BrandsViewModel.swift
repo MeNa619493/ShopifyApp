@@ -47,7 +47,7 @@ class BrandsViewModel {
             brandsArray = brandsUnFilteredArray
         } else {
             brandsArray = brandsUnFilteredArray?.filter({ (smartCollection) -> Bool in
-                return smartCollection.title.hasPrefix(searchInput.lowercased()) || smartCollection.title.hasPrefix(searchInput.uppercased())
+                return smartCollection.title.hasPrefix(searchInput.lowercased()) ||      smartCollection.title.hasPrefix(searchInput.uppercased()) || smartCollection.title.contains(searchInput.lowercased()) ||        smartCollection.title.contains(searchInput.uppercased())
             })
         }
     }

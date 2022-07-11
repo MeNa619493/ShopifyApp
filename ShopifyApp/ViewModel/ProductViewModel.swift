@@ -81,7 +81,8 @@ class ProductsViewModel {
             productsArray = filteredArray
         } else {
             productsArray = filteredArray.filter({ (product) -> Bool in
-                return product.title.hasPrefix(searchInput.lowercased()) || product.title.hasPrefix(searchInput.uppercased())
+                return product.title.hasPrefix(searchInput.lowercased()) ||          product.title.hasPrefix(searchInput.uppercased()) ||
+                    product.title.contains(searchInput.lowercased()) ||     product.title.contains(searchInput.uppercased())
             })
         }
     }
