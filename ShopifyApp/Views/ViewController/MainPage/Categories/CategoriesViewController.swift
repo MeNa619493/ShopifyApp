@@ -12,16 +12,19 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     
 
     @IBAction func women(_ sender: Any) {
-        
+        shownProductsArray.removeAll()
         mainCategoryProducts(mainCategory: "women")
     }
     @IBAction func men(_ sender: Any) {
+        shownProductsArray.removeAll()
         mainCategoryProducts(mainCategory: "men")
     }
     @IBAction func kids(_ sender: Any) {
+        shownProductsArray.removeAll()
         mainCategoryProducts(mainCategory: "kid")
     }
     @IBAction func sale(_ sender: Any) {
+        shownProductsArray.removeAll()
         mainCategoryProducts(mainCategory: "sale")
     }
     
@@ -88,7 +91,6 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
               var url = URL(string: imgLink)
               cell.productImage.kf.setImage(with: url)
               cell.productPrice.text = shownProductsArray[indexPath.row].varients?[0].price
-//          print("line 83 - \(shownProductsArray[indexPath.row].tags)")
               return cell
       }
 
@@ -100,57 +102,3 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     
     }
    
-
-
-
-
-
-
-//var collectsArray = [Collect](){
-//        didSet{print("the collects count is \(collectsArray.count)")}}
-//var womenProductIDs = [Int]()
-//    var menProductIDs = [Int]()
-//    var kidsProductIDs = [Int]()
-//    var salesProductIDs = [Int]()
-//    let womenCollectionID = 409147506902
-//    let menCollectionID = 409147474134
-//    let kidsCollectionID = 409147539670
-//    let saleCollectionID = 409147605206
-//    var menProductsArray = [Product]()
-//    var womenProductsArray = [Product]()
-//    var kidsProductsArray = [Product]()
-//    var SaleProductsArray = [Product]()
-
-
-
-// MARK: - FETCHING COLLECTS DATA
-//        let collectsViewModel = CollectsViewModel()
-//          collectsViewModel.fetchCollects(endPoint: "collects.json")
-//          collectsViewModel.bindingData = { [self] collects, error in
-//                  if let collects = collects {
-//                  self.collectsArray = collects
-//                  }
-//                  if let error = error {
-//                      print(error.localizedDescription)
-//                  }
-//              // MARK: - Categorization OF COLLECTS
-////                    categorizeResults()
-//          }
-
-
-
-
-// MARK: - Categorization IMPLEMENTATION
-
-//func categorizeResults(){
-//        for index in 0..<self.collectsArray.count{
-//            if collectsArray[index].collectionID == womenCollectionID {
-//                self.womenProductIDs.append(self.collectsArray[index].productID)}
-//            else if collectsArray[index].collectionID == menCollectionID{
-//                self.menProductIDs.append(self.collectsArray[index].productID) }
-//            else if collectsArray[index].collectionID == kidsCollectionID{
-//                self.kidsProductIDs.append(self.collectsArray[index].productID) }
-//            else if collectsArray[index].collectionID == saleCollectionID{
-//                self.salesProductIDs.append(self.collectsArray[index].productID) } }
-//
-//}
