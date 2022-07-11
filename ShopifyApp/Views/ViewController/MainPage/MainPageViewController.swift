@@ -67,8 +67,6 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
                 self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
-
-        
     }
     
     func registerNibFiles() {
@@ -127,6 +125,16 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
 extension MainPageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         brandsViewModel?.search(searchInput: searchText)
+    }
+}
+
+extension MainPageViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == adsCollectionView {
+             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        } else {
+            return CGSize(width: collectionView.frame.width / 2.5, height: collectionView.frame.height / 2.5)
+        }
     }
 }
 
