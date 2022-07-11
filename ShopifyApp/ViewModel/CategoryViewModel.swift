@@ -1,14 +1,15 @@
 //
-//  ProductViewModel.swift
+//  CategoryViewModel.swift
 //  ShopifyApp
 //
-//  Created by Abdelrahman Magdy on 06/07/2022.
+//  Created by Abdelrahman Magdy on 12/07/2022.
 //  Copyright © 2022 Mina Ezzat. All rights reserved.
 //
 
 import Foundation
 
-class ProductsViewModel {
+
+class CategoriesViewModel {
     var filteredArray = [Product]()
     
     var productsArray: [Product]? {
@@ -32,15 +33,10 @@ class ProductsViewModel {
         self.databaseService = databaseService
     }
     
-    func fetchProducts(endPoint: String, brandTitle: String) {
+    func fetchProducts(endPoint: String) {
         apiService.fetchProducts(endPoint: endPoint) { products, error in
             if let products = products {
-                for index in 0..<products.count{
-                    if brandTitle == products[index].vendor{
-                        self.filteredArray.append(products[index])
-                    }
-                }
-                self.productsArray = self.filteredArray
+                self.productsArray = products
             }
             
             if let error = error {

@@ -14,4 +14,7 @@ protocol ApiService {
     func getProduct(endPoint: String, complition: @escaping (Product?, Error?)->Void)
     func fetchBrands(completion: @escaping (([SmartCollection]?, Error?) -> Void))
     func fetchProducts(endPoint: String, completion: @escaping (([Product]?, Error?) -> Void))
+//    func fetchCategories(endPoint: String, completion: @escaping (([CustomCollection]?, Error?) -> Void))
+    func fetchCollects(endPoint: String, completion: @escaping (([Collect]?, Error?) -> Void))
+
 }

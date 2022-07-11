@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Storyboards: String {
     case productInfo = "ProductInfo"
@@ -31,3 +32,11 @@ enum NibFiles: String {
 enum IdentifierCell: String {
     case productInfoCell = "ProductInfoCell"
 }
+
+enum collectionID: Int {
+    case womenCollectionID = 409147506902
+    case menCollectionID = 409147474134
+    case kidsCollectionID = 409147539670
+    case saleCollectionID = 409147605206
+}
+
