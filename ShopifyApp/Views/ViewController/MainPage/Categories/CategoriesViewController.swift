@@ -94,6 +94,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     @IBAction func kids(_ sender: Any) {
+
         categoriesViewModel?.selectedKidsCategory()
     }
     
@@ -178,3 +179,27 @@ extension CategoriesViewController: FavouriteActionProductScreen {
 //                self.salesProductIDs.append(self.collectsArray[index].productID) } }
 //
 //}
+
+// MARK: - Collection View Functions
+  /*  
+      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+              return shownProductsArray.count
+      }
+
+      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = productsCV.dequeueReusableCell(withReuseIdentifier: "ProductCellID", for: indexPath) as! ProductCollectionViewCell
+              var imgLink = (shownProductsArray[indexPath.row].image.src)
+              var url = URL(string: imgLink)
+              cell.productImage.kf.setImage(with: url)
+              cell.productPrice.text = shownProductsArray[indexPath.row].varients?[0].price
+              return cell
+      }
+
+      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+          let productInfoVC = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "MProductInfoVC") as! ProductInfoViewController
+          productInfoVC.modalPresentationStyle = .fullScreen
+              self.present(productInfoVC, animated: true, completion: nil)
+      }
+    
+    }
+   */
