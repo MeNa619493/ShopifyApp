@@ -19,6 +19,9 @@ class MeViewController: UIViewController {
     }
     
     @IBAction func wishlistMore(_ sender: Any) {
+        let vc = UIStoryboard(name: Storyboards.favourites.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.favourites.rawValue) as! FavoritesViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func loginButton(_ sender: Any) {
