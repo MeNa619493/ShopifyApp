@@ -190,14 +190,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="86" height="30"/>
                                         <state key="normal" title="MEN"/>
                                         <connections>
-                                            <action selector="women:" destination="lOe-as-rBn" eventType="touchUpInside" id="SUC-Io-wKp"/>
+                                            <action selector="men:" destination="lOe-as-rBn" eventType="touchUpInside" id="aOt-XB-HLq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pD-zJ-vWI">
                                         <rect key="frame" x="96" y="0.0" width="86" height="30"/>
                                         <state key="normal" title="WOMEN"/>
                                         <connections>
-                                            <action selector="men:" destination="lOe-as-rBn" eventType="touchUpInside" id="ne7-Ih-C9B"/>
+                                            <action selector="women:" destination="lOe-as-rBn" eventType="touchUpInside" id="5sO-xE-1pN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-QX-aHU">
@@ -267,7 +267,7 @@
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="64" height="50"/>
-        <image name="heart" catalog="system" width="64" height="54"/>
+        <image name="heart" catalog="system" width="32" height="32"/>
         <image name="rectangle.grid.2x2.fill" catalog="system" width="64" height="48"/>
     </resources>
 </document>
