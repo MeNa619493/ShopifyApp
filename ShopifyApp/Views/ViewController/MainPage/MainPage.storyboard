@@ -113,7 +113,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="uo3-qN-OcI" secondAttribute="bottom" constant="45" id="wds-Gu-UCv"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="tFZ-JO-XFr"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="tFZ-JO-XFr"/>
                     <navigationItem key="navigationItem" id="GIO-2k-mnS"/>
                     <connections>
                         <outlet property="adsCollectionView" destination="tIa-JT-59P" id="Fik-ue-hT6"/>
@@ -454,15 +454,10 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< Updated upstream
-
-        <image name="cart" catalog="system" width="64" height="50"/>
-        <image name="heart" catalog="system" width="32" height="32"/>
-        <image name="rectangle.grid.2x2.fill" catalog="system" width="64" height="48"/>
-=======
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.grid.2x2.fill" catalog="system" width="128" height="99"/>
         <systemColor name="systemBackgroundColor">
@@ -471,6 +466,5 @@
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
->>>>>>> Stashed changes
     </resources>
 </document>
