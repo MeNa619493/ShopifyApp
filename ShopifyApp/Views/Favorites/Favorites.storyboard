@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Favorites" id="KqB-2s-WtG">
-                                        <barButtonItem key="leftBarButtonItem" title="back" id="OJo-fF-emt">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="OJo-fF-emt">
                                             <connections>
                                                 <action selector="onBackButtonPressed:" destination="mFG-rN-nKo" id="fkE-jV-gBd"/>
                                             </connections>
@@ -29,6 +31,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pIx-W5-uwE">
+
                                 <rect key="frame" x="16" y="104" width="382" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GwU-8a-Kus">
@@ -49,7 +52,8 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HxB-af-t9p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="yZR-pw-NGL" firstAttribute="leading" secondItem="HxB-af-t9p" secondAttribute="leading" id="7hA-Cj-vE1"/>
                             <constraint firstItem="pIx-W5-uwE" firstAttribute="top" secondItem="yZR-pw-NGL" secondAttribute="bottom" constant="16" id="8Ym-lz-mhr"/>
@@ -59,7 +63,6 @@
                             <constraint firstItem="HxB-af-t9p" firstAttribute="bottom" secondItem="pIx-W5-uwE" secondAttribute="bottom" id="mas-me-XeZ"/>
                             <constraint firstAttribute="trailing" secondItem="yZR-pw-NGL" secondAttribute="trailing" id="tMI-wo-E6c"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="HxB-af-t9p"/>
                     </view>
                     <connections>
                         <outlet property="favoritesCollectionView" destination="pIx-W5-uwE" id="MfW-zA-byF"/>
@@ -70,4 +73,9 @@
             <point key="canvasLocation" x="-33" y="48"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

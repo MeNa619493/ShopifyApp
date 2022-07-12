@@ -94,7 +94,6 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     @IBAction func kids(_ sender: Any) {
-
         categoriesViewModel?.selectedKidsCategory()
     }
     

@@ -42,7 +42,7 @@ class CategoriesViewModel {
             if let products = products {
                 self.allProductsArray = products
                 self.filteredArray = products
-                self.mainCategoryProducts(mainCategory: "men")
+                self.mainCategoryProducts(mainCategory: ", men")
             }
             
             if let error = error {
@@ -59,22 +59,22 @@ class CategoriesViewModel {
     
     func selectedMenCategory() {
         filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: "men")
+        mainCategoryProducts(mainCategory: ", men")
     }
     
     func selectedWomenCategory() {
         filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: "women")
+        mainCategoryProducts(mainCategory: ", women")
     }
     
     func selectedKidsCategory() {
         filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: "kid")
+        mainCategoryProducts(mainCategory: ", kid")
     }
     
     func selectedSaleCategory() {
         filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: "sale")
+        mainCategoryProducts(mainCategory: ", sale")
     }
     
     func getProductsInFavourites(appDelegate: AppDelegate, product: Product) -> Bool {
