@@ -208,6 +208,7 @@
                     </view>
                     <connections>
                         <outlet property="addToCartButton" destination="VcO-XY-7Qs" id="38P-JV-vqT"/>
+                        <outlet property="bar" destination="tXo-rE-69B" id="nOl-nq-OEN"/>
                         <outlet property="cosmosView" destination="cd4-cz-ihB" id="tMN-wG-dqL"/>
                         <outlet property="favoriteButton" destination="Ux3-La-cXK" id="dgY-uC-KdA"/>
                         <outlet property="pageControl" destination="RZ1-LB-mch" id="qNy-fr-Swx"/>

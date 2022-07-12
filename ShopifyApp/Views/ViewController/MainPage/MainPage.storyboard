@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JpI-5d-K7Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JpI-5d-K7Z">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYe-Az-Y6A">
-                                <rect key="frame" x="0.0" y="31" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="31" width="414" height="39"/>
                                 <items>
                                     <navigationItem title="Home" id="rfK-8g-h1o">
                                         <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="KYu-gm-PI9">
@@ -32,15 +29,15 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="uo3-qN-OcI">
-                                <rect key="frame" x="0.0" y="75" width="414" height="693"/>
+                                <rect key="frame" x="0.0" y="70" width="414" height="698"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="v6p-wo-KyK">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="51"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tIa-JT-59P">
-                                        <rect key="frame" x="20" y="74" width="374" height="265"/>
-                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                        <rect key="frame" x="20" y="79" width="374" height="265"/>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="265" id="mBN-Cd-Uqt"/>
                                         </constraints>
@@ -62,7 +59,7 @@
                                         </cells>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m29-7D-Vil">
-                                        <rect key="frame" x="167.33333333333334" y="362" width="79.333333333333343" height="51"/>
+                                        <rect key="frame" x="167.33333333333334" y="367" width="79.666666666666657" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51" id="W4j-lY-Tgg"/>
                                         </constraints>
@@ -71,8 +68,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0pg-1C-Trp">
-                                        <rect key="frame" x="24" y="436" width="366" height="257"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <rect key="frame" x="24" y="441" width="366" height="257"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="10" id="f9x-jQ-oA2">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -101,8 +98,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="vYe-Az-Y6A" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="31" id="3cc-uG-Dgg"/>
                             <constraint firstItem="uo3-qN-OcI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DS9-fO-4iv"/>
@@ -113,8 +109,9 @@
                             <constraint firstItem="vYe-Az-Y6A" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="laq-lY-FWL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="uo3-qN-OcI" secondAttribute="bottom" constant="45" id="wds-Gu-UCv"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="tFZ-JO-XFr"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="tFZ-JO-XFr"/>
                     <navigationItem key="navigationItem" id="GIO-2k-mnS"/>
                     <connections>
                         <outlet property="adsCollectionView" destination="tIa-JT-59P" id="Fik-ue-hT6"/>
@@ -139,7 +136,11 @@
                                 <items>
                                     <navigationItem title="Category" id="6TP-pl-Nz1">
                                         <rightBarButtonItems>
-                                            <barButtonItem image="heart" catalog="system" id="XNl-zK-iPV"/>
+                                            <barButtonItem image="heart" catalog="system" id="XNl-zK-iPV">
+                                                <connections>
+                                                    <action selector="onFavoriteButtonPressed:" destination="lOe-as-rBn" id="FCm-gh-JRG"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem image="cart" catalog="system" id="QoR-Ck-9cr"/>
                                         </rightBarButtonItems>
                                     </navigationItem>
@@ -151,26 +152,23 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jjf-SK-vRb">
-                                <rect key="frame" x="8" y="168" width="398" height="596"/>
+
+                                <rect key="frame" x="20" y="191" width="374" height="573"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vv1-Ke-oon">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="155" height="155"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <view key="backgroundView" contentMode="scaleToFill" id="xzH-6u-rMw">
-                                    <rect key="frame" x="0.0" y="0.0" width="398" height="596"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="573"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ea8-p1-Z2R">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea8-p1-Z2R">
                                             <rect key="frame" x="341" y="490" width="41" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <menu key="menu" id="v8w-el-Ffo">
-                                                <children>
-                                                    <command title="Item 1" id="2gt-uh-P7P"/>
-                                                    <command title="Item 2" id="2uh-Qx-yYT"/>
-                                                </children>
-                                            </menu>
                                             <state key="normal" title="Button"/>
                                         </button>
                                     </subviews>
@@ -178,78 +176,79 @@
                                 </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CBL-nI-2Ty">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XVi-Ol-ngM">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S0K-Jb-oxw">
-                                <rect key="frame" x="20" y="129" width="374" height="31"/>
+                                <rect key="frame" x="20" y="145" width="374" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-cc-82w">
-                                        <rect key="frame" x="0.0" y="0.0" width="86" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Women"/>
+
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-cc-82w">
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="30"/>
+                                        <state key="normal" title="MEN"/>
+
                                         <connections>
                                             <action selector="women:" destination="lOe-as-rBn" eventType="touchUpInside" id="SUC-Io-wKp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pD-zJ-vWI">
-                                        <rect key="frame" x="96" y="0.0" width="86" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Men"/>
+
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pD-zJ-vWI">
+                                        <rect key="frame" x="96" y="0.0" width="86" height="30"/>
+                                        <state key="normal" title="WOMEN"/>
+
                                         <connections>
                                             <action selector="men:" destination="lOe-as-rBn" eventType="touchUpInside" id="ne7-Ih-C9B"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-QX-aHU">
-                                        <rect key="frame" x="192" y="0.0" width="86" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Kds"/>
+
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-QX-aHU">
+                                        <rect key="frame" x="192" y="0.0" width="86" height="30"/>
+                                        <state key="normal" title="KIDS"/>
+
                                         <connections>
                                             <action selector="kids:" destination="lOe-as-rBn" eventType="touchUpInside" id="Nvo-cN-fyZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-7t-x4m">
-                                        <rect key="frame" x="288" y="0.0" width="86" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Sale"/>
+
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-7t-x4m">
+                                        <rect key="frame" x="288" y="0.0" width="86" height="30"/>
+                                        <state key="normal" title="SALE"/>
+
                                         <connections>
                                             <action selector="sale:" destination="lOe-as-rBn" eventType="touchUpInside" id="GlN-hm-uZy"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="Uz9-7t-x4m" firstAttribute="leading" secondItem="eoh-QX-aHU" secondAttribute="trailing" constant="20" id="PJg-cA-DL7"/>
-                                    <constraint firstItem="3pD-zJ-vWI" firstAttribute="leading" secondItem="0Mr-cc-82w" secondAttribute="trailing" constant="20.000000000000014" id="ooo-i1-hDR"/>
-                                    <constraint firstItem="eoh-QX-aHU" firstAttribute="leading" secondItem="3pD-zJ-vWI" secondAttribute="trailing" constant="20" id="qOz-6e-ZRy"/>
-                                </constraints>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="kx8-vt-qaC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jjf-SK-vRb" firstAttribute="centerX" secondItem="wul-QD-itb" secondAttribute="centerX" id="LvQ-3P-DVk"/>
                             <constraint firstItem="dXX-BV-OHt" firstAttribute="bottom" secondItem="YgM-9I-gby" secondAttribute="top" id="Qoq-wx-01a"/>
+                            <constraint firstItem="jjf-SK-vRb" firstAttribute="top" secondItem="S0K-Jb-oxw" secondAttribute="bottom" constant="16" id="Spi-G3-Pcj"/>
                             <constraint firstItem="S0K-Jb-oxw" firstAttribute="centerX" secondItem="YgM-9I-gby" secondAttribute="centerX" id="ZZg-7b-PWx"/>
-                            <constraint firstItem="jjf-SK-vRb" firstAttribute="top" secondItem="S0K-Jb-oxw" secondAttribute="bottom" constant="8" symbolic="YES" id="ccv-gJ-ery"/>
                             <constraint firstItem="dXX-BV-OHt" firstAttribute="leading" secondItem="wul-QD-itb" secondAttribute="leading" id="fa3-Ca-NMC"/>
-                            <constraint firstItem="jjf-SK-vRb" firstAttribute="leading" secondItem="kx8-vt-qaC" secondAttribute="leading" constant="8" id="k9q-n6-OAJ"/>
-                            <constraint firstItem="S0K-Jb-oxw" firstAttribute="top" secondItem="YgM-9I-gby" secondAttribute="bottom" id="oxL-Rv-mG8"/>
+                            <constraint firstItem="kx8-vt-qaC" firstAttribute="trailing" secondItem="jjf-SK-vRb" secondAttribute="trailing" constant="20" id="grN-Yl-4ph"/>
+                            <constraint firstItem="jjf-SK-vRb" firstAttribute="leading" secondItem="kx8-vt-qaC" secondAttribute="leading" constant="20" id="k9q-n6-OAJ"/>
+                            <constraint firstItem="S0K-Jb-oxw" firstAttribute="top" secondItem="YgM-9I-gby" secondAttribute="bottom" constant="16" id="wIJ-G5-vjq"/>
                             <constraint firstItem="S0K-Jb-oxw" firstAttribute="centerX" secondItem="dXX-BV-OHt" secondAttribute="centerX" id="xQz-My-uXY"/>
                             <constraint firstItem="jjf-SK-vRb" firstAttribute="bottom" secondItem="kx8-vt-qaC" secondAttribute="bottom" id="yPL-LM-W3q"/>
                             <constraint firstItem="S0K-Jb-oxw" firstAttribute="leading" secondItem="wul-QD-itb" secondAttribute="leadingMargin" id="z2w-gd-svj"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="kx8-vt-qaC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Categories" image="rectangle.grid.2x2.fill" catalog="system" id="FR9-g9-DbI"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="productsCV" destination="jjf-SK-vRb" id="wld-jD-sxP"/>
+                        <outlet property="searchBar" destination="YgM-9I-gby" id="v1d-gY-6KE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMf-ma-eD0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -277,15 +276,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
-        <image name="rectangle.grid.2x2.fill" catalog="system" width="128" height="99"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="cart" catalog="system" width="64" height="50"/>
+        <image name="heart" catalog="system" width="64" height="54"/>
+        <image name="rectangle.grid.2x2.fill" catalog="system" width="64" height="48"/>
     </resources>
 </document>

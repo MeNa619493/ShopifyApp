@@ -38,9 +38,7 @@ class FavoritesViewController: UIViewController {
             return
         }
         
-        DispatchQueue.main.async {
-            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-        }
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
         //should get user id from user defaults and use it here
         favoritesViewModel?.bindingData = { favourites, error in
