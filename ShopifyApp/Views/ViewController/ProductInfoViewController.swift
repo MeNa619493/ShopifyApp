@@ -13,6 +13,12 @@ import NVActivityIndicatorView
 
 class ProductInfoViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var bar: UINavigationBar!
+    
+    
+    
     @IBOutlet weak var productImageCollectionView: UICollectionView! {
         didSet {
             productImageCollectionView.delegate = self
@@ -46,9 +52,7 @@ class ProductInfoViewController: UIViewController {
             return
         }
         
-        DispatchQueue.main.async {
-            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-        }
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
         let group = DispatchGroup()
         
@@ -76,7 +80,6 @@ class ProductInfoViewController: UIViewController {
                 self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
-        
     }
     
     func registerNibFile() {
@@ -100,6 +103,7 @@ class ProductInfoViewController: UIViewController {
     }
     
     func setupView() {
+        self.bar.topItem?.title = "Product"
         self.productImageCollectionView.reloadData()
         self.pageControl.numberOfPages = product?.images.count ?? 0
         self.productTitle.text = product?.title
@@ -131,6 +135,13 @@ class ProductInfoViewController: UIViewController {
             productInfoViewModel?.addProductToFavourites(appDelegate: appDelegate, product: product!)
         }
         isFavourite = !isFavourite!
+    }
+    
+    
+    @IBAction func onReviewsButtonPressed(_ sender: UIButton) {
+        let vc = UIStoryboard(name: Storyboards.reviews.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.reviews.rawValue) as! ReviewsViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {

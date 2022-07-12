@@ -31,8 +31,9 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pIx-W5-uwE">
-                                <rect key="frame" x="8" y="96" width="398" height="766"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+
+                                <rect key="frame" x="16" y="104" width="382" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GwU-8a-Kus">
                                     <size key="itemSize" width="155" height="155"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -55,10 +56,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="yZR-pw-NGL" firstAttribute="leading" secondItem="HxB-af-t9p" secondAttribute="leading" id="7hA-Cj-vE1"/>
-                            <constraint firstItem="pIx-W5-uwE" firstAttribute="leading" secondItem="HxB-af-t9p" secondAttribute="leading" constant="8" id="9Ng-Rj-6FZ"/>
+                            <constraint firstItem="pIx-W5-uwE" firstAttribute="top" secondItem="yZR-pw-NGL" secondAttribute="bottom" constant="16" id="8Ym-lz-mhr"/>
+                            <constraint firstItem="pIx-W5-uwE" firstAttribute="leading" secondItem="HxB-af-t9p" secondAttribute="leading" constant="16" id="9Ng-Rj-6FZ"/>
                             <constraint firstItem="yZR-pw-NGL" firstAttribute="top" secondItem="HxB-af-t9p" secondAttribute="top" id="BbH-uL-ZFS"/>
-                            <constraint firstItem="pIx-W5-uwE" firstAttribute="top" secondItem="yZR-pw-NGL" secondAttribute="bottom" constant="8" id="P6o-zG-hrR"/>
-                            <constraint firstItem="HxB-af-t9p" firstAttribute="trailing" secondItem="pIx-W5-uwE" secondAttribute="trailing" constant="8" id="Q6R-Bf-a4v"/>
+                            <constraint firstItem="HxB-af-t9p" firstAttribute="trailing" secondItem="pIx-W5-uwE" secondAttribute="trailing" constant="16" id="Q6R-Bf-a4v"/>
                             <constraint firstItem="HxB-af-t9p" firstAttribute="bottom" secondItem="pIx-W5-uwE" secondAttribute="bottom" id="mas-me-XeZ"/>
                             <constraint firstAttribute="trailing" secondItem="yZR-pw-NGL" secondAttribute="trailing" id="tMI-wo-E6c"/>
                         </constraints>

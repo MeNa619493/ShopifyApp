@@ -10,11 +10,15 @@ import Foundation
 
 
 class CategoriesViewModel {
+    var allProductsArray = [Product]()
     var filteredArray = [Product]()
-    
-    var productsArray: [Product]? {
+    var menCategory = [Product]()
+    var womenCategory = [Product]()
+    var kidCategory = [Product]()
+    var saleCategory = [Product]()
+    var shownArray: [Product]? {
         didSet {
-            bindingData(productsArray,nil)
+            bindingData(shownArray,nil)
         }
     }
     
@@ -36,13 +40,41 @@ class CategoriesViewModel {
     func fetchProducts(endPoint: String) {
         apiService.fetchProducts(endPoint: endPoint) { products, error in
             if let products = products {
-                self.productsArray = products
+                self.allProductsArray = products
+                self.filteredArray = products
+                self.shownArray = products
             }
             
             if let error = error {
                 self.error = error
             }
         }
+    }
+    
+    func mainCategoryProducts(mainCategory: String) {
+        shownArray = filteredArray.filter({ (product) -> Bool in
+            return product.tags!.contains(mainCategory)
+        })
+    }
+    
+    func selectedMenCategory() {
+        filteredArray = allProductsArray
+        mainCategoryProducts(mainCategory: "men")
+    }
+    
+    func selectedWomenCategory() {
+        filteredArray = allProductsArray
+        mainCategoryProducts(mainCategory: "women")
+    }
+    
+    func selectedKidsCategory() {
+        filteredArray = allProductsArray
+        mainCategoryProducts(mainCategory: "kid")
+    }
+    
+    func selectedSaleCategory() {
+        filteredArray = allProductsArray
+        mainCategoryProducts(mainCategory: "sale")
     }
     
     func getProductsInFavourites(appDelegate: AppDelegate, product: Product) -> Bool {
@@ -73,12 +105,13 @@ class CategoriesViewModel {
     
     func search(searchInput: String) {
         if searchInput.isEmpty {
-            productsArray = filteredArray
+            shownArray = filteredArray
         } else {
-            productsArray = filteredArray.filter({ (product) -> Bool in
+            shownArray = shownArray!.filter({ (product) -> Bool in
                 return product.title.hasPrefix(searchInput.lowercased()) ||          product.title.hasPrefix(searchInput.uppercased()) ||
                     product.title.contains(searchInput.lowercased()) ||     product.title.contains(searchInput.uppercased())
             })
         }
     }
+    
 }
