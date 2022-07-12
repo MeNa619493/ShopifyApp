@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 enum Storyboards: String {
     case productInfo = "ProductInfo"
@@ -15,6 +14,7 @@ enum Storyboards: String {
     case login = "Login"
     case favourites = "Favorites"
     case splashScreen = "SplashScreen"
+    case reviews = "Reviews"
 }
 
 enum StoryboardID: String {
@@ -23,14 +23,17 @@ enum StoryboardID: String {
     case login = "LoginVC"
     case favourites = "FavoritesVC"
     case splashScreen = "SplashScreenVC"
+    case reviews = "ReviewsVC"
 }
 
 enum NibFiles: String {
     case productInfoCell = "ProductInfoCollectionViewCell"
+    case reviewCell = "ReviewTableViewCell"
 }
 
 enum IdentifierCell: String {
     case productInfoCell = "ProductInfoCell"
+    case reviewCell = "ReviewCell"
 }
 
 enum collectionID: Int {

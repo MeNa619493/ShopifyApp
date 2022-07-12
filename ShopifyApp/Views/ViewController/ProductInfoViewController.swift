@@ -137,6 +137,13 @@ class ProductInfoViewController: UIViewController {
         isFavourite = !isFavourite!
     }
     
+    
+    @IBAction func onReviewsButtonPressed(_ sender: UIButton) {
+        let vc = UIStoryboard(name: Storyboards.reviews.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.reviews.rawValue) as! ReviewsViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
