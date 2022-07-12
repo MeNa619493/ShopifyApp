@@ -44,9 +44,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             return
         }
         
-        DispatchQueue.main.async {
-            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-        }
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
         productsViewModel = ProductsViewModel()
         productsViewModel?.fetchProducts(endPoint: "products.json", brandTitle: brandTitle)
