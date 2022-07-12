@@ -59,12 +59,12 @@ class CategoriesViewModel {
     
     func selectedMenCategory() {
         filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: "men")
+        mainCategoryProducts(mainCategory: " men")
     }
     
     func selectedWomenCategory() {
         filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: "women")
+        mainCategoryProducts(mainCategory: " women")
     }
     
     func selectedKidsCategory() {
