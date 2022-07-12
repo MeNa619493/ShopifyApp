@@ -152,10 +152,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jjf-SK-vRb">
-
-                                <rect key="frame" x="20" y="191" width="374" height="573"/>
+                                <rect key="frame" x="16" y="191" width="382" height="573"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vv1-Ke-oon">
                                     <size key="itemSize" width="155" height="155"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -163,7 +161,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <view key="backgroundView" contentMode="scaleToFill" id="xzH-6u-rMw">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="573"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="573"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea8-p1-Z2R">
@@ -188,38 +186,30 @@
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S0K-Jb-oxw">
                                 <rect key="frame" x="20" y="145" width="374" height="30"/>
                                 <subviews>
-
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-cc-82w">
                                         <rect key="frame" x="0.0" y="0.0" width="86" height="30"/>
                                         <state key="normal" title="MEN"/>
-
                                         <connections>
                                             <action selector="women:" destination="lOe-as-rBn" eventType="touchUpInside" id="SUC-Io-wKp"/>
                                         </connections>
                                     </button>
-
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pD-zJ-vWI">
                                         <rect key="frame" x="96" y="0.0" width="86" height="30"/>
                                         <state key="normal" title="WOMEN"/>
-
                                         <connections>
                                             <action selector="men:" destination="lOe-as-rBn" eventType="touchUpInside" id="ne7-Ih-C9B"/>
                                         </connections>
                                     </button>
-
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-QX-aHU">
                                         <rect key="frame" x="192" y="0.0" width="86" height="30"/>
                                         <state key="normal" title="KIDS"/>
-
                                         <connections>
                                             <action selector="kids:" destination="lOe-as-rBn" eventType="touchUpInside" id="Nvo-cN-fyZ"/>
                                         </connections>
                                     </button>
-
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uz9-7t-x4m">
                                         <rect key="frame" x="288" y="0.0" width="86" height="30"/>
                                         <state key="normal" title="SALE"/>
-
                                         <connections>
                                             <action selector="sale:" destination="lOe-as-rBn" eventType="touchUpInside" id="GlN-hm-uZy"/>
                                         </connections>
@@ -234,8 +224,8 @@
                             <constraint firstItem="jjf-SK-vRb" firstAttribute="top" secondItem="S0K-Jb-oxw" secondAttribute="bottom" constant="16" id="Spi-G3-Pcj"/>
                             <constraint firstItem="S0K-Jb-oxw" firstAttribute="centerX" secondItem="YgM-9I-gby" secondAttribute="centerX" id="ZZg-7b-PWx"/>
                             <constraint firstItem="dXX-BV-OHt" firstAttribute="leading" secondItem="wul-QD-itb" secondAttribute="leading" id="fa3-Ca-NMC"/>
-                            <constraint firstItem="kx8-vt-qaC" firstAttribute="trailing" secondItem="jjf-SK-vRb" secondAttribute="trailing" constant="20" id="grN-Yl-4ph"/>
-                            <constraint firstItem="jjf-SK-vRb" firstAttribute="leading" secondItem="kx8-vt-qaC" secondAttribute="leading" constant="20" id="k9q-n6-OAJ"/>
+                            <constraint firstItem="kx8-vt-qaC" firstAttribute="trailing" secondItem="jjf-SK-vRb" secondAttribute="trailing" constant="16" id="grN-Yl-4ph"/>
+                            <constraint firstItem="jjf-SK-vRb" firstAttribute="leading" secondItem="kx8-vt-qaC" secondAttribute="leading" constant="16" id="k9q-n6-OAJ"/>
                             <constraint firstItem="S0K-Jb-oxw" firstAttribute="top" secondItem="YgM-9I-gby" secondAttribute="bottom" constant="16" id="wIJ-G5-vjq"/>
                             <constraint firstItem="S0K-Jb-oxw" firstAttribute="centerX" secondItem="dXX-BV-OHt" secondAttribute="centerX" id="xQz-My-uXY"/>
                             <constraint firstItem="jjf-SK-vRb" firstAttribute="bottom" secondItem="kx8-vt-qaC" secondAttribute="bottom" id="yPL-LM-W3q"/>
