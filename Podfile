@@ -12,5 +12,6 @@ target 'ShopifyApp' do
 	pod 'ReachabilitySwift'
 	pod 'Cosmos', '~> 23.0'
 	pod 'lottie-ios'
+	pod 'JJFloatingActionButton'
 
 end

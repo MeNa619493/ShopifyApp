@@ -63,11 +63,14 @@ class ProductInfoViewController: UIViewController {
                 self.product = product
                 
                 group.enter()
-                self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product)
-                group.leave()
+                self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product, complition: {
+                    group.leave()
+                })
+                
                 group.enter()
-                self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product)
-                group.leave()
+                self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product, complition: {
+                    group.leave()
+                })
                 
                 group.notify(queue: .main) {
                     self.setupView()
