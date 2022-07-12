@@ -42,7 +42,7 @@ class CategoriesViewModel {
             if let products = products {
                 self.allProductsArray = products
                 self.filteredArray = products
-                self.shownArray = products
+                self.mainCategoryProducts(mainCategory: "men")
             }
             
             if let error = error {
