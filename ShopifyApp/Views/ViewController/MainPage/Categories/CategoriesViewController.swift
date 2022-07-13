@@ -10,11 +10,14 @@ import UIKit
 import NVActivityIndicatorView
 
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+    var selectedButton = true
+    let buttonsArray = [women, men, kids, sale]
     var productsArray = [Product]()
     var categoriesViewModel: CategoriesViewModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
+     
+    
     @IBOutlet weak var productsCV: UICollectionView!{
         didSet {
             productsCV.delegate = self
@@ -85,19 +88,19 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         self.present(productInfoVC, animated: true, completion: nil)
     }
     
-    @IBAction func women(_ sender: Any) {
+    @IBAction func women(_ sender: UIButton) {
         categoriesViewModel?.selectedWomenCategory()
     }
     
-    @IBAction func men(_ sender: Any) {
-       categoriesViewModel?.selectedMenCategory()
+    @IBAction func men(_ sender: UIButton) {
+        categoriesViewModel?.selectedMenCategory()
     }
     
-    @IBAction func kids(_ sender: Any) {
+    @IBAction func kids(_ sender: UIButton) {
         categoriesViewModel?.selectedKidsCategory()
     }
     
-    @IBAction func sale(_ sender: Any) {
+    @IBAction func sale(_ sender: UIButton) {
         categoriesViewModel?.selectedSaleCategory()
     }
     
@@ -107,7 +110,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
-    
+   
 }
    
 extension CategoriesViewController: UISearchBarDelegate {
@@ -127,78 +130,3 @@ extension CategoriesViewController: FavouriteActionProductScreen {
 }
 
 
-
-
-
-//var collectsArray = [Collect](){
-//        didSet{print("the collects count is \(collectsArray.count)")}}
-//var womenProductIDs = [Int]()
-//    var menProductIDs = [Int]()
-//    var kidsProductIDs = [Int]()
-//    var salesProductIDs = [Int]()
-//    let womenCollectionID = 409147506902
-//    let menCollectionID = 409147474134
-//    let kidsCollectionID = 409147539670
-//    let saleCollectionID = 409147605206
-//    var menProductsArray = [Product]()
-//    var womenProductsArray = [Product]()
-//    var kidsProductsArray = [Product]()
-//    var SaleProductsArray = [Product]()
-
-
-
-// MARK: - FETCHING COLLECTS DATA
-//        let collectsViewModel = CollectsViewModel()
-//          collectsViewModel.fetchCollects(endPoint: "collects.json")
-//          collectsViewModel.bindingData = { [self] collects, error in
-//                  if let collects = collects {
-//                  self.collectsArray = collects
-//                  }
-//                  if let error = error {
-//                      print(error.localizedDescription)
-//                  }
-//              // MARK: - Categorization OF COLLECTS
-////                    categorizeResults()
-//          }
-
-
-
-
-// MARK: - Categorization IMPLEMENTATION
-
-//func categorizeResults(){
-//        for index in 0..<self.collectsArray.count{
-//            if collectsArray[index].collectionID == womenCollectionID {
-//                self.womenProductIDs.append(self.collectsArray[index].productID)}
-//            else if collectsArray[index].collectionID == menCollectionID{
-//                self.menProductIDs.append(self.collectsArray[index].productID) }
-//            else if collectsArray[index].collectionID == kidsCollectionID{
-//                self.kidsProductIDs.append(self.collectsArray[index].productID) }
-//            else if collectsArray[index].collectionID == saleCollectionID{
-//                self.salesProductIDs.append(self.collectsArray[index].productID) } }
-//
-//}
-
-// MARK: - Collection View Functions
-  /*  
-      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-              return shownProductsArray.count
-      }
-
-      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = productsCV.dequeueReusableCell(withReuseIdentifier: "ProductCellID", for: indexPath) as! ProductCollectionViewCell
-              var imgLink = (shownProductsArray[indexPath.row].image.src)
-              var url = URL(string: imgLink)
-              cell.productImage.kf.setImage(with: url)
-              cell.productPrice.text = shownProductsArray[indexPath.row].varients?[0].price
-              return cell
-      }
-
-      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-          let productInfoVC = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "MProductInfoVC") as! ProductInfoViewController
-          productInfoVC.modalPresentationStyle = .fullScreen
-              self.present(productInfoVC, animated: true, completion: nil)
-      }
-    
-    }
-   */
