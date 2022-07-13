@@ -13,12 +13,7 @@ import NVActivityIndicatorView
 
 class ProductInfoViewController: UIViewController {
 
-    
-    
     @IBOutlet weak var bar: UINavigationBar!
-    
-    
-    
     @IBOutlet weak var productImageCollectionView: UICollectionView! {
         didSet {
             productImageCollectionView.delegate = self
@@ -63,12 +58,12 @@ class ProductInfoViewController: UIViewController {
                 self.product = product
                 
                 group.enter()
-                self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: product, complition: {
+                self.isFavourite = self.productInfoViewModel?.getProductsInFavourites(appDelegate: self.appDelegate, product: &(self.product)!, complition: {
                     group.leave()
                 })
                 
                 group.enter()
-                self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: product, complition: {
+                self.isAddedToCart = self.productInfoViewModel?.getProductsInShopingCart(appDelegate: self.appDelegate, product: &(self.product)!, complition: {
                     group.leave()
                 })
                 
@@ -119,22 +114,34 @@ class ProductInfoViewController: UIViewController {
     }
     
     @IBAction func onAddToCartPressed(_ sender: Any) {
+        if !UserDefaultsManager.shared.getUserStatus() {
+            self.showAlertError(title: "Alert", message: "you must login")
+            return
+        }
+        
         if isAddedToCart! {
             addToCartButton.setTitle("ADD TO CART", for: .normal)
             productInfoViewModel?.removeProductFromCart(appDelegate: appDelegate, product: product!)
         } else {
             addToCartButton.setTitle("REMOVE FROM CART", for: .normal)
+            product?.userID = UserDefaultsManager.shared.getUserID()!
             productInfoViewModel?.addProductToCart(appDelegate: appDelegate, product: product!)
         }
         isAddedToCart = !isAddedToCart!
     }
     
     @IBAction func onFavouritePressed(_ sender: Any) {
+        if !UserDefaultsManager.shared.getUserStatus() {
+            self.showAlertError(title: "Alert", message: "You must login")
+            return
+        }
+        
         if isFavourite! {
             favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
             productInfoViewModel?.removeProductFromFavourites(appDelegate: appDelegate, product: product!)
         } else {
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            product?.userID = UserDefaultsManager.shared.getUserID()!
             productInfoViewModel?.addProductToFavourites(appDelegate: appDelegate, product: product!)
         }
         isFavourite = !isFavourite!
