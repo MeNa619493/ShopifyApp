@@ -241,7 +241,7 @@
                                 <items>
                                     <navigationItem title="Me" id="Omd-pt-ASl">
                                         <rightBarButtonItems>
-                                            <barButtonItem image="gearshape" catalog="system" id="5Ox-iU-fe3">
+                                            <barButtonItem title="Item" id="5Ox-iU-fe3">
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                                             </barButtonItem>
                                             <barButtonItem image="cart" catalog="system" id="bPk-Od-JfH">
@@ -444,7 +444,6 @@
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="rectangle.grid.2x2.fill" catalog="system" width="128" height="99"/>
         <systemColor name="secondaryLabelColor">
