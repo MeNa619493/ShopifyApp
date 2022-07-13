@@ -11,8 +11,9 @@ import NVActivityIndicatorView
 import JJFloatingActionButton
 
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
     var selectedButton = true
-    let buttonsArray = [women, men, kids, sale]
     var productsArray = [Product]()
     var categoriesViewModel: CategoriesViewModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -89,20 +90,21 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         self.present(productInfoVC, animated: true, completion: nil)
     }
     
-    @IBAction func women(_ sender: UIButton) {
-        categoriesViewModel?.selectedWomenCategory()
-    }
+    @IBOutlet weak var categoriesSegments: UISegmentedControl!
     
-    @IBAction func men(_ sender: UIButton) {
-        categoriesViewModel?.selectedMenCategory()
-    }
-    
-    @IBAction func kids(_ sender: UIButton) {
-        categoriesViewModel?.selectedKidsCategory()
-    }
-    
-    @IBAction func sale(_ sender: UIButton) {
-        categoriesViewModel?.selectedSaleCategory()
+    @IBAction func men(_ sender: UISegmentedControl) {
+        switch categoriesSegments.selectedSegmentIndex{
+                case 0:
+                categoriesViewModel?.selectedMenCategory()
+                case 1:
+                categoriesViewModel?.selectedWomenCategory()
+                case 2:
+                categoriesViewModel?.selectedKidsCategory()
+                case 3:
+                categoriesViewModel?.selectedSaleCategory()
+                default:
+                    break
+        }
     }
     
     
