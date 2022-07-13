@@ -83,6 +83,7 @@
             <connections>
                 <outlet property="addressLabelOutlet" destination="Htk-AY-1YV" id="Ssk-TQ-W2N"/>
                 <outlet property="cityLabelOutlet" destination="bY7-uh-arr" id="EKb-5s-wdM"/>
+                <outlet property="containerView" destination="hHB-gz-ed1" id="gue-gF-gPO"/>
                 <outlet property="countryLabelOutlet" destination="wZS-9K-WqC" id="IZO-zC-La6"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="93.75"/>

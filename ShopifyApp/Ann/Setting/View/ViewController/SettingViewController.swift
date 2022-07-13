@@ -26,6 +26,10 @@ class SettingViewController: UIViewController {
         
     }
     
+    @IBAction func backButtonAction(_ sender: Any) {
+        dismiss(animated: false, completion: nil)
+    }
+    
 }
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -49,6 +53,43 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+            
+        case 0:
+            
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AddressesViewController") as! AddressesViewController
+            VC.modalPresentationStyle = .fullScreen
+            //VC.totalPrice = self.totalPrice
+            self.present(VC, animated: false, completion: nil)
+            
+        case 1:
+            
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CurrencyViewController") as! CurrencyViewController
+            VC.modalPresentationStyle = .fullScreen
+            //VC.totalPrice = self.totalPrice
+            self.present(VC, animated: false, completion: nil)
+            
+        case 2:
+            
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AddressesViewController") as! AddressesViewController
+            VC.modalPresentationStyle = .fullScreen
+            //VC.totalPrice = self.totalPrice
+            self.present(VC, animated: false, completion: nil)
+            
+        case 3:
+            
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AddressesViewController") as! AddressesViewController
+            VC.modalPresentationStyle = .fullScreen
+            //VC.totalPrice = self.totalPrice
+            self.present(VC, animated: false, completion: nil)
+            
+        default:
+            break
+            
+        }
     }
     
 }

@@ -17,12 +17,20 @@ class AddressesViewController: UIViewController {
     
     var totalPrice: Double?
     
+    let database = DatabaseHandler.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        if HelperConstant.getInitDefaultAddresID() == nil {
+            HelperConstant.saveInitDefaultAddresID(InitDefault: 1)
+            HelperConstant.setDefaultAddresID(SetDefaultAddresID: HelperConstant.getInitDefaultAddresID() ?? 1)
+        }else{
+            print("initial address id is not nil")
+        }
         
     }
+    
     
     @IBAction func backButtonOutlet(_ sender: Any) {
         dismiss(animated: false, completion: nil)
@@ -78,16 +86,35 @@ class AddressesViewController: UIViewController {
             
         }
         
+        HelperConstant.getInitDefaultAddresID()
+        HelperConstant.getDefaultAddresID()
+        HelperConstant.saveInitDefaultAddresID(InitDefault: (HelperConstant.getInitDefaultAddresID() ?? 1) + 1)
+        HelperConstant.saveDefaultAddresID(DefaultAddresID: (HelperConstant.getInitDefaultAddresID() ?? 1))
+        
+        guard let adrresseData = database.add(AddressesModel.self) else { return }
+        
+        // to make data variables equal myData variables
+        adrresseData.phoneNumber = Int64(phoneTFOutlet.text ?? "") ?? 0
+        adrresseData.countryName = countryTFOutlet.text ?? ""
+        adrresseData.cityName = cityTFOutlet.text ?? ""
+        adrresseData.addressName = addressTFOutlet.text ?? ""
+        adrresseData.addressId = Int64(HelperConstant.getDefaultAddresID() ?? 1)
+        
+        // to save data to database => coreData => OfflineStorage model
+        database.save()
+        
         print("All feilds is not empty")
         
-        let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-        VC.modalPresentationStyle = .fullScreen
-        VC.totalPrice = self.totalPrice
-        self.present(VC, animated: false, completion: nil)
+       //let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+       //VC.modalPresentationStyle = .fullScreen
+       //VC.totalPrice = self.totalPrice
+       //self.present(VC, animated: false, completion: nil)
         
     }
     
     @IBAction func AddressListButtonAction(_ sender: Any) {
+        
+        
         
         let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AddressListViewController") as! AddressListViewController
         VC.totalPrice = totalPrice

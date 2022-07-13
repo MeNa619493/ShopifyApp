@@ -1,16 +1,16 @@
 //
-//  SubTotalTableViewCell.swift
+//  CurrencyTableViewCell.swift
 //  ShopifyApp
 //
-//  Created by Ann mohammed on 04/07/2022.
+//  Created by Ann mohammed on 13/07/2022.
 //  Copyright © 2022 Mina Ezzat. All rights reserved.
 //
 
 import UIKit
 
-class SubTotalTableViewCell: UITableViewCell {
+class CurrencyTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var totalPriceValueLabelOutlet: UILabel!
+    @IBOutlet weak var currencyLabelOutlet: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

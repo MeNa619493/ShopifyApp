@@ -10,6 +10,7 @@ import UIKit
 
 class AddressListTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var countryLabelOutlet: UILabel!
     @IBOutlet weak var cityLabelOutlet: UILabel!
     @IBOutlet weak var addressLabelOutlet: UILabel!

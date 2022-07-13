@@ -25,6 +25,12 @@ class PaymentViewController: UIViewController {
     var selected: Int?
     
     var totalPrice: Double?
+    var finalTotalPrice: String?
+    
+    var order : OrderItem?
+    let customerID = 1 //Helper.shared.getUserID()
+    var orderProduct : [OrderItem] = []
+    var totalOrder = Order()
     
     var ShippingMethods: [PKShippingMethod] = []
     var ShipingMethods: PKShippingMethod?
@@ -33,10 +39,32 @@ class PaymentViewController: UIViewController {
     
     var payStatus: PayStatus = .non
     
+    var network = SubmitOrderNetworking.shared
+    
+    // database
+    let database = DatabaseHandler.shared
+    
+    var product = [CartItemModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         payStatus = .non
+        product = database.fetch(CartItemModel.self)
+        
+        if HelperConstant.getseDefaultCurrency() == "EG" {
+            
+            finalTotalPrice = "\(Double(totalPrice ?? 0.0))" + "  EG"
+            
+        }else if HelperConstant.getseDefaultCurrency() == "USD" {
+            
+            finalTotalPrice = "\(Double((Double(totalPrice ?? 0.0)) / Double(18.87)).rounded(toPlaces: 2))" + "  USD"
+            
+        }else {
+            
+            finalTotalPrice = "\(Double(totalPrice ?? 0.0))" + "  EG"
+            
+        }
         
     }
     
@@ -79,6 +107,7 @@ class PaymentViewController: UIViewController {
             
             let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrderViewController") as! ConfirmOrderViewController
             VC.totalPrice = totalPrice
+            
             self.present(VC, animated: false, completion: nil)
             
         case .non:
@@ -102,9 +131,9 @@ class PaymentViewController: UIViewController {
             paymentRequest.merchantCapabilities = .capability3DS
             paymentRequest.countryCode = "US"
             paymentRequest.currencyCode = "USD"
-            paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "Total Amount", amount: NSDecimalNumber(string: "100.0 US"), type: .final)]
+            paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "Total Amount", amount: NSDecimalNumber(string: finalTotalPrice), type: .final)]
             
-            let total = PKPaymentSummaryItem.init(label: "Total", amount: NSDecimalNumber(string: "100.0 US"), type: .final)
+            let total = PKPaymentSummaryItem.init(label: "Total", amount: NSDecimalNumber(string: finalTotalPrice), type: .final)
             let tax   = PKPaymentSummaryItem.init(label: "Tax", amount: NSDecimalNumber(string: "0.15 %"), type: .final)
             let fare = PKPaymentSummaryItem.init(label: "Shopify company", amount: NSDecimalNumber(string: "100.0 US"), type: .final)
             paymentRequest.paymentSummaryItems = [ total, tax, fare ]
@@ -150,6 +179,7 @@ extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
         } else {
             // Here you would send the payment token to your server or payment provider to process
             // Once processed, return an appropriate status in the completion handler (success, failure, etc)
+            postOrder(cartArray: product)
         }
         let paymentStatus = status
         completion(PKPaymentAuthorizationResult(status: paymentStatus, errors: errors))
@@ -162,5 +192,63 @@ extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
  
+}
+
+extension PaymentViewController {
+    
+    func postOrder(cartArray:[CartItemModel]){
+        if cartArray.count == 0 {
+            //self.showEmptyCartAlert()
+        }
+        else{
+            for item in cartArray {
+                orderProduct.append(OrderItem(variant_id: Int(item.itemID), quantity: Int(item.itemQuantity), name: item.itemName, price: item.itemPrice,title:item.itemName))
+            }
+            
+            // missing param
+            
+            let order = Order(id: 2, customer: Customer(first_name: "ann", email: "ann@gmail.com", tags: "", id: 1, addresses: [Address(id: 2, customer_id: 1, address1: "El-Zaraqa", city: "Damietta", country: "Egypt", phone: "01082082008")]), line_items: self.orderProduct, created_at: "2022-01-22", current_total_price: finalTotalPrice) //Order(customer: Customer(, line_items: self.orderProduct, current_total_price: self.totalPrice) //self.totalOrder.current_total_price
+            let ordertoAPI = OrderToAPI(order: order)
+            self.network.SubmitOrder(order: ordertoAPI) { data, urlResponse, error in
+                if error == nil {
+                    print("Post order success")
+                    if let data = data{
+                        let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+                        let returnedOrder = json["order"] as? Dictionary<String,Any>
+                        let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
+                        let id = returnedCustomer?["id"] as? Int ?? 0
+                        print(json)
+                        print("----------")
+                        print(id)
+                        
+                        for i in cartArray {
+                            self.database.delete(object: i)
+                        }
+                        self.database.save()
+                        
+                    }
+                    
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Done", message: "This orders submit Successfully", preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                            
+                            
+                            let viewController = UIStoryboard(name:"MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainPageID")
+                            UIApplication.shared.windows.first?.rootViewController = viewController
+                            UIApplication.shared.windows.first?.makeKeyAndVisible()
+                            
+                            
+                        })
+                        alert.addAction(alertAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
+                }else{
+                    print(error?.localizedDescription)
+                }
+            }
+        }
+    }
+    
 }
 

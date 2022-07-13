@@ -19,10 +19,10 @@ class SettingViewModel: SettingViewModelProtocol {
     
     func fetchData() {
         settingData.append(contentsOf: [
-            SettingModel(imageName: "",
-                         title: "Ahmed"),
-            SettingModel(imageName: "", title: "Ann"),
-            SettingModel(imageName: "", title: "Hannen")
+            SettingModel(imageName: "location.circle.fill", title: "Address"),
+            SettingModel(imageName: "coloncurrencysign.circle.fill", title: "Currency"),
+            SettingModel(imageName: "exclamationmark.shield.fill", title: "About us"),
+            SettingModel(imageName: "message.fill", title: "Contact us")
         ])
     }
     

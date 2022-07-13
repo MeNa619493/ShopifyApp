@@ -37,6 +37,10 @@ class ProductInfoViewController: UIViewController {
     var productInfoViewModel: ProductInfoViewModel?
     let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     
+    let database = DatabaseHandler.shared
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibFile()
@@ -91,11 +95,20 @@ class ProductInfoViewController: UIViewController {
     }
     
     func checkIsInShoppingCart() {
-        if isAddedToCart! {
-            addToCartButton.setTitle("REMOVE FROM CART", for: .normal)
-        } else {
+        
+        let products = database.fetch(CartItemModel.self)
+        
+        if checkIfItemExistInCart(itemId: product?.id ?? 0, itemms: products) {
+            
+        }else {
             addToCartButton.setTitle("ADD TO CART", for: .normal)
         }
+        
+//        if isAddedToCart! {
+//            addToCartButton.setTitle("REMOVE FROM CART", for: .normal)
+//        } else {
+//            addToCartButton.setTitle("ADD TO CART", for: .normal)
+//        }
     }
     
     func setupView() {
@@ -110,15 +123,84 @@ class ProductInfoViewController: UIViewController {
         checkIsInShoppingCart()
     }
     
-    @IBAction func onAddToCartPressed(_ sender: Any) {
-        if isAddedToCart! {
-            addToCartButton.setTitle("ADD TO CART", for: .normal)
-            productInfoViewModel?.removeProductFromCart(appDelegate: appDelegate, product: product!)
-        } else {
-            addToCartButton.setTitle("REMOVE FROM CART", for: .normal)
-            productInfoViewModel?.addProductToCart(appDelegate: appDelegate, product: product!)
+    
+    func checkIfItemExistInCart(itemId: Int,itemms:[CartItemModel]) -> Bool {
+        var check : Bool = false
+        for i in itemms {
+            if i.itemID == itemId {
+                check = true
+            }else {
+                check = false
+            }
         }
-        isAddedToCart = !isAddedToCart!
+        return check
+    }
+    
+    
+    
+    @IBAction func onAddToCartPressed(_ sender: Any) {
+        
+        let products = database.fetch(CartItemModel.self)
+        
+        if checkIfItemExistInCart(itemId: product?.id ?? 0, itemms: products) {
+            
+            print("cant add this product!!")
+            let alert = UIAlertController(title: "Warrning", message: "This product already existed in cart", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            present(alert, animated: true, completion: nil)
+            
+        }else {
+            
+            guard let cartData = database.add(CartItemModel.self) else { return }
+            
+            // to make data variables equal myData variables
+            cartData.itemID = Int64(product?.id ?? 0)
+            cartData.itemImage = product?.image.src ?? ""
+            cartData.itemName = product?.title ?? ""
+            cartData.itemPrice = product?.varients?[0].price ?? ""
+            cartData.itemQuantity = Int64(1)
+            cartData.userID = Int64(product?.userID ?? 0)
+            
+            // to save data to database => coreData => OfflineStorage model
+            database.save()
+            
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+            //VC.modalPresentationStyle = .fullScreen
+            self.present(VC, animated: false, completion: nil)
+            
+        }
+        
+//        if isAddedToCart! {
+//            addToCartButton.setTitle("ADD TO CART", for: .normal)
+//            productInfoViewModel?.removeProductFromCart(appDelegate: appDelegate, product: product!)
+//
+//            //let products = database.fetch(CartItemModel.self)
+//            //database.delete(object: products)
+//
+//        } else {
+//            addToCartButton.setTitle("REMOVE FROM CART", for: .normal)
+//            productInfoViewModel?.addProductToCart(appDelegate: appDelegate, product: product!)
+//
+//            guard let cartData = database.add(CartItemModel.self) else { return }
+//
+//            // to make data variables equal leaguesData variables
+//            cartData.itemID = Int64(product?.id ?? 0)
+//            cartData.itemImage = product?.image.src ?? ""
+//            cartData.itemName = product?.title ?? ""
+//            cartData.itemPrice = product?.varients?[0].price ?? ""
+//            cartData.itemQuantity = Int64(1)
+//            cartData.userID = Int64(product?.userID ?? 0)
+//
+//            // to save data to database => coreData => OfflineStorage model
+//            database.save()
+//
+//            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+//            //VC.modalPresentationStyle = .fullScreen
+//            self.present(VC, animated: false, completion: nil)
+//
+//        }
+//        isAddedToCart = !isAddedToCart!
     }
     
     @IBAction func onFavouritePressed(_ sender: Any) {
