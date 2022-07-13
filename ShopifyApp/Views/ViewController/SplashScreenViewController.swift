@@ -26,7 +26,7 @@ class SplashScreenViewController: UIViewController {
     
     func navigationToNextView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+            let vc = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "TabScreenID")
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }

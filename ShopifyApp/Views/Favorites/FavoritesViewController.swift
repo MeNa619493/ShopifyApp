@@ -38,9 +38,13 @@ class FavoritesViewController: UIViewController {
             return
         }
         
+        if !UserDefaultsManager.shared.getUserStatus() {
+            self.showAlertError(title: "Alert", message: "You must login")
+            return
+        }
+        
         self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
-        //should get user id from user defaults and use it here
         favoritesViewModel?.bindingData = { favourites, error in
             if let favourites = favourites {
                 self.favoritesArray = favourites
@@ -55,7 +59,7 @@ class FavoritesViewController: UIViewController {
                 self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
-        favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: 0)
+        favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: UserDefaultsManager.shared.getUserID() ?? 1)
     }
     
     func registerNibFile() {

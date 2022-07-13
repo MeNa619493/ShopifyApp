@@ -43,9 +43,15 @@ class ProductInfoViewModel {
         }
     }
     
-    func getProductsInShopingCart(appDelegate: AppDelegate, product: Product, complition: @escaping ()-> Void ) -> Bool {
-        var productsArray = [Product]()
+    func getProductsInShopingCart(appDelegate: AppDelegate, product: inout Product, complition: @escaping ()-> Void ) -> Bool {
         var isInShoppingCart: Bool = false
+        if !UserDefaultsManager.shared.getUserStatus() {
+            complition()
+            return isInShoppingCart
+        }
+        
+        product.userID = UserDefaultsManager.shared.getUserID()!
+        var productsArray = [Product]()
         databaseService.getItemFromShoppingCartProductList(appDelegate: appDelegate, product: product) { (products, error) in
             if let products = products {
                 productsArray = products
@@ -61,9 +67,16 @@ class ProductInfoViewModel {
         return isInShoppingCart
     }
     
-    func getProductsInFavourites(appDelegate: AppDelegate, product: Product, complition: @escaping ()-> Void) -> Bool {
-        var productsArray = [Product]()
+    func getProductsInFavourites(appDelegate: AppDelegate, product: inout Product, complition: @escaping ()-> Void) -> Bool {
         var isFavourite: Bool = false
+        
+        if !UserDefaultsManager.shared.getUserStatus() {
+            complition()
+            return isFavourite
+        }
+        
+        product.userID = UserDefaultsManager.shared.getUserID()!
+        var productsArray = [Product]()
         databaseService.getItemFromFavourites(appDelegate: appDelegate, product: product) { (products, error) in
             if let products = products {
                 productsArray = products

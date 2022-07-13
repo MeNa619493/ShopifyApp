@@ -11,5 +11,6 @@ import Foundation
 protocol FavouriteActionProductScreen {
     func addFavourite(appDelegate: AppDelegate, product: Product) -> Void
     func deleteFavourite(appDelegate: AppDelegate, product: Product) -> Void
+    func showAlert(title: String, message: String) -> Void
 }
 

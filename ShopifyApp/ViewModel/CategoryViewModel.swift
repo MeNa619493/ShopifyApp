@@ -98,10 +98,14 @@ class CategoriesViewModel {
         mainCategoryProducts(mainCategory: "ACCESSORIES", category: .sub)
     }
     
-    func getProductsInFavourites(appDelegate: AppDelegate, product: Product) -> Bool {
-        var productsArray = [Product]()
+    func getProductsInFavourites(appDelegate: AppDelegate, product: inout Product) -> Bool {
         var isFavourite: Bool = false
-        //should change user id and get it from user defaults
+        if !UserDefaultsManager.shared.getUserStatus() {
+            return isFavourite
+        }
+       
+        var productsArray = [Product]()
+        product.userID = UserDefaultsManager.shared.getUserID()!
         databaseService.getItemFromFavourites(appDelegate: appDelegate, product: product, complition: { (products, error) in
             if let products = products {
                 productsArray = products

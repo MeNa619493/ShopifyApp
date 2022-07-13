@@ -49,10 +49,16 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     func actionTakenInCellInProductsView() {
+        if !UserDefaultsManager.shared.getUserStatus() {
+            productsView?.showAlert(title: "Alert",message: "You must login")
+            return
+        }
+        
         if isFavourite! {
             productsView?.deleteFavourite(appDelegate: appDelegate, product: product!)
             favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         } else {
+            product?.userID = UserDefaultsManager.shared.getUserID()!
             productsView?.addFavourite(appDelegate: appDelegate, product: product!)
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
