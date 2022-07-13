@@ -43,7 +43,7 @@ class ProductInfoViewModel {
         }
     }
     
-    func getProductsInShopingCart(appDelegate: AppDelegate, product: Product) -> Bool {
+    func getProductsInShopingCart(appDelegate: AppDelegate, product: Product, complition: @escaping ()-> Void ) -> Bool {
         var productsArray = [Product]()
         var isInShoppingCart: Bool = false
         databaseService.getItemFromShoppingCartProductList(appDelegate: appDelegate, product: product) { (products, error) in
@@ -57,10 +57,11 @@ class ProductInfoViewModel {
                 isInShoppingCart = true
             }
         }
+        complition()
         return isInShoppingCart
     }
     
-    func getProductsInFavourites(appDelegate: AppDelegate, product: Product) -> Bool {
+    func getProductsInFavourites(appDelegate: AppDelegate, product: Product, complition: @escaping ()-> Void) -> Bool {
         var productsArray = [Product]()
         var isFavourite: Bool = false
         databaseService.getItemFromFavourites(appDelegate: appDelegate, product: product) { (products, error) in
@@ -74,6 +75,7 @@ class ProductInfoViewModel {
                 isFavourite = true
             }
         }
+        complition()
         return isFavourite
     }
     

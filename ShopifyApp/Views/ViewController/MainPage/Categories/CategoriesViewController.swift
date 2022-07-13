@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import JJFloatingActionButton
 
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var selectedButton = true
@@ -16,8 +17,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     var categoriesViewModel: CategoriesViewModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
-     
-    
+
+    var actionButton = JJFloatingActionButton()
     @IBOutlet weak var productsCV: UICollectionView!{
         didSet {
             productsCV.delegate = self
@@ -34,7 +35,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibFile()
-          
+        createFloatingButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,4 +130,58 @@ extension CategoriesViewController: FavouriteActionProductScreen {
     }
 }
 
+extension CategoriesViewController {
+    func createFloatingButton() {
+        actionButton.addItem(title: "", image: UIImage(named: "sneakers")?.withRenderingMode(.alwaysOriginal)) { item in
+            self.categoriesViewModel?.selectedShoesCategory()
+            self.actionButton.buttonImage = UIImage(named: "sneakers")
+        }
 
+        actionButton.addItem(title: "", image: UIImage(named: "shirt")?.withRenderingMode(.alwaysOriginal)) { item in
+            self.categoriesViewModel?.selectedShirtsCategory()
+            self.actionButton.buttonImage = UIImage(named: "shirt")
+        }
+        
+        actionButton.addItem(title: "", image: UIImage(named: "wedding-rings")?.withRenderingMode(.alwaysOriginal)) { item in
+            self.categoriesViewModel?.selectedAccessoriesCategory()
+            self.actionButton.buttonImage = UIImage(named: "wedding-rings")
+        }
+
+        actionButton.display(inViewController: self)
+        floatingConfigration()
+    }
+    
+    func floatingConfigration() {
+        actionButton.handleSingleActionDirectly = false
+        actionButton.buttonDiameter = 50
+        actionButton.overlayView.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        actionButton.buttonImage = UIImage(named: "sneakers")
+        actionButton.buttonColor = .purple
+        actionButton.buttonImageColor = .white
+        actionButton.buttonImageSize = CGSize(width: 20, height: 20)
+
+        actionButton.buttonAnimationConfiguration = .transition(toImage: UIImage(named: "cancel")!)
+        actionButton.itemAnimationConfiguration = .slideIn(withInterItemSpacing: 14)
+
+        actionButton.layer.shadowColor = UIColor.black.cgColor
+        actionButton.layer.shadowOffset = CGSize(width: 0, height: 1)
+        actionButton.layer.shadowOpacity = Float(0.4)
+        actionButton.layer.shadowRadius = CGFloat(2)
+
+        actionButton.itemSizeRatio = CGFloat(0.75)
+        actionButton.configureDefaultItem { item in
+            item.titlePosition = .trailing
+
+            item.titleLabel.font = .boldSystemFont(ofSize: UIFont.systemFontSize)
+            item.titleLabel.textColor = .white
+            item.buttonColor = .white
+            item.imageSize = CGSize(width: 15, height: 15)
+            item.buttonImageColor = .black
+
+            item.layer.shadowColor = UIColor.black.cgColor
+            item.layer.shadowOffset = CGSize(width: 0, height: 1)
+            item.layer.shadowOpacity = Float(0.4)
+            item.layer.shadowRadius = CGFloat(2)
+        }
+    }
+}

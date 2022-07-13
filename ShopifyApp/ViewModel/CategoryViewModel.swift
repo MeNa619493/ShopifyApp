@@ -10,6 +10,7 @@ import Foundation
 
 
 class CategoriesViewModel {
+    var selectedCategory: Category = .men
     var allProductsArray = [Product]()
     var filteredArray = [Product]()
     var menCategory = [Product]()
@@ -42,7 +43,7 @@ class CategoriesViewModel {
             if let products = products {
                 self.allProductsArray = products
                 self.filteredArray = products
-                self.mainCategoryProducts(mainCategory: ", men")
+                self.mainCategoryProducts(mainCategory: ", men", category: .main)
             }
             
             if let error = error {
@@ -51,30 +52,50 @@ class CategoriesViewModel {
         }
     }
     
-    func mainCategoryProducts(mainCategory: String) {
-        shownArray = filteredArray.filter({ (product) -> Bool in
-            return product.tags!.contains(mainCategory)
-        })
+    func mainCategoryProducts(mainCategory: String, category: CategoryPriority) {
+        switch category {
+            case .main:
+                filteredArray = allProductsArray.filter({ (product) -> Bool in
+                    return product.tags!.contains(mainCategory)
+                })
+                shownArray = filteredArray
+            case .sub:
+                shownArray = filteredArray.filter({ (product) -> Bool in
+                    return product.productType!.contains(mainCategory)
+                })
+        }
     }
     
     func selectedMenCategory() {
-        filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: ", men")
+        selectedCategory = .men
+        mainCategoryProducts(mainCategory: ", men", category: .main)
     }
     
     func selectedWomenCategory() {
-        filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: ", women")
+        selectedCategory = .women
+        mainCategoryProducts(mainCategory: ", women", category: .main)
     }
     
     func selectedKidsCategory() {
-        filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: ", kid")
+        selectedCategory = .kids
+        mainCategoryProducts(mainCategory: ", kid", category: .main)
     }
     
     func selectedSaleCategory() {
-        filteredArray = allProductsArray
-        mainCategoryProducts(mainCategory: ", sale")
+        selectedCategory = .sale
+        mainCategoryProducts(mainCategory: ", sale", category: .main)
+    }
+    
+    func selectedShoesCategory() {
+        mainCategoryProducts(mainCategory: "SHOES", category: .sub)
+    }
+    
+    func selectedShirtsCategory() {
+        mainCategoryProducts(mainCategory: "T-SHIRTS", category: .sub)
+    }
+    
+    func selectedAccessoriesCategory() {
+        mainCategoryProducts(mainCategory: "ACCESSORIES", category: .sub)
     }
     
     func getProductsInFavourites(appDelegate: AppDelegate, product: Product) -> Bool {
@@ -105,13 +126,40 @@ class CategoriesViewModel {
     
     func search(searchInput: String) {
         if searchInput.isEmpty {
-            shownArray = filteredArray
+            switch selectedCategory {
+                case .men:
+                    selectedMenCategory()
+                case .women:
+                    selectedWomenCategory()
+                case .kids:
+                    selectedKidsCategory()
+                case .sale:
+                    selectedSaleCategory()
+            }
         } else {
             shownArray = shownArray!.filter({ (product) -> Bool in
                 return product.title.hasPrefix(searchInput.lowercased()) ||          product.title.hasPrefix(searchInput.uppercased()) ||
-                    product.title.contains(searchInput.lowercased()) ||     product.title.contains(searchInput.uppercased())
+                    product.title.contains(searchInput.lowercased()) ||   product.title.contains(searchInput.uppercased())
             })
         }
     }
     
+}
+
+enum Category: String{
+    case men
+    case women
+    case kids
+    case sale
+}
+
+enum SubCategory: String {
+    case SHOES
+    case SHIRTS = "T-SHIRTS"
+    case ACCESSORIES
+}
+
+enum CategoryPriority: String{
+    case main
+    case sub
 }
