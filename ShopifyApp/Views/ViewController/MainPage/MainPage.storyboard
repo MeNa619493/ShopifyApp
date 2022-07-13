@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -39,7 +40,7 @@
                                     </searchBar>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tIa-JT-59P">
                                         <rect key="frame" x="20" y="225" width="374" height="265"/>
-                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="265" id="mBN-Cd-Uqt"/>
                                         </constraints>
@@ -113,7 +114,15 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="uo3-qN-OcI" secondAttribute="bottom" constant="45" id="wds-Gu-UCv"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="tFZ-JO-XFr"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="tFZ-JO-XFr">
+                        <imageReference key="image" image="homekit" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemIndigoColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="GIO-2k-mnS"/>
                     <connections>
                         <outlet property="adsCollectionView" destination="tIa-JT-59P" id="Fik-ue-hT6"/>
@@ -139,11 +148,14 @@
                                     <navigationItem title="Category" id="6TP-pl-Nz1">
                                         <rightBarButtonItems>
                                             <barButtonItem image="heart" catalog="system" id="XNl-zK-iPV">
+                                                <color key="tintColor" systemColor="systemIndigoColor"/>
                                                 <connections>
                                                     <action selector="onFavoriteButtonPressed:" destination="lOe-as-rBn" id="FCm-gh-JRG"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem image="cart" catalog="system" id="QoR-Ck-9cr"/>
+                                            <barButtonItem image="cart" catalog="system" id="QoR-Ck-9cr">
+                                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -189,7 +201,7 @@
                                             <segment title="KIDS"/>
                                             <segment title="SALE"/>
                                         </segments>
-                                        <color key="selectedSegmentTintColor" systemColor="systemPurpleColor"/>
+                                        <color key="selectedSegmentTintColor" systemColor="systemIndigoColor"/>
                                         <connections>
                                             <action selector="men:" destination="lOe-as-rBn" eventType="valueChanged" id="Sw7-tg-88C"/>
                                         </connections>
@@ -217,7 +229,15 @@
                             <constraint firstItem="S0K-Jb-oxw" firstAttribute="leading" secondItem="wul-QD-itb" secondAttribute="leadingMargin" id="z2w-gd-svj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Categories" image="rectangle.grid.2x2.fill" catalog="system" id="FR9-g9-DbI"/>
+                    <tabBarItem key="tabBarItem" title="Categories" id="FR9-g9-DbI">
+                        <imageReference key="image" image="rectangle.grid.2x2.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemIndigoColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -246,8 +266,12 @@
                                 <items>
                                     <navigationItem title="Me" id="Omd-pt-ASl">
                                         <rightBarButtonItems>
-                                            <barButtonItem image="gearshape" catalog="system" id="5Ox-iU-fe3"/>
-                                            <barButtonItem image="cart" catalog="system" id="bPk-Od-JfH"/>
+                                            <barButtonItem image="gearshape" catalog="system" id="5Ox-iU-fe3">
+                                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                            </barButtonItem>
+                                            <barButtonItem image="cart" catalog="system" id="bPk-Od-JfH">
+                                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -264,8 +288,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="230" translatesAutoresizingMaskIntoConstraints="NO" id="9nI-Sr-YP4">
-                                <rect key="frame" x="32" y="181" width="318.5" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="244" translatesAutoresizingMaskIntoConstraints="NO" id="9nI-Sr-YP4">
+                                <rect key="frame" x="32" y="181" width="332.5" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bJ-0o-zdl">
                                         <rect key="frame" x="0.0" y="0.0" width="52.5" height="30"/>
@@ -274,8 +298,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mm7-rk-UFR">
-                                        <rect key="frame" x="282.5" y="0.0" width="36" height="30"/>
-                                        <state key="normal" title="More"/>
+                                        <rect key="frame" x="296.5" y="0.0" width="36" height="30"/>
+                                        <state key="normal" title="More">
+                                            <color key="titleColor" systemColor="systemIndigoColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="ordersMore:" destination="UJb-rr-49e" eventType="touchUpInside" id="z1b-zj-xAa"/>
                                         </connections>
@@ -308,28 +334,48 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txx-wF-72u">
                                         <rect key="frame" x="279" y="0.0" width="71" height="30"/>
-                                        <state key="normal" title="More"/>
+                                        <state key="normal" title="More">
+                                            <color key="titleColor" systemColor="systemIndigoColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="wishlistMore:" destination="UJb-rr-49e" eventType="touchUpInside" id="UvK-6A-fcB"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="133" translatesAutoresizingMaskIntoConstraints="NO" id="Wov-HT-yy2">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wov-HT-yy2">
                                 <rect key="frame" x="53.5" y="570.5" width="307" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdG-Kd-Gej">
-                                        <rect key="frame" x="0.0" y="0.0" width="87" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="30"/>
                                         <state key="normal" title="Login"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Login">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="loginButton:" destination="UJb-rr-49e" eventType="touchUpInside" id="A2R-Fm-Kdc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbG-p4-96Q">
-                                        <rect key="frame" x="220" y="0.0" width="87" height="30"/>
+                                        <rect key="frame" x="167.5" y="0.0" width="139.5" height="30"/>
                                         <state key="normal" title="Register"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Register" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Register">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="registerButton:" destination="UJb-rr-49e" eventType="touchUpInside" id="7tS-L2-2Y9"/>
                                         </connections>
@@ -385,7 +431,15 @@
                             <constraint firstItem="3Jt-fW-Swy" firstAttribute="leading" secondItem="MN8-Dq-beK" secondAttribute="leading" constant="48" id="ywk-xU-bRG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" image="person.fill" catalog="system" id="NFq-bR-N8a"/>
+                    <tabBarItem key="tabBarItem" title="Me" id="NFq-bR-N8a">
+                        <imageReference key="image" image="person.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemIndigoColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="welcomeName" destination="juC-Dd-6pC" id="CcC-Rg-Qwl"/>
@@ -423,11 +477,17 @@
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.grid.2x2.fill" catalog="system" width="128" height="99"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
