@@ -12,10 +12,13 @@ import JJFloatingActionButton
 
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    
+    var selectedButton = true
     var productsArray = [Product]()
     var categoriesViewModel: CategoriesViewModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
+
     var actionButton = JJFloatingActionButton()
     @IBOutlet weak var productsCV: UICollectionView!{
         didSet {
@@ -87,20 +90,21 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         self.present(productInfoVC, animated: true, completion: nil)
     }
     
-    @IBAction func women(_ sender: Any) {
-        categoriesViewModel?.selectedWomenCategory()
-    }
+    @IBOutlet weak var categoriesSegments: UISegmentedControl!
     
-    @IBAction func men(_ sender: Any) {
-       categoriesViewModel?.selectedMenCategory()
-    }
-    
-    @IBAction func kids(_ sender: Any) {
-        categoriesViewModel?.selectedKidsCategory()
-    }
-    
-    @IBAction func sale(_ sender: Any) {
-        categoriesViewModel?.selectedSaleCategory()
+    @IBAction func men(_ sender: UISegmentedControl) {
+        switch categoriesSegments.selectedSegmentIndex{
+                case 0:
+                categoriesViewModel?.selectedMenCategory()
+                case 1:
+                categoriesViewModel?.selectedWomenCategory()
+                case 2:
+                categoriesViewModel?.selectedKidsCategory()
+                case 3:
+                categoriesViewModel?.selectedSaleCategory()
+                default:
+                    break
+        }
     }
     
     
@@ -109,7 +113,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
-    
+   
 }
    
 extension CategoriesViewController: UISearchBarDelegate {
@@ -190,5 +194,3 @@ extension CategoriesViewController {
         }
     }
 }
-
-

@@ -189,7 +189,7 @@ class DatabaseManager: DatabaseService {
         fetchRequest.predicate = NSPredicate(format: "userID = \(product.userID) AND id = \(product.id)")
         do{
             let productArray = try managedContext.fetch(fetchRequest)
-            print("get one product from favourites successfully")
+//            print("get one product from favourites successfully")
             for product in productArray{
                 let id = product.value(forKey: "id") as! Int
                 let userID = product.value(forKey: "userID") as! Int
