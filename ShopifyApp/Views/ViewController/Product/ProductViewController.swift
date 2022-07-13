@@ -76,7 +76,8 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = ProductsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCellID", for: indexPath) as! ProductCollectionViewCell
         cell.productsView = self
-        let isFavorite = productsViewModel!.getProductsInFavourites(appDelegate: appDelegate, product: productsArray[indexPath.row])
+        
+        let isFavorite = productsViewModel!.getProductsInFavourites(appDelegate: appDelegate, product: &productsArray[indexPath.row])
         cell.configureCell(product: productsArray[indexPath.row], isFavourite: isFavorite)
         return cell
     }
@@ -102,6 +103,13 @@ extension ProductViewController: FavouriteActionProductScreen {
     
     func deleteFavourite(appDelegate: AppDelegate, product: Product) {
         productsViewModel?.deleteFavourite(appDelegate: appDelegate, product: product)
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let Action = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alert.addAction(Action)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
