@@ -146,7 +146,7 @@ class PaymentViewController: UIViewController {
             
             let total = PKPaymentSummaryItem.init(label: "Total", amount: NSDecimalNumber(string: finalTotalPrice), type: .final)
             let tax   = PKPaymentSummaryItem.init(label: "Tax", amount: NSDecimalNumber(string: "0.15 %"), type: .final)
-            let fare = PKPaymentSummaryItem.init(label: "Shopify company", amount: NSDecimalNumber(string: "100.0 US"), type: .final)
+            let fare = PKPaymentSummaryItem.init(label: "Shopify company", amount: NSDecimalNumber(string: finalTotalPrice), type: .final)
             paymentRequest.paymentSummaryItems = [ total, tax, fare ]
             
             paymentRequest.requiredShippingAddressFields = PKAddressField.all
