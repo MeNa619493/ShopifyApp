@@ -235,6 +235,7 @@ extension ConfirmOrderViewController {
                             self.database.delete(object: i)
                         }
                         self.database.save()
+                        UserDefaults.standard.setValue(nil, forKey: "totalPrice")
                         
                     }
                     
