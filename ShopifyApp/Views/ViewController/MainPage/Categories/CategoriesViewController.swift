@@ -92,7 +92,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var categoriesSegments: UISegmentedControl!
     
-    @IBAction func men(_ sender: UISegmentedControl) {
+    @IBAction func categories(_ sender: UISegmentedControl) {
         switch categoriesSegments.selectedSegmentIndex{
                 case 0:
                 categoriesViewModel?.selectedMenCategory()

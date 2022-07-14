@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class MeViewController: UIViewController {
+class MeViewController: UIViewController{
+    var favoritesArray = [Product]()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var favoritesViewModel: FavoritesViewModel?
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
+    
     @IBOutlet weak var welcomeName: UILabel!
-    
-    @IBOutlet weak var ordersPrice: UILabel!
-    
-    @IBOutlet weak var ordersTime: UILabel!
-    
+
     @IBAction func ordersMore(_ sender: Any) {
     }
     
@@ -36,23 +38,90 @@ class MeViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var favouritesCV: UICollectionView!{
+        didSet {
+            favouritesCV.delegate = self
+            favouritesCV.dataSource = self
+            
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        registerNibFile()
+        favoritesViewModel = FavoritesViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard Connectivity.shared.isConnectedToInternet() else {
+            self.showAlertForInterNetConnection()
+            return
+        }
+        
+//        if !UserDefaultsManager.shared.getUserStatus() {
+//            self.showAlertError(title: "Alert", message: "You must login")
+//            return
+//        }
+        
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
+        
+        favoritesViewModel?.bindingData = { favourites, error in
+            if let favourites = favourites {
+                self.favoritesArray = favourites
+                DispatchQueue.main.async {
+                    self.favouritesCV.reloadData()
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                }
+            }
+            
+            if let error = error {
+                print(error.localizedDescription)
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+            }
+        }
+        favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: UserDefaultsManager.shared.getUserID() ?? 1)
+    }
+    func registerNibFile() {
+        favouritesCV.register(UINib(nibName: "MiniProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MiniProductCellID")
+        
+        print ("line 90 - Favorites array count \(favoritesArray.count)")
+
+    }
     
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
 
+extension MeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return favoritesArray.count
+        
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MiniProductCellID", for: indexPath) as! MiniProductCollectionViewCell
+            cell.favouritesView = self
+            cell.configureCell(product: favoritesArray[indexPath.row], isFavourite: true, isInFavouriteScreen: true)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productInfoVC = UIStoryboard(name: Storyboards.productInfo.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.productInfo.rawValue) as! ProductInfoViewController
+        productInfoVC.productId = favoritesArray[indexPath.row].id
+        productInfoVC.modalPresentationStyle = .fullScreen
+        self.present(productInfoVC, animated: true, completion: nil)
+    }
+}
+
+extension MeViewController: FavoriteActionFavoritesScreen {
+    func deleteFavourite(appDelegate: AppDelegate, product: Product) {
+        favoritesViewModel?.deleteFavourite(appDelegate: appDelegate, product: product)
+        favoritesArray = favoritesArray.filter { $0.id != product.id }
+        favouritesCV.reloadData()
+    }
 }
