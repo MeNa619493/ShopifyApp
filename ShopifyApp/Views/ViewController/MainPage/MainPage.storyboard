@@ -183,6 +183,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jjf-SK-vRb">
                                 <rect key="frame" x="16" y="168" width="358" height="544"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="572" id="tMF-Va-cUf"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vv1-Ke-oon">
                                     <size key="itemSize" width="155" height="155"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -200,6 +203,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+
+<!--                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S0K-Jb-oxw">-->
+<!--                                <rect key="frame" x="20" y="145" width="374" height="31"/>-->
+<!--                            </stackView>-->
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kx8-vt-qaC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
