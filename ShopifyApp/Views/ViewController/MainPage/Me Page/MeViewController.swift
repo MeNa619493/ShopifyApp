@@ -15,15 +15,46 @@ class MeViewController: UIViewController{
     var favoritesViewModel: FavoritesViewModel?
     let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     
+    @IBAction func shoppingCart(_ sender: Any) {
+        if UserDefaultsManager.shared.getUserStatus(){
+            //go to cart page
+        }
+            else {
+                loginButton(self)
+            }
+    }
+    
+    @IBAction func settingsButton(_ sender: Any) {
+        if UserDefaultsManager.shared.getUserStatus(){
+            //go to settings page
+        }
+            else {
+                loginButton(self)
+            }
+    }
+    
+    
     @IBOutlet weak var welcomeName: UILabel!
 
     @IBAction func ordersMore(_ sender: Any) {
+        if UserDefaultsManager.shared.getUserStatus(){
+        //go to orders page
+    }
+        else {
+            loginButton(self)
+        }
     }
     
     @IBAction func wishlistMore(_ sender: Any) {
-        let vc = UIStoryboard(name: Storyboards.favourites.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.favourites.rawValue) as! FavoritesViewController
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        if UserDefaultsManager.shared.getUserStatus(){
+            let vc = UIStoryboard(name: Storyboards.favourites.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.favourites.rawValue) as! FavoritesViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        else {
+            loginButton(self)
+        }
+        
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -38,6 +69,8 @@ class MeViewController: UIViewController{
         self.present(vc, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var ordersTableView: UITableView!
+    
     @IBOutlet weak var favouritesCV: UICollectionView!{
         didSet {
             favouritesCV.delegate = self
@@ -49,25 +82,22 @@ class MeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         registerNibFile()
         favoritesViewModel = FavoritesViewModel()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
         super.viewWillAppear(animated)
-        
         guard Connectivity.shared.isConnectedToInternet() else {
             self.showAlertForInterNetConnection()
             return
         }
         
-//        if !UserDefaultsManager.shared.getUserStatus() {
-//            self.showAlertError(title: "Alert", message: "You must login")
-//            return
-//        }
-        
         self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-        
+
         favoritesViewModel?.bindingData = { favourites, error in
             if let favourites = favourites {
                 self.favoritesArray = favourites
@@ -83,12 +113,29 @@ class MeViewController: UIViewController{
             }
         }
         favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: UserDefaultsManager.shared.getUserID() ?? 1)
+        
+        whenUserLoggedIn()
     }
+    
     func registerNibFile() {
         favouritesCV.register(UINib(nibName: "MiniProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MiniProductCellID")
         
-        print ("line 90 - Favorites array count \(favoritesArray.count)")
-
+    }
+    
+    func whenUserLoggedIn(){
+        if UserDefaultsManager.shared.getUserStatus() {
+            welcomeName.text = "Welcome, " + UserDefaultsManager.shared.getUserName()!
+            welcomeName.textColor = UIColor.systemIndigo
+            ordersTableView.isHidden = false
+            favouritesCV.isHidden = false
+            return
+        }
+        else{
+            welcomeName.text = "Please log in to view your data!"
+            welcomeName.textColor = UIColor.black
+            ordersTableView.isHidden = true
+            favouritesCV.isHidden = true
+        }
     }
     
 
