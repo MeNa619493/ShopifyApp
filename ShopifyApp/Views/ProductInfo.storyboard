@@ -98,7 +98,6 @@
                                                                     </label>
                                                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-cz-ihB" customClass="CosmosView" customModule="Cosmos">
                                                                         <rect key="frame" x="211" y="0.0" width="203" height="40"/>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                                                                 <real key="value" value="30"/>

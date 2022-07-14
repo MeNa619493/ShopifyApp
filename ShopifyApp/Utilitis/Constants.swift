@@ -15,6 +15,7 @@ enum Storyboards: String {
     case favourites = "Favorites"
     case splashScreen = "SplashScreen"
     case reviews = "Reviews"
+    case home = "MainPage"
 }
 
 enum StoryboardID: String {
@@ -24,6 +25,9 @@ enum StoryboardID: String {
     case favourites = "FavoritesVC"
     case splashScreen = "SplashScreenVC"
     case reviews = "ReviewsVC"
+    case home = "MainPageID"
+    case tabScreen = "TabScreenID"
+
 }
 
 enum NibFiles: String {

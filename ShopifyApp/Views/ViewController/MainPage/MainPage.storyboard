@@ -358,7 +358,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L9x-58-10y">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L9x-58-10y">
                                 <rect key="frame" x="48" y="413" width="294" height="120.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
@@ -435,18 +435,23 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="favouritesCV" destination="L9x-58-10y" id="mmM-zr-Kpf"/>
+                        <outlet property="loginRegisterSection" destination="Wov-HT-yy2" id="RaS-hX-pMt"/>
+                        <outlet property="orderSectionButtons" destination="9nI-Sr-YP4" id="Im2-sk-y7b"/>
+                        <outlet property="ordersSection" destination="3Jt-fW-Swy" id="pHQ-MR-hSM"/>
                         <outlet property="ordersTableView" destination="4I4-Tg-LPc" id="XBJ-aq-gTn"/>
                         <outlet property="welcomeName" destination="juC-Dd-6pC" id="CcC-Rg-Qwl"/>
+                        <outlet property="wishlistSection" destination="L9x-58-10y" id="A45-zD-uU2"/>
+                        <outlet property="wishlistSectionButtons" destination="UdP-86-fCx" id="2YF-Bi-MGS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3l-Dg-Y4P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="809.23076923076917" y="909.95260663507099"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller View Controller-->
         <scene sceneID="7L8-IX-IXC">
             <objects>
-                <tabBarController storyboardIdentifier="TabScreenID" automaticallyAdjustsScrollViewInsets="NO" id="JpI-5d-K7Z" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabScreenID" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JpI-5d-K7Z" customClass="mainTabBarControllerViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BDx-XC-MfX">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

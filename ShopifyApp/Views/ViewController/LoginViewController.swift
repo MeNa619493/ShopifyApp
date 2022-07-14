@@ -60,10 +60,13 @@ extension LoginViewController {
                 UserDefaultsManager.shared.setUserStatus(userIsLogged: true)
                 print("customer logged in successfully")
                 //Navigation
+                let mainPageVC = UIStoryboard(name: Storyboards.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.tabScreen.rawValue) as! mainTabBarControllerViewController
+                mainPageVC.modalPresentationStyle = .fullScreen
+                self.present(mainPageVC, animated: true, completion: nil)
             }else{
                 UserDefaultsManager.shared.setUserStatus(userIsLogged: false)
-                self.showAlertError(title: "failed to login", message: "please check your email or password")
-                print("failed to login")
+                self.showAlertError(title: "Failed to login", message: "Please check your email or password")
+                print("Failed to login")
             }
         }
     }

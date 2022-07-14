@@ -15,6 +15,10 @@ class MeViewController: UIViewController{
     var favoritesViewModel: FavoritesViewModel?
     let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     
+    
+    
+    // MARK: - Navigation section
+    
     @IBAction func shoppingCart(_ sender: Any) {
         if UserDefaultsManager.shared.getUserStatus(){
             //go to cart page
@@ -36,27 +40,43 @@ class MeViewController: UIViewController{
     
     @IBOutlet weak var welcomeName: UILabel!
 
+    // MARK: - Orders section
+    @IBOutlet weak var orderSectionButtons: UIStackView!
     @IBAction func ordersMore(_ sender: Any) {
-        if UserDefaultsManager.shared.getUserStatus(){
         //go to orders page
     }
-        else {
-            loginButton(self)
+    
+    @IBOutlet weak var ordersSection: UIStackView!
+    @IBOutlet weak var ordersTableView: UITableView!{
+        didSet {
+//            ordersTableView.delegate = self
+//            ordersTableView.dataSource = self
         }
     }
     
+    
+    // MARK: - Wishlist section
+    
+    @IBOutlet weak var wishlistSectionButtons: UIStackView!
+    
     @IBAction func wishlistMore(_ sender: Any) {
-        if UserDefaultsManager.shared.getUserStatus(){
             let vc = UIStoryboard(name: Storyboards.favourites.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.favourites.rawValue) as! FavoritesViewController
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
-        }
-        else {
-            loginButton(self)
-        }
-        
     }
     
+    @IBOutlet weak var wishlistSection: UICollectionView!
+    @IBOutlet weak var favouritesCV: UICollectionView!{
+        didSet {
+            favouritesCV.delegate = self
+            favouritesCV.dataSource = self
+        }
+    }
+    
+    // MARK: - Login/Register section
+
+    @IBOutlet weak var loginRegisterSection: UIStackView!
+
     @IBAction func loginButton(_ sender: Any) {
         let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
         vc.modalPresentationStyle = .fullScreen
@@ -69,15 +89,6 @@ class MeViewController: UIViewController{
         self.present(vc, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var ordersTableView: UITableView!
-    
-    @IBOutlet weak var favouritesCV: UICollectionView!{
-        didSet {
-            favouritesCV.delegate = self
-            favouritesCV.dataSource = self
-            
-        }
-    }
     
     
     override func viewDidLoad() {
@@ -126,21 +137,25 @@ class MeViewController: UIViewController{
         if UserDefaultsManager.shared.getUserStatus() {
             welcomeName.text = "Welcome, " + UserDefaultsManager.shared.getUserName()!
             welcomeName.textColor = UIColor.systemIndigo
-            ordersTableView.isHidden = false
-            favouritesCV.isHidden = false
-            return
+            sectionsAreHidden(state: false)
         }
         else{
             welcomeName.text = "Please log in to view your data!"
             welcomeName.textColor = UIColor.black
-            ordersTableView.isHidden = true
-            favouritesCV.isHidden = true
+            sectionsAreHidden(state: true)
         }
     }
     
+    func sectionsAreHidden(state: Bool){
+        orderSectionButtons.isHidden = state
+        ordersSection.isHidden = state
+        wishlistSection.isHidden = state
+        wishlistSectionButtons.isHidden = state
+        loginRegisterSection.isHidden = !state
+    }
 
 
-    // MARK: - Navigation
+    // MARK: - Collection View Functions
 
     }
 
