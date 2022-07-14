@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         let viewController = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CartViewController") //SettingViewController
         //let viewController = UIStoryboard(name:"MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainPageID")
+        let viewController = UIStoryboard(name: Storyboards.splashScreen.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.splashScreen.rawValue)
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }

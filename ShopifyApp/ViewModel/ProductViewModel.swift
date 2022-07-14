@@ -35,7 +35,6 @@ class ProductsViewModel {
     func fetchProducts(endPoint: String, brandTitle: String) {
         apiService.fetchProducts(endPoint: endPoint) { products, error in
             if let products = products {
-                
                 for index in 0..<products.count{
                     if brandTitle == products[index].vendor{
                         self.filteredArray.append(products[index])
@@ -50,16 +49,20 @@ class ProductsViewModel {
         }
     }
     
-    func getProductsInFavourites(appDelegate: AppDelegate, product: Product) -> Bool {
-        var productsArray = [Product]()
+    func getProductsInFavourites(appDelegate: AppDelegate, product: inout Product) -> Bool {
         var isFavourite: Bool = false
-        //should change user id and get it from user defaults
-        databaseService.getFavourites(appDelegate: appDelegate, userId: product.userID , complition: { (products, error) in
+        if !UserDefaultsManager.shared.getUserStatus() {
+            return isFavourite
+        }
+        
+        var productsArray = [Product]()
+        product.userID = UserDefaultsManager.shared.getUserID()!
+        databaseService.getItemFromFavourites(appDelegate: appDelegate, product: product, complition: { (products, error) in
             if let products = products {
                 productsArray = products
             }
         })
-        
+
         for item in productsArray {
             if item.id == product.id {
                 isFavourite = true
@@ -68,20 +71,21 @@ class ProductsViewModel {
         return isFavourite
     }
     
-     func addFavourite(appDelegate: AppDelegate, product: Product){
+    func addFavourite(appDelegate: AppDelegate, product: Product){
          databaseService.addFavourite(appDelegate: appDelegate, product: product)
-     }
+    }
     
-     func deleteFavourite(appDelegate: AppDelegate, product: Product){
+    func deleteFavourite(appDelegate: AppDelegate, product: Product){
          databaseService.deleteFavourite(appDelegate: appDelegate, product: product)
-     }
+    }
     
     func search(searchInput: String) {
         if searchInput.isEmpty {
             productsArray = filteredArray
         } else {
             productsArray = filteredArray.filter({ (product) -> Bool in
-                return product.title.hasPrefix(searchInput.lowercased()) || product.title.hasPrefix(searchInput.uppercased())
+                return product.title.hasPrefix(searchInput.lowercased()) ||          product.title.hasPrefix(searchInput.uppercased()) ||
+                    product.title.contains(searchInput.lowercased()) ||     product.title.contains(searchInput.uppercased())
             })
         }
     }

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Alamofire
 import Kingfisher
+import NVActivityIndicatorView
 
 class MainPageViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource{
 
@@ -35,6 +35,7 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
     
     var BrandsArray = [SmartCollection]()
     var brandsViewModel: BrandsViewModel?
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,10 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
             return
         }
         
+        DispatchQueue.main.async {
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
+        }
+        
         brandsViewModel = BrandsViewModel()
         brandsViewModel?.fetchData()
         brandsViewModel?.bindingData = { brands, error in
@@ -53,15 +58,15 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
                 DispatchQueue.main.async {
                     self.adsCollectionView.reloadData()
                     self.brandsCollectionView.reloadData()
-
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 }
             }
+            
             if let error = error {
                 print(error.localizedDescription)
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
-
-        
     }
     
     func registerNibFiles() {
@@ -120,6 +125,16 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
 extension MainPageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         brandsViewModel?.search(searchInput: searchText)
+    }
+}
+
+extension MainPageViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == adsCollectionView {
+             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        } else {
+            return CGSize(width: collectionView.frame.width / 2.5, height: collectionView.frame.height / 2.5)
+        }
     }
 }
 
