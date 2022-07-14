@@ -79,6 +79,18 @@ class ConfirmOrderViewController: UIViewController {
         
     }
     
+    func getCurrentData() -> String {
+        
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = df.string(from: date)
+        
+        return dateString
+        
+    }
+    
+    
     @IBAction func placeOrderButtonAction(_ sender: Any) {
         
         postOrder(cartArray: product)
@@ -205,7 +217,7 @@ extension ConfirmOrderViewController {
             
             // missing param
             
-            let order = Order(id: 2, customer: Customer(first_name: "ann", email: "ann@gmail.com", tags: "", id: 1, addresses: [Address(id: 2, customer_id: 1, address1: "El-Zaraqa", city: "Damietta", country: "Egypt", phone: "01082082008")]), line_items: self.orderProduct, created_at: "2022-01-22", current_total_price: finalTotalPriceString) //Order(customer: Customer(, line_items: self.orderProduct, current_total_price: self.totalPrice) //self.totalOrder.current_total_price
+            let order = Order(id: 2, customer: Customer(first_name: "ann", email: "ann@gmail.com", tags: "", id: 1, addresses: [Address(id: Int(HelperConstant.getAddressID() ?? "1"), customer_id: 1, address1: HelperConstant.getAddressTitle(), city: HelperConstant.getCity(), country: HelperConstant.getcountry(), phone: HelperConstant.getAddressPhone())]), line_items: self.orderProduct, created_at: getCurrentData(), current_total_price: finalTotalPriceString) //Order(customer: Customer(, line_items: self.orderProduct, current_total_price: self.totalPrice) //self.totalOrder.current_total_price
             let ordertoAPI = OrderToAPI(order: order)
             self.network.SubmitOrder(order: ordertoAPI) { data, urlResponse, error in
                 if error == nil {

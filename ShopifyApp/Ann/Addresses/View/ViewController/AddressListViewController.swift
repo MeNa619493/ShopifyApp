@@ -118,6 +118,13 @@ extension AddressListViewController: UITableViewDelegate, UITableViewDataSource 
         
         HelperConstant.setDefaultAddresID(SetDefaultAddresID: Int(item?.addressId ?? 0))
         addressId = HelperConstant.getsetDefaultAddresID()
+        
+        HelperConstant.saveAddressID(addressID: "\(item?.addressId ?? 0)")
+        HelperConstant.saveCountry(country: item?.countryName ?? "")
+        HelperConstant.saveCity(City: item?.cityName ?? "")
+        HelperConstant.saveAddressTitle(AddressTitle: item?.addressName ?? "")
+        HelperConstant.saveAddressPhone(AddressPhone: "\(item?.phoneNumber ?? 0)")
+        
         AddressesListTableView.reloadData()
         
     }

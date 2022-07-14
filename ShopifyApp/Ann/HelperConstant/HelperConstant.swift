@@ -73,5 +73,65 @@ class HelperConstant: NSObject {
         
         return defult.object(forKey: "setDefaultCurrency") as? String
     }
+    /////////////////////////////////////////////////////////////////
+    //MARK:- Save Aceess Token
+    class func saveAddressID(addressID: String){
+        
+        userDefault.set(addressID, forKey: "addressID")
+    }
+    //MARK:- Get Aceess Token
+    class func getAddressID() -> String?{
+        let defult = UserDefaults.standard
+        
+        return defult.object(forKey: "addressID") as? String
+    }
+    
+    //MARK:- Save Aceess Token
+    class func saveCountry(country: String){
+        
+        userDefault.set(country, forKey: "country")
+    }
+    //MARK:- Get Aceess Token
+    class func getcountry() -> String?{
+        let defult = UserDefaults.standard
+        
+        return defult.object(forKey: "country") as? String
+    }
+    
+    //MARK:- Save Aceess Token
+    class func saveCity(City: String){
+        
+        userDefault.set(City, forKey: "City")
+    }
+    //MARK:- Get Aceess Token
+    class func getCity() -> String?{
+        let defult = UserDefaults.standard
+        
+        return defult.object(forKey: "City") as? String
+    }
+    
+    //MARK:- Save Aceess Token
+    class func saveAddressTitle(AddressTitle: String){
+        
+        userDefault.set(AddressTitle, forKey: "AddressTitle")
+    }
+    //MARK:- Get Aceess Token
+    class func getAddressTitle() -> String?{
+        let defult = UserDefaults.standard
+        
+        return defult.object(forKey: "AddressTitle") as? String
+    }
+    
+    //MARK:- Save Aceess Token
+    class func saveAddressPhone(AddressPhone: String){
+        
+        userDefault.set(AddressPhone, forKey: "AddressPhone")
+    }
+    //MARK:- Get Aceess Token
+    class func getAddressPhone() -> String?{
+        let defult = UserDefaults.standard
+        
+        return defult.object(forKey: "AddressPhone") as? String
+    }
     
 }
