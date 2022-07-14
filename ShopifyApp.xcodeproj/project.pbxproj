@@ -16,7 +16,6 @@
 		1EA86612286FEB8A00BDB2A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA86611286FEB8A00BDB2A9 /* SceneDelegate.swift */; };
 		1EA86614286FEB8A00BDB2A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA86613286FEB8A00BDB2A9 /* ViewController.swift */; };
 		1EA86617286FEB8A00BDB2A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA86615286FEB8A00BDB2A9 /* Main.storyboard */; };
-		1EA8661A286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EA86618286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld */; };
 		1EA8661C286FEB8C00BDB2A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EA8661B286FEB8C00BDB2A9 /* Assets.xcassets */; };
 		1EA8661F286FEB8C00BDB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA8661D286FEB8C00BDB2A9 /* LaunchScreen.storyboard */; };
 		1EA86627286FF09200BDB2A9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA86626286FF09200BDB2A9 /* Login.storyboard */; };
@@ -86,6 +85,7 @@
 		9DB130EA288098DB00034ACB /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB130C6288098DA00034ACB /* CurrencyViewController.swift */; };
 		9DB130EB288098DB00034ACB /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB130C8288098DA00034ACB /* CurrencyTableViewCell.swift */; };
 		9DB130EC288098DB00034ACB /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB130C9288098DA00034ACB /* CurrencyTableViewCell.xib */; };
+		9DB130EF28809E4000034ACB /* ShopifyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DB130ED28809E4000034ACB /* ShopifyApp.xcdatamodeld */; };
 		BC49CE0528760E6E000906DB /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC49CE0428760E6E000906DB /* MainPage.storyboard */; };
 		BC54002B287CD8290011F8F3 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54002A287CD8290011F8F3 /* CategoryViewModel.swift */; };
 		BC54002E287D032F0011F8F3 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54002D287D032F0011F8F3 /* MeViewController.swift */; };
@@ -119,7 +119,6 @@
 		1EA86611286FEB8A00BDB2A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1EA86613286FEB8A00BDB2A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1EA86616286FEB8A00BDB2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1EA86619286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopifyApp.xcdatamodel; sourceTree = "<group>"; };
 		1EA8661B286FEB8C00BDB2A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EA8661E286FEB8C00BDB2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EA86620286FEB8C00BDB2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,6 +191,7 @@
 		9DB130C6288098DA00034ACB /* CurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		9DB130C8288098DA00034ACB /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		9DB130C9288098DA00034ACB /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
+		9DB130EE28809E4000034ACB /* ShopifyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopifyApp.xcdatamodel; sourceTree = "<group>"; };
 		BC49CE0428760E6E000906DB /* MainPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
 		BC54002A287CD8290011F8F3 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		BC54002D287D032F0011F8F3 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -279,8 +279,8 @@
 				1EA86615286FEB8A00BDB2A9 /* Main.storyboard */,
 				1EA8661B286FEB8C00BDB2A9 /* Assets.xcassets */,
 				1EA8661D286FEB8C00BDB2A9 /* LaunchScreen.storyboard */,
+				9DB130ED28809E4000034ACB /* ShopifyApp.xcdatamodeld */,
 				1EA86620286FEB8C00BDB2A9 /* Info.plist */,
-				1EA86618286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld */,
 			);
 			path = ShopifyApp;
 			sourceTree = "<group>";
@@ -1012,6 +1012,7 @@
 				BCAA8F652875F380000B8434 /* ProductCollectionViewCell.swift in Sources */,
 				1EB09CCF2873BFD8004C6D04 /* ProductInfoViewController.swift in Sources */,
 				1EA86614286FEB8A00BDB2A9 /* ViewController.swift in Sources */,
+				9DB130EF28809E4000034ACB /* ShopifyApp.xcdatamodeld in Sources */,
 				1EEF99B5287D730B00EF210C /* ReviewTableViewCell.swift in Sources */,
 				9DB130DD288098DB00034ACB /* SubTotalTableViewCell.swift in Sources */,
 				9DB130D2288098DB00034ACB /*  TargetType.swift in Sources */,
@@ -1042,7 +1043,6 @@
 				9DB130E8288098DB00034ACB /* CurrencyViewModel.swift in Sources */,
 				BC90270D2874B5E9000AD5C4 /* MainPageViewController.swift in Sources */,
 				9DB130D1288098DB00034ACB /* BaseAPI.swift in Sources */,
-				1EA8661A286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld in Sources */,
 				9DB130E2288098DB00034ACB /* CartViewController.swift in Sources */,
 				9DB130CE288098DB00034ACB /* SubmitOrder.swift in Sources */,
 				9DB130DF288098DB00034ACB /* ProceedToCheckoutTableViewCell.swift in Sources */,
@@ -1280,13 +1280,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		1EA86618286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodeld */ = {
+		9DB130ED28809E4000034ACB /* ShopifyApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				1EA86619286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodel */,
+				9DB130EE28809E4000034ACB /* ShopifyApp.xcdatamodel */,
 			);
-			currentVersion = 1EA86619286FEB8A00BDB2A9 /* ShopifyApp.xcdatamodel */;
-			path = ShopifyApp.xcdatamodeld;
+			currentVersion = 9DB130EE28809E4000034ACB /* ShopifyApp.xcdatamodel */;
+			name = ShopifyApp.xcdatamodeld;
+			path = ../../../ShopifyApp/ShopifyApp/ShopifyApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
