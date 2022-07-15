@@ -3,7 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -147,6 +147,9 @@
                                             </barButtonItem>
                                             <barButtonItem image="cart" catalog="system" id="QoR-Ck-9cr">
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <connections>
+                                                    <action selector="cartButtonAction:" destination="lOe-as-rBn" id="KlF-ml-pGG"/>
+                                                </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>

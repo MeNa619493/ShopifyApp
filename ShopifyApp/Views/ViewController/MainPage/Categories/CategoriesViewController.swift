@@ -69,6 +69,15 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     func registerNibFile() {
         productsCV.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCellID")
     }
+    
+    @IBAction func cartButtonAction(_ sender: Any) {
+        
+        let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+        //VC.modalPresentationStyle = .fullScreen
+        self.present(VC, animated: false, completion: nil)
+        
+    }
+    
    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

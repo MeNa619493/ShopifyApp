@@ -21,8 +21,9 @@ class MeViewController: UIViewController{
     
     @IBAction func shoppingCart(_ sender: Any) {
         if UserDefaultsManager.shared.getUserStatus(){
-            //go to cart page
-        }
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+            //VC.modalPresentationStyle = .fullScreen
+            self.present(VC, animated: false, completion: nil)        }
             else {
                 loginButton(self)
             }
@@ -30,8 +31,9 @@ class MeViewController: UIViewController{
     
     @IBAction func settingsButton(_ sender: Any) {
         if UserDefaultsManager.shared.getUserStatus(){
-            //go to settings page
-        }
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+            VC.modalPresentationStyle = .fullScreen
+            self.present(VC, animated: false, completion: nil)        }
             else {
                 loginButton(self)
             }
@@ -185,5 +187,5 @@ extension MeViewController: FavoriteActionFavoritesScreen {
         favoritesViewModel?.deleteFavourite(appDelegate: appDelegate, product: product)
         favoritesArray = favoritesArray.filter { $0.id != product.id }
         favouritesCV.reloadData()
-    }
-}
+    } }
+
