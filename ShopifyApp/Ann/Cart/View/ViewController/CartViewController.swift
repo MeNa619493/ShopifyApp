@@ -243,7 +243,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
                     self.cartTableView.reloadSections(IndexSet(integer: 1), with: .automatic)
                     
                 }
-                
             }
             
             return cell

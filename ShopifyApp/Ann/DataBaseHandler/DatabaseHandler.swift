@@ -38,7 +38,6 @@ class DatabaseHandler {
             return result as! [T]
             
         }catch {
-            
             print(error.localizedDescription)
             return []
             
