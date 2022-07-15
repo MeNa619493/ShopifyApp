@@ -72,20 +72,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             //VC.totalPrice = self.totalPrice
             self.present(VC, animated: false, completion: nil)
             
-        case 2:
-            
-            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AddressesViewController") as! AddressesViewController
-            VC.modalPresentationStyle = .fullScreen
-            //VC.totalPrice = self.totalPrice
-            self.present(VC, animated: false, completion: nil)
-            
-        case 3:
-            
-            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AddressesViewController") as! AddressesViewController
-            VC.modalPresentationStyle = .fullScreen
-            //VC.totalPrice = self.totalPrice
-            self.present(VC, animated: false, completion: nil)
-            
         default:
             break
             

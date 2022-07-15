@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JpI-5d-K7Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JpI-5d-K7Z">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,7 +40,7 @@
                                     </searchBar>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tIa-JT-59P">
                                         <rect key="frame" x="20" y="281" width="374" height="265"/>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="265" id="mBN-Cd-Uqt"/>
                                         </constraints>
@@ -147,6 +147,9 @@
                                             </barButtonItem>
                                             <barButtonItem image="cart" catalog="system" id="QoR-Ck-9cr">
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <connections>
+                                                    <action selector="cartButtonAction:" destination="lOe-as-rBn" id="KlF-ml-pGG"/>
+                                                </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
@@ -243,9 +246,15 @@
                                         <rightBarButtonItems>
                                             <barButtonItem title="Item" id="5Ox-iU-fe3">
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <connections>
+                                                    <action selector="settingButtonAction:" destination="UJb-rr-49e" id="yTa-l9-oMO"/>
+                                                </connections>
                                             </barButtonItem>
                                             <barButtonItem image="cart" catalog="system" id="bPk-Od-JfH">
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                <connections>
+                                                    <action selector="cartButtonAction:" destination="UJb-rr-49e" id="noy-tT-oRt"/>
+                                                </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>

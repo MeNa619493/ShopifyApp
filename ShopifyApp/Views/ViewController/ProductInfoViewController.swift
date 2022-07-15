@@ -159,11 +159,13 @@ class ProductInfoViewController: UIViewController {
             self.present(VC, animated: false, completion: nil)
         }
         
+        // check with mina
 //        if !UserDefaultsManager.shared.getUserStatus() {
 //            self.showAlertError(title: "Alert", message: "you must login")
 //            return
 //        }
 //
+        ////////////////////////////////////////////////////////////////////
 //        if isAddedToCart! {
 //            addToCartButton.setTitle("ADD TO CART", for: .normal)
 //            productInfoViewModel?.removeProductFromCart(appDelegate: appDelegate, product: product!)

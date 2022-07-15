@@ -37,6 +37,10 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
     var brandsViewModel: BrandsViewModel?
     let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     
+    let imageAds = ["1","2","3","4","5","6"]
+    var timer = Timer()
+    var counter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibFiles()
@@ -67,7 +71,29 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
                 self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
+        
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+        }
+        
     }
+    
+    @objc func changeImage() {
+            //slider.count
+            if counter < imageAds.count {
+                let index = IndexPath.init(item: counter, section: 0)
+                self.adsCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+                //sliderPageController.currentPage = counter
+                counter += 1
+            } else {
+                counter = 0
+                let index = IndexPath.init(item: counter, section: 0)
+                self.adsCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+                //sliderPageController.currentPage = counter
+                counter = 1
+            }
+
+        }
     
     func registerNibFiles() {
         adsCollectionView.register(UINib(nibName: "AdsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AdsCellID")
@@ -80,8 +106,10 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
         if (collectionView == brandsCollectionView){
             print("the number of brand array items is \(BrandsArray.count)")
             return BrandsArray.count
+        }else {
+            return imageAds.count
+            
         }
-        return 1
     }
     
     
@@ -94,10 +122,14 @@ class MainPageViewController: UIViewController,UICollectionViewDelegate, UIColle
             cell1.brandLogo.kf.setImage(with: url)
             
             return cell1
+        }else {
+            let cell2 = adsCollectionView.dequeueReusableCell(withReuseIdentifier: "AdsCellID", for: indexPath) as! AdsCollectionViewCell
+            //cell2.backgroundColor = UIColor.blue
+            let item = imageAds[indexPath.row]
+            cell2.adImage.image = UIImage(named: item)
+            return cell2
+            
         }
-        let cell2 = adsCollectionView.dequeueReusableCell(withReuseIdentifier: "AdsCellID", for: indexPath) as! AdsCollectionViewCell
-        cell2.backgroundColor = UIColor.blue
-        return cell2
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -131,7 +163,8 @@ extension MainPageViewController: UISearchBarDelegate {
 extension MainPageViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == adsCollectionView {
-             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+            let size = adsCollectionView.frame.size
+            return CGSize(width: size.width, height: size.height)
         } else {
             return CGSize(width: collectionView.frame.width / 2.5, height: collectionView.frame.height / 2.5)
         }

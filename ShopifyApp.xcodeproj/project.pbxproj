@@ -397,11 +397,11 @@
 			children = (
 				9DB13094288098DA00034ACB /* EX */,
 				9DB1308D288098DA00034ACB /* Networking */,
-				9DB13078288098DA00034ACB /* ConfirmOrder */,
+				9DB13092288098DA00034ACB /* DataBaseHandler */,
 				9DB1307F288098DA00034ACB /* HelperConstant */,
 				9DB13082288098DA00034ACB /* Storyboard */,
+				9DB13078288098DA00034ACB /* ConfirmOrder */,
 				9DB13084288098DA00034ACB /* Payment */,
-				9DB13092288098DA00034ACB /* DataBaseHandler */,
 				9DB13096288098DA00034ACB /* Addresses */,
 				9DB130A2288098DA00034ACB /* Cart */,
 				9DB130B4288098DA00034ACB /* Setting */,
@@ -415,8 +415,8 @@
 			children = (
 				9DB13079288098DA00034ACB /* VewModel */,
 				9DB1307A288098DA00034ACB /* Networking */,
-				9DB1307B288098DA00034ACB /* Model */,
 				9DB1307C288098DA00034ACB /* View */,
+				9DB1307B288098DA00034ACB /* Model */,
 			);
 			path = ConfirmOrder;
 			sourceTree = "<group>";
@@ -478,10 +478,10 @@
 		9DB13084288098DA00034ACB /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				9DB13085288098DA00034ACB /* VewModel */,
 				9DB13086288098DA00034ACB /* Networking */,
-				9DB13088288098DA00034ACB /* Model */,
+				9DB13085288098DA00034ACB /* VewModel */,
 				9DB1308A288098DA00034ACB /* View */,
+				9DB13088288098DA00034ACB /* Model */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -563,8 +563,8 @@
 			isa = PBXGroup;
 			children = (
 				9DB13097288098DA00034ACB /* ViewModel */,
-				9DB13098288098DA00034ACB /* Model */,
 				9DB1309A288098DA00034ACB /* View */,
+				9DB13098288098DA00034ACB /* Model */,
 			);
 			path = Addresses;
 			sourceTree = "<group>";
@@ -622,10 +622,10 @@
 		9DB130A2288098DA00034ACB /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				9DB130A3288098DA00034ACB /* VewModel */,
 				9DB130A4288098DA00034ACB /* Networking */,
-				9DB130A5288098DA00034ACB /* Model */,
+				9DB130A3288098DA00034ACB /* VewModel */,
 				9DB130A7288098DA00034ACB /* View */,
+				9DB130A5288098DA00034ACB /* Model */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -655,8 +655,8 @@
 		9DB130A7288098DA00034ACB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9DB130A8288098DA00034ACB /* Cell */,
 				9DB130B2288098DA00034ACB /* ViewController */,
+				9DB130A8288098DA00034ACB /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -710,8 +710,8 @@
 			isa = PBXGroup;
 			children = (
 				9DB130B5288098DA00034ACB /* ViewModel */,
-				9DB130B7288098DA00034ACB /* Model */,
 				9DB130B9288098DA00034ACB /* View */,
+				9DB130B7288098DA00034ACB /* Model */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -735,8 +735,8 @@
 		9DB130B9288098DA00034ACB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9DB130BA288098DA00034ACB /* Cell */,
 				9DB130BD288098DA00034ACB /* ViewController */,
+				9DB130BA288098DA00034ACB /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -762,8 +762,8 @@
 			isa = PBXGroup;
 			children = (
 				9DB130C0288098DA00034ACB /* ViewModel */,
-				9DB130C2288098DA00034ACB /* Model */,
 				9DB130C4288098DA00034ACB /* View */,
+				9DB130C2288098DA00034ACB /* Model */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
