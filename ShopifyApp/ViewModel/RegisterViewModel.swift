@@ -23,7 +23,7 @@ class RegisterViewModel{
     }
     
     func isValidPassword(password: String, confirmPassword: String) -> Bool{
-        return !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword
+        return !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword && password.count >= 6
     }
     
     func ValdiateCustomerInfomation(firstName: String, email: String, password: String, confirmPassword: String, compeltion: @escaping (String?) ->Void){

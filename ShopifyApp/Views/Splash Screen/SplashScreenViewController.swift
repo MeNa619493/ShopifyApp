@@ -16,7 +16,7 @@ class SplashScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        animationView = .init(name: "85849-shopping")
+        animationView = .init(name: "22380-e-commerce")
         animationView?.frame = view.bounds
         animationView?.loopMode = .loop
         view.addSubview(animationView!)
@@ -25,7 +25,7 @@ class SplashScreenViewController: UIViewController {
     }
     
     func navigationToNextView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let vc = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "TabScreenID")
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)

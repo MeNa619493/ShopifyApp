@@ -27,7 +27,7 @@ class MeViewController: UIViewController{
             //VC.modalPresentationStyle = .fullScreen
             self.present(VC, animated: false, completion: nil)        }
             else {
-                loginButton(self)
+                showWarning()
             }
     }
     
@@ -37,7 +37,7 @@ class MeViewController: UIViewController{
             VC.modalPresentationStyle = .fullScreen
             self.present(VC, animated: false, completion: nil)        }
             else {
-                loginButton(self)
+                showWarning()
             }
     }
     
@@ -104,7 +104,6 @@ class MeViewController: UIViewController{
         favoritesViewModel = FavoritesViewModel()
         ordersViewModel = OrdersViewModel()
 
-
     }
     
     // MARK: - View Will Appear
@@ -125,6 +124,7 @@ class MeViewController: UIViewController{
                 DispatchQueue.main.async {
                     self.favouritesCV.reloadData()
                     self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                    self.handleWishlistSection()
                 }
             }
             
@@ -143,6 +143,7 @@ class MeViewController: UIViewController{
                 DispatchQueue.main.async {
                     self.ordersTableView.reloadData()
                     self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                    self.handleOrderSection()
                 }
             }
             
@@ -153,7 +154,6 @@ class MeViewController: UIViewController{
         }
         
         ordersViewModel?.fetchOrders(endPoint: "orders.json?customer_id=")
-      
         whenUserLoggedIn()
     }
     
@@ -185,11 +185,32 @@ class MeViewController: UIViewController{
         wishlistSectionButtons.isHidden = state
         loginRegisterSection.isHidden = !state
     }
-
-
-    // MARK: - Collection View Functions
+    
+    func handleOrderSection(){
+        if ordersArray.isEmpty{
+        ordersSection.isHidden = true
+        }
+        else{
+            ordersSection.isHidden = false
+        }
+    }
+    func handleWishlistSection(){
+        if favoritesArray.isEmpty{
+            wishlistSection.isHidden = true
+            }
+        else{
+            wishlistSection.isHidden = false
+        }
+    }
+    
+    func showWarning(){
+        self.showAlert(title: "Alert", message: "You must log in to access this page!") {
+            self.loginButton(self)
+        }
+    }
 
     }
+// MARK: - Collection View Functions
 
 extension MeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

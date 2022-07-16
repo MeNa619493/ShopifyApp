@@ -23,6 +23,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        productImage.layer.borderColor = UIColor.lightGray.cgColor
+        productImage.layer.borderWidth = 2
+        productImage.layer.cornerRadius = 12
     }
     
     func configureCell(product: Product, isFavourite: Bool, isInFavouriteScreen: Bool = false) {
@@ -50,9 +53,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     func actionTakenInCellInProductsView() {
         if !UserDefaultsManager.shared.getUserStatus() {
-            productsView?.showAlert(title: "Alert",message: "You must login")
-            return
-        }
+                    productsView?.showAlertNavigateLoginScreen()
+                    return
+                }
         
         if isFavourite! {
             productsView?.deleteFavourite(appDelegate: appDelegate, product: product!)

@@ -45,7 +45,7 @@ class MiniProductCollectionViewCell: UICollectionViewCell {
     
     func actionTakenInCellInProductsView() {
         if !UserDefaultsManager.shared.getUserStatus() {
-            productsView?.showAlert(title: "Alert",message: "You must login")
+            productsView?.showAlertNavigateLoginScreen()
             return
         }
         

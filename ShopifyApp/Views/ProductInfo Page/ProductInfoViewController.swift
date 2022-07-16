@@ -103,7 +103,7 @@ class ProductInfoViewController: UIViewController {
     }
     
     func setupView() {
-        self.bar.topItem?.title = "Product"
+        self.bar.topItem?.title = product?.vendor
         self.productImageCollectionView.reloadData()
         self.pageControl.numberOfPages = product?.images.count ?? 0
         self.productTitle.text = product?.title
@@ -113,6 +113,14 @@ class ProductInfoViewController: UIViewController {
         self.cosmosView.rating = 3
         checkIsFavourite()
         //checkIsInShoppingCart()
+    }
+    
+    func showAlertNavigateLoginScreen(title: String, message: String) {
+            self.showAlert(title: title, message: message) {
+            let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle:nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     func checkIfItemExistInCart(itemId: Int,itemms:[CartItemModel]) -> Bool {
@@ -129,10 +137,13 @@ class ProductInfoViewController: UIViewController {
     
     @IBAction func onAddToCartPressed(_ sender: Any) {
         
-        let products = database.fetch(CartItemModel.self)
+        if !UserDefaultsManager.shared.getUserStatus() {
+            showAlertNavigateLoginScreen(title: "Alert", message: "you must login to be able to add items to your Cart.")
+            return
+        }
         
+        let products = database.fetch(CartItemModel.self)
         if checkIfItemExistInCart(itemId: product?.id ?? 0, itemms: products) {
-            
             print("cant add this product!!")
             let alert = UIAlertController(title: "Warrning", message: "This product already existed in cart", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -179,7 +190,7 @@ class ProductInfoViewController: UIViewController {
     
     @IBAction func onFavouritePressed(_ sender: Any) {
         if !UserDefaultsManager.shared.getUserStatus() {
-            self.showAlertError(title: "Alert", message: "You must login")
+            showAlertNavigateLoginScreen(title: "Alert", message: "you must login to be able to add items to your Cart.")
             return
         }
         

@@ -13,16 +13,14 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if UserDefaultsManager.shared.getUserID() == nil {
+        if UserDefaultsManager.shared.getUserID() == 0 {
             UserDefaultsManager.shared.setUserStatus(userIsLogged: false)
             print("not logged in")
         } else {
             print("logged in")
         }
-        
         return true
     }
 

@@ -26,7 +26,6 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibFile()
-        
         favoritesViewModel = FavoritesViewModel()
     }
     
@@ -39,9 +38,9 @@ class FavoritesViewController: UIViewController {
         }
         
         if !UserDefaultsManager.shared.getUserStatus() {
-            self.showAlertError(title: "Alert", message: "You must login")
-            return
-        }
+                    self.showAlertNavigateLoginScreen()
+                    return
+                }
         
         self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
@@ -61,6 +60,14 @@ class FavoritesViewController: UIViewController {
         }
         favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: UserDefaultsManager.shared.getUserID() ?? 1)
     }
+    
+    func showAlertNavigateLoginScreen() {
+            self.showAlert(title: "Alert", message: "you must login to see your favourites.") {
+                let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
     
     func registerNibFile() {
         favoritesCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCellID")

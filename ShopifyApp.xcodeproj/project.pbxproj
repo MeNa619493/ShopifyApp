@@ -93,6 +93,7 @@
 		BC3DF40328826C54003FE5CF /* fullOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3DF40128826C54003FE5CF /* fullOrderTableViewCell.xib */; };
 		BC48B55D288285230053A38C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC48B55C288285230053A38C /* Main.storyboard */; };
 		BC48B55F2882852E0053A38C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC48B55E2882852E0053A38C /* ViewController.swift */; };
+		BC48B56A2882FB990053A38C /* 22380-e-commerce.json in Resources */ = {isa = PBXBuildFile; fileRef = BC48B5692882FB990053A38C /* 22380-e-commerce.json */; };
 		BC49CE0528760E6E000906DB /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC49CE0428760E6E000906DB /* MainPage.storyboard */; };
 		BC54002B287CD8290011F8F3 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54002A287CD8290011F8F3 /* CategoryViewModel.swift */; };
 		BC66FED428810E680001DA49 /* ShopifyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC66FED228810E680001DA49 /* ShopifyApp.xcdatamodeld */; };
@@ -207,6 +208,7 @@
 		BC3DF40128826C54003FE5CF /* fullOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = fullOrderTableViewCell.xib; sourceTree = "<group>"; };
 		BC48B55C288285230053A38C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BC48B55E2882852E0053A38C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../../trash/4th test/ShopifyApp/ShopifyApp/ViewController.swift"; sourceTree = "<group>"; };
+		BC48B5692882FB990053A38C /* 22380-e-commerce.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "22380-e-commerce.json"; sourceTree = "<group>"; };
 		BC49CE0428760E6E000906DB /* MainPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
 		BC54002A287CD8290011F8F3 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		BC66FED328810E680001DA49 /* ShopifyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopifyApp.xcdatamodel; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		1EDDC24E2877525600A5A2A8 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				BC48B5692882FB990053A38C /* 22380-e-commerce.json */,
 				1EDDC24F2877529400A5A2A8 /* 85849-shopping.json */,
 			);
 			path = Asset;
@@ -1000,6 +1003,7 @@
 				BC3DF3FD2882668D003FE5CF /* Orders.storyboard in Resources */,
 				BC66FEDD2881E89B0001DA49 /* OrdersTableViewCell.xib in Resources */,
 				BC3DF40328826C54003FE5CF /* fullOrderTableViewCell.xib in Resources */,
+				BC48B56A2882FB990053A38C /* 22380-e-commerce.json in Resources */,
 				1EA8661F286FEB8C00BDB2A9 /* LaunchScreen.storyboard in Resources */,
 				9DB130D7288098DB00034ACB /* AddressListTableViewCell.xib in Resources */,
 				1EEF99B6287D730B00EF210C /* ReviewTableViewCell.xib in Resources */,

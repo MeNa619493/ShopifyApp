@@ -11,7 +11,6 @@ import NVActivityIndicatorView
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    //ProductCellID
     var brandTitle = ""
     var productsArray = [Product]()
     var productsViewModel: ProductsViewModel?
@@ -105,12 +104,13 @@ extension ProductViewController: FavouriteActionProductScreen {
         productsViewModel?.deleteFavourite(appDelegate: appDelegate, product: product)
     }
     
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let Action = UIAlertAction(title: "OK", style: .destructive, handler: nil)
-        alert.addAction(Action)
-        self.present(alert, animated: true, completion: nil)
-    }
+    func showAlertNavigateLoginScreen() {
+            self.showAlert(title: "Alert", message: "you must login to be able to add items to your favourites.") {
+                let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
 }
 
 extension ProductViewController: UISearchBarDelegate {
