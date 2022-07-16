@@ -56,16 +56,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xv1-oc-f4Q">
-                                <rect key="frame" x="354" y="44" width="35" height="30"/>
-                                <state key="normal" title="Filter"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xv1-oc-f4Q" secondAttribute="trailing" constant="25" id="1cS-Nc-kea"/>
-                            <constraint firstItem="OkM-ey-YVJ" firstAttribute="top" secondItem="xv1-oc-f4Q" secondAttribute="bottom" constant="10" id="DqT-2c-Bih"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qw6-hG-V7l" secondAttribute="trailing" constant="16" id="QPt-1Z-oxw"/>
                             <constraint firstItem="OkM-ey-YVJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="XZl-Qo-Dmu"/>
                             <constraint firstItem="qw6-hG-V7l" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="goN-st-rqD"/>

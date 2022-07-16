@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class NetworkManager: ApiService {
-    
+        
     func register(newCustomer: NewCustomer, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         let urlStr = UrlServices(endPoint: EndPoint.customers.rawValue).url
         guard let url = URL(string: urlStr) else { return }
@@ -120,25 +120,23 @@ class NetworkManager: ApiService {
                  }.resume()
              }
          }
+    
+    func fetchOrders(endPoint: String, completion: @escaping (([FinalOrder]?, Error?) -> Void)) {
+        let userID = String (UserDefaultsManager.shared.getUserID()!)
+        if let  url = URL(string: UrlServices(endPoint: endPoint + userID).url) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    guard let decodedData : FinalOrdersFromAPI = convertFromJson(data: data) else {return}
+
+                    completion(decodedData.orders,nil)
+                }
+                if let error = error {
+                   completion(nil, error)
+                }
+            }.resume()
+        }
+    }
 
 }
 
 
-//func fetchCollects(endPoint: String, completion: @escaping (([Collect]?, Error?) -> Void)) {
-//    if let  url = URL(string: UrlServices(endPoint: endPoint).url) {
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let data = data {
-//                print("Collections data is here line 122")
-//                let decodedData:[Collect] = convertFromJson(data: data) ?? []
-//                completion(decodedData ,nil)
-//                print("the data is \(data)")
-//            }
-//            if let error = error {
-//               completion(nil, error)
-//                print("ERROR line 121")
-//
-//            }
-//        }.resume()
-//    }
-//
-//}

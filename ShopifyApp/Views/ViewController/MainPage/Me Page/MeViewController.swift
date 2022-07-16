@@ -11,8 +11,10 @@ import NVActivityIndicatorView
 
 class MeViewController: UIViewController{
     var favoritesArray = [Product]()
+    var ordersArray = [FinalOrder]()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var favoritesViewModel: FavoritesViewModel?
+    var ordersViewModel: OrdersViewModel?
     let indicator = NVActivityIndicatorView(frame: .zero, type: .circleStrokeSpin, color: .label, padding: 0)
     
     
@@ -45,14 +47,17 @@ class MeViewController: UIViewController{
     // MARK: - Orders section
     @IBOutlet weak var orderSectionButtons: UIStackView!
     @IBAction func ordersMore(_ sender: Any) {
-        //go to orders page
+        let VC = UIStoryboard(name: "Orders", bundle: nil).instantiateViewController(withIdentifier: "ordersPageID") as! OrdersViewController
+        VC.modalPresentationStyle = .fullScreen
+        self.present(VC, animated: false, completion: nil)
+        
     }
     
     @IBOutlet weak var ordersSection: UIStackView!
     @IBOutlet weak var ordersTableView: UITableView!{
         didSet {
-//            ordersTableView.delegate = self
-//            ordersTableView.dataSource = self
+            ordersTableView.delegate = self
+            ordersTableView.dataSource = self
         }
     }
     
@@ -91,18 +96,21 @@ class MeViewController: UIViewController{
         self.present(vc, animated: true, completion: nil)
     }
     
-    
+    // MARK: - View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
         registerNibFile()
         favoritesViewModel = FavoritesViewModel()
+        ordersViewModel = OrdersViewModel()
+
 
     }
     
+    // MARK: - View Will Appear
+
+    
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
         super.viewWillAppear(animated)
         guard Connectivity.shared.isConnectedToInternet() else {
             self.showAlertForInterNetConnection()
@@ -125,20 +133,42 @@ class MeViewController: UIViewController{
                 self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
+
         favoritesViewModel?.fetchfavorites(appDelegate: appDelegate, userId: UserDefaultsManager.shared.getUserID() ?? 1)
         
+        ordersViewModel?.bindingData = { orders, error in
+            if let orders = orders {
+                self.ordersArray = orders
+                print("line 139 - Orders Array returned  = \(self.ordersArray.count)")
+                DispatchQueue.main.async {
+                    self.ordersTableView.reloadData()
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                }
+            }
+            
+            if let error = error {
+                print(error.localizedDescription)
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+            }
+        }
+        
+        ordersViewModel?.fetchOrders(endPoint: "orders.json?customer_id=")
+      
         whenUserLoggedIn()
     }
     
+    // MARK: - Other functions
+
+    
     func registerNibFile() {
         favouritesCV.register(UINib(nibName: "MiniProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MiniProductCellID")
+        ordersTableView.register(UINib(nibName: "OrdersTableViewCell", bundle: nil), forCellReuseIdentifier: "ordersCellID")
         
     }
     
     func whenUserLoggedIn(){
         if UserDefaultsManager.shared.getUserStatus() {
             welcomeName.text = "Welcome, " + UserDefaultsManager.shared.getUserName()!
-            welcomeName.textColor = UIColor.systemIndigo
             sectionsAreHidden(state: false)
         }
         else{
@@ -182,10 +212,35 @@ extension MeViewController: UICollectionViewDelegate, UICollectionViewDataSource
     }
 }
 
+// MARK: - Table View Functions
+
+
+extension MeViewController: UITableViewDelegate, UITableViewDataSource{
+   
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ordersArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ordersCellID", for: indexPath) as! OrdersTableViewCell
+        cell.orderCreatedAt.text = "Created at: \(ordersArray[indexPath.row].created_at ?? "time not set")"
+        cell.ordersPrice.text = "Price: \(ordersArray[indexPath.row].total_line_items_price ?? "amount not set")"
+        return cell    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+}
+
 extension MeViewController: FavoriteActionFavoritesScreen {
     func deleteFavourite(appDelegate: AppDelegate, product: Product) {
         favoritesViewModel?.deleteFavourite(appDelegate: appDelegate, product: product)
         favoritesArray = favoritesArray.filter { $0.id != product.id }
         favouritesCV.reloadData()
     } }
+
 

@@ -30,11 +30,6 @@ class MiniProductCollectionViewCell: UICollectionViewCell {
         let url = URL(string: imgLink)
         productImage.kf.setImage(with: url)
         productPrice.text = product.varients?[0].price
-//        if isFavourite {
-//            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//        } else {
-//            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-//        }
         self.product = product
         self.isFavourite = isFavourite
         self.isInFavouriteScreen = isInFavouriteScreen

@@ -234,11 +234,6 @@
             <point key="canvasLocation" x="849.27536231884062" y="95.758928571428569"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="cd4-cz-ihB">
-            <size key="intrinsicContentSize" width="150" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="groupTableViewBackgroundColor">

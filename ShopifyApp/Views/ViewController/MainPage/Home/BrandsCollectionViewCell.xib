@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,6 +28,7 @@
                     </label>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ETD-IO-jDF" secondAttribute="bottom" id="08i-OT-SGr"/>
                 <constraint firstItem="ETD-IO-jDF" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="8C4-qc-nKt"/>
@@ -39,7 +41,6 @@
                 <constraint firstItem="OGZ-Yt-oFr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZCT-Yu-BKR"/>
                 <constraint firstItem="OGZ-Yt-oFr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dvP-le-phc"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="111" height="106"/>
             <connections>
                 <outlet property="brandLogo" destination="OGZ-Yt-oFr" id="Uef-Lu-ddn"/>

@@ -33,17 +33,12 @@ enum StoryboardID: String {
 enum NibFiles: String {
     case productInfoCell = "ProductInfoCollectionViewCell"
     case reviewCell = "ReviewTableViewCell"
+    case ordersCell = "ordersCellID"
 }
 
 enum IdentifierCell: String {
     case productInfoCell = "ProductInfoCell"
     case reviewCell = "ReviewCell"
-}
-
-enum collectionID: Int {
-    case womenCollectionID = 409147506902
-    case menCollectionID = 409147474134
-    case kidsCollectionID = 409147539670
-    case saleCollectionID = 409147605206
+    case  ordersTableViewCell = "OrdersTableViewCell"
 }
 
