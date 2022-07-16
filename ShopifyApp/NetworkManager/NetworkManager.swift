@@ -105,22 +105,6 @@ class NetworkManager: ApiService {
 
     }
     
-    func fetchCollects(endPoint: String, completion: @escaping (([Collect]?, Error?) -> Void)) {
-             if let  url = URL(string: UrlServices(endPoint: endPoint).url) {
-                 URLSession.shared.dataTask(with: url) { data, response, error in
-                     if let data = data {
-                         print("Collections data is here - line 112")
-                         guard let decodedData : Collects = try? JSONDecoder().decode(Collects.self, from: data)
-                         else {return}
-                         completion(decodedData.collects,nil)
-                     }
-                     if let error = error {
-                        completion(nil, error)
-                     }
-                 }.resume()
-             }
-         }
-    
     func fetchOrders(endPoint: String, completion: @escaping (([FinalOrder]?, Error?) -> Void)) {
         let userID = String (UserDefaultsManager.shared.getUserID()!)
         if let  url = URL(string: UrlServices(endPoint: endPoint + userID).url) {
