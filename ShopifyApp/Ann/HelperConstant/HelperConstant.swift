@@ -134,4 +134,16 @@ class HelperConstant: NSObject {
         return defult.object(forKey: "AddressPhone") as? String
     }
     
+    //MARK:- Save Aceess Token
+    class func savPassword(Password: String){
+        
+        userDefault.set(Password, forKey: "Password")
+    }
+    //MARK:- Get Aceess Token
+    class func getPassword() -> String?{
+        let defult = UserDefaults.standard
+        
+        return defult.object(forKey: "Password") as? String
+    }
+    
 }

@@ -103,6 +103,8 @@ extension RegisterViewController {
                     
             print("registered successfully")
             
+            HelperConstant.savPassword(Password: password)
+            
             DispatchQueue.main.async {
                 let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
                 vc.modalPresentationStyle = .fullScreen

@@ -90,10 +90,22 @@ class ConfirmOrderViewController: UIViewController {
         
     }
     
+    func showAlertNavigateLoginScreen(title: String, message: String) {
+            self.showAlert(title: title, message: message) {
+            let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle:nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     
     @IBAction func placeOrderButtonAction(_ sender: Any) {
         
-        postOrder(cartArray: product)
+        if !UserDefaultsManager.shared.getUserStatus() {
+            showAlertNavigateLoginScreen(title: "Alert", message: "you must login to be able to add items to your Cart.")
+            return
+        }else {
+            postOrder(cartArray: product)
+        }
         
     }
     
@@ -217,7 +229,7 @@ extension ConfirmOrderViewController {
             
             // missing param
             
-            let order = Order( customer: Customer(first_name: UserDefaultsManager.shared.getUserName(), email: UserDefaultsManager.shared.getUserEmail(), tags: "", id: UserDefaultsManager.shared.getUserID(), addresses: [Address(id: Int(HelperConstant.getAddressID() ?? "1"), customer_id: UserDefaultsManager.shared.getUserID(), address1: HelperConstant.getAddressTitle(), city: HelperConstant.getCity(), country: HelperConstant.getcountry(), phone: HelperConstant.getAddressPhone())]), line_items: self.orderProduct, created_at: getCurrentData(), current_total_price: finalTotalPriceString) //Order(customer: Customer(, line_items: self.orderProduct, current_total_price: self.totalPrice) //self.totalOrder.current_total_price
+            let order = Order( customer: Customer(first_name: UserDefaultsManager.shared.getUserName(), email: UserDefaultsManager.shared.getUserEmail(), tags: HelperConstant.getPassword(), id: UserDefaultsManager.shared.getUserID(), addresses: [Address(id: Int(HelperConstant.getAddressID() ?? "1"), customer_id: UserDefaultsManager.shared.getUserID(), address1: HelperConstant.getAddressTitle(), city: HelperConstant.getCity(), country: HelperConstant.getcountry(), phone: HelperConstant.getAddressPhone())]), line_items: self.orderProduct, created_at: getCurrentData(), current_total_price: finalTotalPriceString) //Order(customer: Customer(, line_items: self.orderProduct, current_total_price: self.totalPrice) //self.totalOrder.current_total_price
             let ordertoAPI = OrderToAPI(order: order)
             self.network.SubmitOrder(order: ordertoAPI) { data, urlResponse, error in
                 if error == nil {
@@ -244,7 +256,7 @@ extension ConfirmOrderViewController {
                         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
                             
                             
-                            let viewController = UIStoryboard(name:"MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainPageID")
+                            let viewController = UIStoryboard(name:"MainPage", bundle: nil).instantiateViewController(withIdentifier: "TabScreenID")
                             UIApplication.shared.windows.first?.rootViewController = viewController
                             UIApplication.shared.windows.first?.makeKeyAndVisible()
                             

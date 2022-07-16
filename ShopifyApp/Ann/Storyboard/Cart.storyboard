@@ -417,6 +417,7 @@
                                             <constraint firstAttribute="width" constant="25" id="31X-62-aa6"/>
                                             <constraint firstAttribute="height" constant="25" id="kRp-AX-HrF"/>
                                         </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="chevron.backward" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="bold"/>
@@ -852,6 +853,7 @@
                                             <constraint firstAttribute="height" constant="25" id="YLj-S6-3pi"/>
                                             <constraint firstAttribute="width" constant="25" id="bjn-Tp-ach"/>
                                         </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="chevron.backward" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="bold"/>
@@ -861,12 +863,20 @@
                                             <action selector="backButtonAction:" destination="XAV-M4-1ZE" eventType="touchUpInside" id="thu-hu-uup"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxU-uk-iIP">
+                                        <rect key="frame" x="177.5" y="46" width="59.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="4bP-aC-EeD"/>
+                                    <constraint firstItem="DxU-uk-iIP" firstAttribute="centerX" secondItem="P0g-en-Htz" secondAttribute="centerX" id="LhA-Q5-kcQ"/>
                                     <constraint firstItem="EKS-VL-S7g" firstAttribute="top" secondItem="P0g-en-Htz" secondAttribute="top" constant="44" id="hpv-ih-s7L"/>
                                     <constraint firstItem="EKS-VL-S7g" firstAttribute="leading" secondItem="P0g-en-Htz" secondAttribute="leading" constant="25" id="wZc-CF-Lh1"/>
+                                    <constraint firstItem="DxU-uk-iIP" firstAttribute="centerY" secondItem="EKS-VL-S7g" secondAttribute="centerY" id="zLb-yw-Ibk"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -890,6 +900,89 @@
             </objects>
             <point key="canvasLocation" x="1550.7246376811595" y="91.741071428571431"/>
         </scene>
+        <!--AboutUS View Controller-->
+        <scene sceneID="ZB6-rO-Xjs">
+            <objects>
+                <viewController storyboardIdentifier="AboutUSViewController" id="D7a-3A-One" customClass="AboutUSViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a5y-G1-ivy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpp-VM-JTF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsg-Qi-Y8m">
+                                        <rect key="frame" x="25" y="44" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="06N-ko-kpJ"/>
+                                            <constraint firstAttribute="width" constant="25" id="2rP-Lm-60a"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="chevron.backward" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="bold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="XAV-M4-1ZE" eventType="touchUpInside" id="Cqr-5v-JIA"/>
+                                            <action selector="backButtonAction:" destination="6OQ-t9-KN0" eventType="touchUpInside" id="GVA-qu-Gpb"/>
+                                            <action selector="backButtonAction:" destination="D7a-3A-One" eventType="touchUpInside" id="j2N-qg-1FP"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2Y-iw-kVf">
+                                        <rect key="frame" x="169.5" y="46" width="75.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstItem="gsg-Qi-Y8m" firstAttribute="top" secondItem="gpp-VM-JTF" secondAttribute="top" constant="44" id="37K-Zl-vu0"/>
+                                    <constraint firstAttribute="height" constant="90" id="GTV-ay-hMi"/>
+                                    <constraint firstItem="W2Y-iw-kVf" firstAttribute="centerY" secondItem="gsg-Qi-Y8m" secondAttribute="centerY" id="Mhg-dY-6Yf"/>
+                                    <constraint firstItem="W2Y-iw-kVf" firstAttribute="centerX" secondItem="gpp-VM-JTF" secondAttribute="centerX" id="eTf-3a-z6f"/>
+                                    <constraint firstItem="gsg-Qi-Y8m" firstAttribute="leading" secondItem="gpp-VM-JTF" secondAttribute="leading" constant="25" id="l5L-Tx-brA"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bXa-r6-Jjn">
+                                <rect key="frame" x="10" y="100" width="394" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Our Mission
+As part of the Shopify, our mission is to make it easy to do business anywhere.
+
+We do this by giving suppliers the tools necessary to reach a global audience for their products, and by helping buyers find products and suppliers quickly and efficiently.
+
+One-Stop Sourcing
+Shopify.com brings you hundreds of millions of products in over 40 different major categories, including consumer electronics, machinery and apparel.
+
+Buyers for these products are located in 190+ countries and regions, and exchange hundreds of thousands of messages with suppliers on the platform each day.
+
+Anytime, Anywhere
+As a platform, we continue to develop services to help businesses do more and discover new opportunities.
+
+Whether it’s sourcing from your mobile phone or contacting suppliers in their local language, turn to Alibaba.com for all your global business needs.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZlJ-Uc-nd2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gpp-VM-JTF" secondAttribute="trailing" id="A9f-Sy-HYi"/>
+                            <constraint firstItem="gpp-VM-JTF" firstAttribute="top" secondItem="a5y-G1-ivy" secondAttribute="top" id="AW6-ha-Tco"/>
+                            <constraint firstItem="gpp-VM-JTF" firstAttribute="leading" secondItem="ZlJ-Uc-nd2" secondAttribute="leading" id="Eel-MJ-15g"/>
+                            <constraint firstItem="ZlJ-Uc-nd2" firstAttribute="bottom" secondItem="bXa-r6-Jjn" secondAttribute="bottom" constant="10" id="FO6-IU-0Mt"/>
+                            <constraint firstItem="bXa-r6-Jjn" firstAttribute="top" secondItem="gpp-VM-JTF" secondAttribute="bottom" constant="10" id="bBG-So-xHi"/>
+                            <constraint firstItem="ZlJ-Uc-nd2" firstAttribute="trailing" secondItem="bXa-r6-Jjn" secondAttribute="trailing" constant="10" id="glW-YG-VhW"/>
+                            <constraint firstItem="bXa-r6-Jjn" firstAttribute="leading" secondItem="ZlJ-Uc-nd2" secondAttribute="leading" constant="10" id="wbK-iz-SsY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cy7-iP-gw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2245" y="92"/>
+        </scene>
         <!--Currency View Controller-->
         <scene sceneID="SVE-TY-03B">
             <objects>
@@ -907,6 +1000,7 @@
                                             <constraint firstAttribute="width" constant="25" id="5uQ-DR-Dgh"/>
                                             <constraint firstAttribute="height" constant="25" id="s33-cv-vNL"/>
                                         </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="chevron.backward" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="bold"/>
@@ -916,10 +1010,18 @@
                                             <action selector="backButtonAction:" destination="XAV-M4-1ZE" eventType="touchUpInside" id="rtB-C5-CbW"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgM-BV-4uJ">
+                                        <rect key="frame" x="169.5" y="46" width="75.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <constraints>
+                                    <constraint firstItem="tgM-BV-4uJ" firstAttribute="centerX" secondItem="QLX-R3-NIj" secondAttribute="centerX" id="9I5-DH-ogD"/>
                                     <constraint firstItem="hoU-1g-vUw" firstAttribute="top" secondItem="QLX-R3-NIj" secondAttribute="top" constant="44" id="dmF-WO-dHc"/>
+                                    <constraint firstItem="tgM-BV-4uJ" firstAttribute="centerY" secondItem="hoU-1g-vUw" secondAttribute="centerY" id="ovI-zD-jl2"/>
                                     <constraint firstAttribute="height" constant="90" id="ppd-bF-bJz"/>
                                     <constraint firstItem="hoU-1g-vUw" firstAttribute="leading" secondItem="QLX-R3-NIj" secondAttribute="leading" constant="25" id="xjI-ho-wBB"/>
                                 </constraints>
@@ -949,10 +1051,90 @@
             </objects>
             <point key="canvasLocation" x="1551" y="762"/>
         </scene>
+        <!--Terms And Condition View Controller-->
+        <scene sceneID="4Lf-zr-Qbd">
+            <objects>
+                <viewController storyboardIdentifier="TermsAndConditionViewController" id="134-bD-LFa" customClass="TermsAndConditionViewController" customModule="ShopifyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XJR-Bh-zZn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBx-eS-cfT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyO-AJ-wVq">
+                                        <rect key="frame" x="25" y="44" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="MDe-jI-HpH"/>
+                                            <constraint firstAttribute="width" constant="25" id="okI-Tp-1pk"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="chevron.backward" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="bold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="134-bD-LFa" eventType="touchUpInside" id="5yK-OC-Kwy"/>
+                                            <action selector="backButtonAction:" destination="6OQ-t9-KN0" eventType="touchUpInside" id="FbJ-pG-f2E"/>
+                                            <action selector="backButtonAction:" destination="XAV-M4-1ZE" eventType="touchUpInside" id="Pwg-Vi-J9N"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqq-z4-121">
+                                        <rect key="frame" x="118.5" y="46" width="177.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="QDK-6Z-itK"/>
+                                    <constraint firstItem="hyO-AJ-wVq" firstAttribute="top" secondItem="eBx-eS-cfT" secondAttribute="top" constant="44" id="Qe1-MX-9CA"/>
+                                    <constraint firstItem="hyO-AJ-wVq" firstAttribute="leading" secondItem="eBx-eS-cfT" secondAttribute="leading" constant="25" id="Rq3-m6-aLX"/>
+                                    <constraint firstItem="Fqq-z4-121" firstAttribute="centerX" secondItem="eBx-eS-cfT" secondAttribute="centerX" id="SKq-bE-KkD"/>
+                                    <constraint firstItem="Fqq-z4-121" firstAttribute="centerY" secondItem="hyO-AJ-wVq" secondAttribute="centerY" id="vDD-t8-d8G"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eyh-dW-YeN">
+                                <rect key="frame" x="10" y="100" width="394" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">1.1. ”Shopify” is the trading name for the Shopify group companies listed at Appendix 1. Each Shopify group company (“Shopify”) operates an e-commerce platform consisting of a website and mobile application (“marketplace”), together with supporting IT, logistics and payment infrastructure, for the sale and purchase of consumer products and services (“products”) in its allocated territory as defined at Appendix 1 (“territory”).
+1.2. These general terms and conditions shall apply to buyers and sellers on the marketplace and shall govern your use of the marketplace and related services.
+1.3. By using our marketplace, you accept these general terms and conditions in full. If you disagree with these general terms and conditions or any part of these general terms and conditions, you must not use our marketplace.
+1.4. If you use our marketplace in the course of a business or other organizational project, then by so doing you:
+
+1.4.1. confirm that you have obtained the necessary authority to agree to these general terms and conditions;
+1.4.2. bind both yourself and the person, company or other legal entity that operates that business or organizational project, to these general terms and conditions; and
+1.4.3. agree that "you" in these general terms and conditions shall reference both the individual user and the relevant person, company or legal entity unless the context requires otherwise.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Tz-Oo-xw8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Tz-Oo-xw8" firstAttribute="trailing" secondItem="eyh-dW-YeN" secondAttribute="trailing" constant="10" id="21w-XR-KPQ"/>
+                            <constraint firstItem="5Tz-Oo-xw8" firstAttribute="bottom" secondItem="eyh-dW-YeN" secondAttribute="bottom" constant="10" id="2Y2-8Z-uTX"/>
+                            <constraint firstItem="eBx-eS-cfT" firstAttribute="top" secondItem="XJR-Bh-zZn" secondAttribute="top" id="Ikq-Sc-SwZ"/>
+                            <constraint firstItem="eyh-dW-YeN" firstAttribute="top" secondItem="eBx-eS-cfT" secondAttribute="bottom" constant="10" id="OOh-ux-25p"/>
+                            <constraint firstItem="eyh-dW-YeN" firstAttribute="leading" secondItem="5Tz-Oo-xw8" secondAttribute="leading" constant="10" id="Rrw-O5-DHA"/>
+                            <constraint firstAttribute="trailing" secondItem="eBx-eS-cfT" secondAttribute="trailing" id="cyH-Ug-59g"/>
+                            <constraint firstItem="eBx-eS-cfT" firstAttribute="leading" secondItem="5Tz-Oo-xw8" secondAttribute="leading" id="tyf-MK-3J1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eoT-Vh-i47" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2245" y="755"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

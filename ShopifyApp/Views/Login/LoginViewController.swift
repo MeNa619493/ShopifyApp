@@ -59,6 +59,7 @@ extension LoginViewController {
             if customerLogged != nil {
                 UserDefaultsManager.shared.setUserStatus(userIsLogged: true)
                 print("customer logged in successfully")
+                HelperConstant.savPassword(Password: password)
                 //Navigation
                 let mainPageVC = UIStoryboard(name: Storyboards.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.tabScreen.rawValue) as! mainTabBarControllerViewController
                 mainPageVC.modalPresentationStyle = .fullScreen

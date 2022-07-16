@@ -22,7 +22,8 @@ class SettingViewModel: SettingViewModelProtocol {
             SettingModel(imageName: "location.circle.fill", title: "Address"),
             SettingModel(imageName: "coloncurrencysign.circle.fill", title: "Currency"),
             SettingModel(imageName: "exclamationmark.shield.fill", title: "About us"),
-            SettingModel(imageName: "message.fill", title: "Contact us")
+            SettingModel(imageName: "exclamationmark.triangle.fill", title: "Terms and Conditions"),
+            SettingModel(imageName: "rectangle.portrait.and.arrow.right.fill", title: "Log out")
         ])
     }
     

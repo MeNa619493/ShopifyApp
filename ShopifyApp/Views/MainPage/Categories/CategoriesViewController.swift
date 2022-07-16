@@ -131,6 +131,12 @@ extension CategoriesViewController: UISearchBarDelegate {
     }
 }
 
+extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width - 10) / 2, height: 160)
+    }
+}
+
 extension CategoriesViewController: FavouriteActionProductScreen {
     func addFavourite(appDelegate: AppDelegate, product: Product) {
         categoriesViewModel?.addFavourite(appDelegate: appDelegate, product: product)

@@ -166,7 +166,7 @@ extension MainPageViewController: UICollectionViewDelegateFlowLayout{
             let size = adsCollectionView.frame.size
             return CGSize(width: size.width, height: size.height)
         } else {
-            return CGSize(width: collectionView.frame.width / 2.1, height: collectionView.frame.height / 2.5)
+            return CGSize(width: (collectionView.frame.width - 10) / 2, height: 160)
         }
     }
 }

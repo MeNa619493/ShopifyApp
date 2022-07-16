@@ -22,13 +22,20 @@ class MeViewController: UIViewController{
     // MARK: - Navigation section
     
     @IBAction func shoppingCart(_ sender: Any) {
-        if UserDefaultsManager.shared.getUserStatus(){
-            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
-            //VC.modalPresentationStyle = .fullScreen
-            self.present(VC, animated: false, completion: nil)        }
-            else {
-                showWarning()
-            }
+//        if UserDefaultsManager.shared.getUserStatus(){
+//            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+//            //VC.modalPresentationStyle = .fullScreen
+//            self.present(VC, animated: false, completion: nil)
+//
+//        }
+//            else {
+//                showWarning()
+//            }
+        
+        let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+        //VC.modalPresentationStyle = .fullScreen
+        self.present(VC, animated: false, completion: nil)
+        
     }
     
     @IBAction func settingsButton(_ sender: Any) {
@@ -39,6 +46,7 @@ class MeViewController: UIViewController{
             else {
                 showWarning()
             }
+        
     }
     
     

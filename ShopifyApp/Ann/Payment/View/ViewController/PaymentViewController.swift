@@ -112,7 +112,12 @@ class PaymentViewController: UIViewController {
             
         case .applePay:
             
-            handleApplePay()
+            if !UserDefaultsManager.shared.getUserStatus() {
+                showAlertNavigateLoginScreen(title: "Alert", message: "you must login to be able to add items to your Cart.")
+                return
+            }else {
+                handleApplePay()
+            }
             
         case .cash:
             
@@ -166,6 +171,14 @@ class PaymentViewController: UIViewController {
             
         }
     
+    func showAlertNavigateLoginScreen(title: String, message: String) {
+            self.showAlert(title: title, message: message) {
+            let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle:nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
@@ -190,7 +203,9 @@ extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
         } else {
             // Here you would send the payment token to your server or payment provider to process
             // Once processed, return an appropriate status in the completion handler (success, failure, etc)
+            
             postOrder(cartArray: product)
+            
         }
         let paymentStatus = status
         completion(PKPaymentAuthorizationResult(status: paymentStatus, errors: errors))
@@ -217,7 +232,7 @@ extension PaymentViewController {
             }
             
             // missing param
-            let order = Order(customer: Customer(first_name: UserDefaultsManager.shared.getUserName(), email: UserDefaultsManager.shared.getUserEmail(), tags: "", id: UserDefaultsManager.shared.getUserID(), addresses: [Address(id: Int(HelperConstant.getAddressID() ?? "1"), customer_id: UserDefaultsManager.shared.getUserID(), address1: HelperConstant.getAddressTitle(), city: HelperConstant.getCity(), country: HelperConstant.getcountry(), phone: HelperConstant.getAddressPhone())]), line_items: self.orderProduct, created_at: getCurrentData(), current_total_price: finalTotalPrice) //Order(customer: Customer(, line_items: self.orderProduct, current_total_price: self.totalPrice) //self.totalOrder.current_total_price
+            let order = Order(customer: Customer(first_name: UserDefaultsManager.shared.getUserName(), email: UserDefaultsManager.shared.getUserEmail(), tags:  HelperConstant.getPassword(), id: UserDefaultsManager.shared.getUserID(), addresses: [Address(id: Int(HelperConstant.getAddressID() ?? "1"), customer_id: UserDefaultsManager.shared.getUserID(), address1: HelperConstant.getAddressTitle(), city: HelperConstant.getCity(), country: HelperConstant.getcountry(), phone: HelperConstant.getAddressPhone())]), line_items: self.orderProduct, created_at: getCurrentData(), current_total_price: finalTotalPrice) //Order(customer: Customer(, line_items: self.orderProduct, current_total_price: self.totalPrice) //self.totalOrder.current_total_price
 //        contactEmail: UserDefaultsManager.shared.getUserEmail(), totalLineItemsPrice: finalTotalPrice, totalPriceUsd: finalTotalPrice
             
             let ordertoAPI = OrderToAPI(order: order)

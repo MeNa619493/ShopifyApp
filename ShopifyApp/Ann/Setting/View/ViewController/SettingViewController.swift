@@ -72,6 +72,54 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             //VC.totalPrice = self.totalPrice
             self.present(VC, animated: false, completion: nil)
             
+        case 2:
+            
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AboutUSViewController") as! AboutUSViewController
+            VC.modalPresentationStyle = .fullScreen
+            //VC.totalPrice = self.totalPrice
+            self.present(VC, animated: false, completion: nil)
+            
+        case 3:
+            
+            let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "TermsAndConditionViewController") as! TermsAndConditionViewController
+            VC.modalPresentationStyle = .fullScreen
+            //VC.totalPrice = self.totalPrice
+            self.present(VC, animated: false, completion: nil)
+            
+        case 4:
+            
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Log out", message: "Are you wanna log out", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                    
+                    UserDefaultsManager.shared.setUserStatus(userIsLogged: false)
+                    
+                    UserDefaults.standard.removeObject(forKey: "User_ID")
+                    UserDefaults.standard.set(nil, forKey: "User_ID")
+                    
+                    UserDefaults.standard.removeObject(forKey: "User_Name")
+                    UserDefaults.standard.set(nil, forKey: "User_Name")
+                    
+                    UserDefaults.standard.removeObject(forKey: "User_Email")
+                    UserDefaults.standard.set(nil, forKey: "User_Email")
+                    
+                    UserDefaults.standard.removeObject(forKey: "Password")
+                    UserDefaults.standard.set(nil, forKey: "Password")
+                    
+                    let viewController = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+                    UIApplication.shared.windows.first?.rootViewController = viewController
+                    UIApplication.shared.windows.first?.makeKeyAndVisible()
+                    
+                    
+                })
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            print("logout")
+            
         default:
             break
             

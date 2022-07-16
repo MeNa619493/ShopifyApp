@@ -32,7 +32,22 @@ class ProductCollectionViewCell: UICollectionViewCell {
         let imgLink = (product.image.src)
         let url = URL(string: imgLink)
         productImage.kf.setImage(with: url)
-        productPrice.text = product.varients?[0].price
+        //productPrice.text = product.varients?[0].price
+        
+        if HelperConstant.getseDefaultCurrency() == "EG" {
+            
+            productPrice.text = "\(product.varients?[0].price ?? "")" + "  EG"
+            
+        }else if HelperConstant.getseDefaultCurrency() == "USD" {
+            
+            productPrice.text = "\(Double((Double((product.varients?[0].price ?? "")) ?? 0.0) / Double(18.87)).rounded(toPlaces: 2))" + "  USD"
+            
+        }else {
+            
+            productPrice.text = "\(product.varients?[0].price ?? "")" + "  EG"
+            
+        }
+        
         if isFavourite {
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {

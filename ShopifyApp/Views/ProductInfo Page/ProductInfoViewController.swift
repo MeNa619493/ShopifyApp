@@ -108,6 +108,21 @@ class ProductInfoViewController: UIViewController {
         self.pageControl.numberOfPages = product?.images.count ?? 0
         self.productTitle.text = product?.title
         self.productPrice.text = "\(product?.varients?[0].price ?? "0") EGP"
+        
+        if HelperConstant.getseDefaultCurrency() == "EG" {
+            
+            productPrice.text = "\(product?.varients?[0].price ?? "")" + "  EG"
+            
+        }else if HelperConstant.getseDefaultCurrency() == "USD" {
+            
+            productPrice.text = "\(Double((Double((product?.varients?[0].price ?? "")) ?? 0.0) / Double(18.87)).rounded(toPlaces: 2))" + "  USD"
+            
+        }else {
+            
+            productPrice.text = "\(product?.varients?[0].price ?? "")" + "  EG"
+            
+        }
+        
         self.productDescription.text = product?.description
         self.addToCartButton.layer.cornerRadius = addToCartButton.frame.height / 2
         self.cosmosView.rating = 3
@@ -137,10 +152,10 @@ class ProductInfoViewController: UIViewController {
     
     @IBAction func onAddToCartPressed(_ sender: Any) {
         
-        if !UserDefaultsManager.shared.getUserStatus() {
-            showAlertNavigateLoginScreen(title: "Alert", message: "you must login to be able to add items to your Cart.")
-            return
-        }
+//        if !UserDefaultsManager.shared.getUserStatus() {
+//            showAlertNavigateLoginScreen(title: "Alert", message: "you must login to be able to add items to your Cart.")
+//            return
+//        }
         
         let products = database.fetch(CartItemModel.self)
         if checkIfItemExistInCart(itemId: product?.id ?? 0, itemms: products) {
