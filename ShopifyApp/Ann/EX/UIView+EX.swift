@@ -206,3 +206,15 @@ extension Double {
         return (self * divisor).rounded() / divisor
     }
 }
+
+extension UIBarButtonItem {
+    var isHidden: Bool {
+        get {
+            return !isEnabled && tintColor == .clear
+        }
+        set {
+            tintColor = newValue ? .clear : nil
+            isEnabled = !newValue
+        }
+    }
+}

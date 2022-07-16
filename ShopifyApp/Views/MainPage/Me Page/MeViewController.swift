@@ -94,6 +94,7 @@ class MeViewController: UIViewController{
 
     @IBAction func loginButton(_ sender: Any) {
         let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+        vc.loginStatus = .showBack
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }

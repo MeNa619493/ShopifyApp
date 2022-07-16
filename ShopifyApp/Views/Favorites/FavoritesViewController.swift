@@ -64,6 +64,7 @@ class FavoritesViewController: UIViewController {
     func showAlertNavigateLoginScreen() {
             self.showAlert(title: "Alert", message: "you must login to see your favourites.") {
                 let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+                vc.loginStatus = .showBack
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
@@ -95,6 +96,12 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         productInfoVC.productId = favoritesArray[indexPath.row].id
         productInfoVC.modalPresentationStyle = .fullScreen
         self.present(productInfoVC, animated: true, completion: nil)
+    }
+}
+
+extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width - 10) / 2, height: 160)
     }
 }
 

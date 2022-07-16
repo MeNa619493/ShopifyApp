@@ -81,7 +81,7 @@ extension AddressListViewController: UITableViewDelegate, UITableViewDataSource 
         if item?.addressId ?? 0 == addressId ?? 0 {
             
             // change view color
-            cell.containerView.backgroundColor = .systemPurple
+            cell.containerView.backgroundColor = .systemIndigo
             
         }else {
             cell.containerView.backgroundColor = .systemBackground

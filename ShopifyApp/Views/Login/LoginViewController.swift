@@ -8,12 +8,21 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+enum LoginStatus {
+    case hideBack
+    case showBack
+}
 
+class LoginViewController: UIViewController {
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    var loginStatus: LoginStatus = .showBack
     
     var loginViewModel: LoginViewModel?
     
@@ -21,6 +30,14 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         loginViewModel = LoginViewModel(networkManager: NetworkManager())
+        
+        switch loginStatus {
+        case .hideBack:
+            backButton.isHidden = true
+        case .showBack:
+            backButton.isHidden = false
+        }
+        
     }
     
     @IBAction func onLoginButtonPressed(_ sender: Any) {
@@ -40,11 +57,19 @@ class LoginViewController: UIViewController {
         password.layer.borderWidth = 2
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
         registerButton.layer.cornerRadius = registerButton.frame.height / 2
+        skipButton.layer.cornerRadius = registerButton.frame.height / 2
     }
     
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func skipButtonAction(_ sender: Any) {
+        let mainPageVC = UIStoryboard(name: Storyboards.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.tabScreen.rawValue) as! mainTabBarControllerViewController
+        mainPageVC.modalPresentationStyle = .fullScreen
+        self.present(mainPageVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension LoginViewController {

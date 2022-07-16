@@ -149,6 +149,7 @@ extension CategoriesViewController: FavouriteActionProductScreen {
     func showAlertNavigateLoginScreen() {
             self.showAlert(title: "Alert", message: "you must login to be able to add items to your favourites.") {
                 let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+                vc.loginStatus = .showBack
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }

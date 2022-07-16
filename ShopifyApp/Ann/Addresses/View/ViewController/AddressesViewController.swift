@@ -86,8 +86,8 @@ class AddressesViewController: UIViewController {
             
         }
         
-        HelperConstant.getInitDefaultAddresID()
-        HelperConstant.getDefaultAddresID()
+        print(HelperConstant.getInitDefaultAddresID() ?? 0)
+        print(HelperConstant.getDefaultAddresID() ?? 0)
         HelperConstant.saveInitDefaultAddresID(InitDefault: (HelperConstant.getInitDefaultAddresID() ?? 1) + 1)
         HelperConstant.saveDefaultAddresID(DefaultAddresID: (HelperConstant.getInitDefaultAddresID() ?? 1))
         
@@ -105,16 +105,16 @@ class AddressesViewController: UIViewController {
         
         print("All feilds is not empty")
         
-       //let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-       //VC.modalPresentationStyle = .fullScreen
-       //VC.totalPrice = self.totalPrice
-       //self.present(VC, animated: false, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Done", message: "This address added Successfully", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
     @IBAction func AddressListButtonAction(_ sender: Any) {
-        
-        
         
         let VC = UIStoryboard(name: "Cart", bundle: nil).instantiateViewController(withIdentifier: "AddressListViewController") as! AddressListViewController
         VC.totalPrice = totalPrice

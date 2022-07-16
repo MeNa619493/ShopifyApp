@@ -44,6 +44,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let item = settingViewModel.settingData[indexPath.row]
         
+        cell.imageNameOutlet.tintColor = .systemIndigo
         cell.imageNameOutlet.image = UIImage(systemName: item.imageName ?? "")
         cell.titleLabelOutlet.text = item.title ?? ""
         
@@ -107,6 +108,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                     UserDefaults.standard.set(nil, forKey: "Password")
                     
                     let viewController = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+                    viewController.loginStatus = .hideBack
                     UIApplication.shared.windows.first?.rootViewController = viewController
                     UIApplication.shared.windows.first?.makeKeyAndVisible()
                     

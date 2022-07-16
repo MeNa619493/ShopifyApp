@@ -91,8 +91,9 @@ class ConfirmOrderViewController: UIViewController {
     }
     
     func showAlertNavigateLoginScreen(title: String, message: String) {
-            self.showAlert(title: title, message: message) {
+        self.showAlert(title: title, message: message) {
             let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle:nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+            vc.loginStatus = .showBack
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }

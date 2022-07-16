@@ -95,6 +95,12 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     
 }
 
+extension ProductViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width - 10) / 2, height: 160)
+    }
+}
+
 extension ProductViewController: FavouriteActionProductScreen {
     func addFavourite(appDelegate: AppDelegate, product: Product) {
         productsViewModel?.addFavourite(appDelegate: appDelegate, product: product)
@@ -107,6 +113,7 @@ extension ProductViewController: FavouriteActionProductScreen {
     func showAlertNavigateLoginScreen() {
             self.showAlert(title: "Alert", message: "you must login to be able to add items to your favourites.") {
                 let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
+                vc.loginStatus = .showBack
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
