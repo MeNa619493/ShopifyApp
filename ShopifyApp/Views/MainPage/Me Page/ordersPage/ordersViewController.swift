@@ -88,11 +88,11 @@ class OrdersViewController: UIViewController {
 extension OrdersViewController: UITableViewDelegate, UITableViewDataSource{
    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return ordersArray.count
+        return 1 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return ordersArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,7 +102,22 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource{
         cell.orderCreatedAt.text = "Created at: \(ordersArray[indexPath.row].created_at ?? "Time not set")"
         cell.customerName.text = "Customer's name: \(ordersArray[indexPath.row].customer?.first_name ?? "Name not set")"
         cell.customerEmail.text = "Contact email: \(ordersArray[indexPath.row].customer?.email ?? "Email not set")"
-        cell.orderPrice.text = "Total price: \(ordersArray[indexPath.row].total_line_items_price ?? "p=Price not set")"
+        //cell.orderPrice.text = "Total price: \(ordersArray[indexPath.row].total_line_items_price ?? "p=Price not set")"
+        
+        if HelperConstant.getseDefaultCurrency() == "EG" {
+            
+            cell.orderPrice.text = "Price: \(ordersArray[indexPath.row].total_line_items_price ?? "amount not set")" + "  EG"
+            
+        }else if HelperConstant.getseDefaultCurrency() == "USD" {
+            
+            cell.orderPrice.text = "Price: \(Double((Double((ordersArray[indexPath.row].total_line_items_price ?? "amount not set")) ?? 0.0) / Double(18.87)).rounded(toPlaces: 2))" + "  USD"
+            
+        }else {
+            
+            cell.orderPrice.text = "Price: \(ordersArray[indexPath.row].total_line_items_price ?? "amount not set")" + "  EG"
+            
+        }
+        
         return cell
         
     }
