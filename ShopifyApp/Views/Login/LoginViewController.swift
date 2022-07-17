@@ -31,12 +31,12 @@ class LoginViewController: UIViewController {
         setupView()
         loginViewModel = LoginViewModel(networkManager: NetworkManager())
         
-        switch loginStatus {
-        case .hideBack:
-            backButton.isHidden = true
-        case .showBack:
-            backButton.isHidden = false
-        }
+//        switch loginStatus {
+//        case .hideBack:
+//            backButton.isHidden = true
+//        case .showBack:
+//            backButton.isHidden = false
+//        }
         
     }
     
@@ -57,25 +57,25 @@ class LoginViewController: UIViewController {
         password.layer.borderWidth = 2
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
         registerButton.layer.cornerRadius = registerButton.frame.height / 2
-        skipButton.layer.cornerRadius = registerButton.frame.height / 2
+//        skipButton.layer.cornerRadius = registerButton.frame.height / 2
     }
     
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func skipButtonAction(_ sender: Any) {
-        let mainPageVC = UIStoryboard(name: Storyboards.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.tabScreen.rawValue) as! mainTabBarControllerViewController
-        mainPageVC.modalPresentationStyle = .fullScreen
-        self.present(mainPageVC, animated: true, completion: nil)
-    }
+//    @IBAction func skipButtonAction(_ sender: Any) {
+//        let mainPageVC = UIStoryboard(name: Storyboards.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.tabScreen.rawValue) as! mainTabBarControllerViewController
+//        mainPageVC.modalPresentationStyle = .fullScreen
+//        self.present(mainPageVC, animated: true, completion: nil)
+//    }
     
 }
 
 extension LoginViewController {
     func login(){
         guard let email = email.text, !email.isEmpty, let password = password.text, !password.isEmpty else {
-            self.showAlertError(title: "Missing Information", message: "to login you must fill all the information below.")
+            self.showAlertError(title: "Missing Information", message: "To log in you must fill all the information below.")
             return
         }
         
@@ -84,14 +84,18 @@ extension LoginViewController {
             if customerLogged != nil {
                 UserDefaultsManager.shared.setUserStatus(userIsLogged: true)
                 print("customer logged in successfully")
+                self.showToastMessage(message: "Successful login", color: .green)
                 HelperConstant.savPassword(Password: password)
-                //Navigation
-                let mainPageVC = UIStoryboard(name: Storyboards.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.tabScreen.rawValue) as! mainTabBarControllerViewController
-                mainPageVC.modalPresentationStyle = .fullScreen
-                self.present(mainPageVC, animated: true, completion: nil)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    let mainPageVC = UIStoryboard(name: Storyboards.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.tabScreen.rawValue) as! mainTabBarControllerViewController
+                    mainPageVC.modalPresentationStyle = .fullScreen
+                    self.present(mainPageVC, animated: true, completion: nil)
+                }
+                
             }else{
                 UserDefaultsManager.shared.setUserStatus(userIsLogged: false)
-                self.showAlertError(title: "Failed to login", message: "Please check your email or password")
+                self.showAlertError(title: "Failed to log in", message: "Please check your email or password!")
                 print("Failed to login")
             }
         }

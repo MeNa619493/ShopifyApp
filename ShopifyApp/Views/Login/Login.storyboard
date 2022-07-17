@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -37,7 +37,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="29" translatesAutoresizingMaskIntoConstraints="NO" id="MJT-Hw-zuc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ecommerce_Blog_2-header-1024x430" translatesAutoresizingMaskIntoConstraints="NO" id="MJT-Hw-zuc">
                                 <rect key="frame" x="0.0" y="73" width="414" height="298.5"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HSH-gF-kmI">
@@ -84,26 +84,11 @@
                                     <action selector="onRegisterButtonPressed:" destination="vGy-3M-5ig" eventType="touchUpInside" id="tlR-SH-cDv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ow-Sa-hug">
-                                <rect key="frame" x="48" y="683.5" width="318" height="50"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="O08-0y-IG4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipButtonAction:" destination="vGy-3M-5ig" eventType="touchUpInside" id="ks2-hx-UuA"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GdZ-Gp-6rJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="U6K-mJ-GiX" firstAttribute="leading" secondItem="GdZ-Gp-6rJ" secondAttribute="leading" id="0be-jb-kvy"/>
-                            <constraint firstItem="2Ow-Sa-hug" firstAttribute="top" secondItem="cOo-Au-4jT" secondAttribute="bottom" constant="16" id="5Bg-tS-TQB"/>
                             <constraint firstItem="GdZ-Gp-6rJ" firstAttribute="trailing" secondItem="cOo-Au-4jT" secondAttribute="trailing" constant="48" id="6mw-U9-4iU"/>
                             <constraint firstItem="uzf-Pa-IFm" firstAttribute="top" secondItem="4ZJ-L3-MLE" secondAttribute="bottom" constant="32" id="7d8-tD-vaG"/>
                             <constraint firstItem="MJT-Hw-zuc" firstAttribute="leading" secondItem="GdZ-Gp-6rJ" secondAttribute="leading" id="ANY-ou-w2K"/>
@@ -112,7 +97,6 @@
                             <constraint firstItem="GdZ-Gp-6rJ" firstAttribute="top" secondItem="U6K-mJ-GiX" secondAttribute="top" constant="15" id="IOC-JV-NCM"/>
                             <constraint firstItem="HSH-gF-kmI" firstAttribute="leading" secondItem="GdZ-Gp-6rJ" secondAttribute="leading" constant="48" id="Iul-gM-MVe"/>
                             <constraint firstItem="MJT-Hw-zuc" firstAttribute="width" secondItem="G2V-Kj-8pL" secondAttribute="width" id="LRz-CC-qLt"/>
-                            <constraint firstItem="GdZ-Gp-6rJ" firstAttribute="trailing" secondItem="2Ow-Sa-hug" secondAttribute="trailing" constant="48" id="Mmm-bY-h3p"/>
                             <constraint firstItem="U6K-mJ-GiX" firstAttribute="width" secondItem="GdZ-Gp-6rJ" secondAttribute="width" id="Pdm-XF-XnK"/>
                             <constraint firstItem="MJT-Hw-zuc" firstAttribute="height" secondItem="G2V-Kj-8pL" secondAttribute="height" multiplier="1:3" id="QLu-Fw-W3x"/>
                             <constraint firstItem="GdZ-Gp-6rJ" firstAttribute="trailing" secondItem="4ZJ-L3-MLE" secondAttribute="trailing" constant="48" id="SRt-ej-Agw"/>
@@ -122,7 +106,6 @@
                             <constraint firstItem="uzf-Pa-IFm" firstAttribute="leading" secondItem="GdZ-Gp-6rJ" secondAttribute="leading" constant="48" id="mne-Ma-bXT"/>
                             <constraint firstItem="4ZJ-L3-MLE" firstAttribute="leading" secondItem="GdZ-Gp-6rJ" secondAttribute="leading" constant="48" id="moS-Lo-p2s"/>
                             <constraint firstItem="GdZ-Gp-6rJ" firstAttribute="trailing" secondItem="HSH-gF-kmI" secondAttribute="trailing" constant="48" id="q4K-en-Owe"/>
-                            <constraint firstItem="2Ow-Sa-hug" firstAttribute="leading" secondItem="GdZ-Gp-6rJ" secondAttribute="leading" constant="48" id="t9r-kH-Anb"/>
                             <constraint firstItem="GdZ-Gp-6rJ" firstAttribute="trailing" secondItem="uzf-Pa-IFm" secondAttribute="trailing" constant="48" id="yWs-oO-fw5"/>
                         </constraints>
                     </view>
@@ -132,7 +115,6 @@
                         <outlet property="loginButton" destination="uzf-Pa-IFm" id="kHr-HQ-GeJ"/>
                         <outlet property="password" destination="4ZJ-L3-MLE" id="ZkQ-3i-dt7"/>
                         <outlet property="registerButton" destination="cOo-Au-4jT" id="sGD-NH-adz"/>
-                        <outlet property="skipButton" destination="2Ow-Sa-hug" id="JU0-QC-Lgz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGc-HU-n95" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -141,7 +123,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="29" width="1024" height="1024"/>
+        <image name="Ecommerce_Blog_2-header-1024x430" width="341" height="143"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

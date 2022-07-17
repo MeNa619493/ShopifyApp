@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController {
         if ValdiateCustomerInfomation(firstName: name, email: emailText, password: password, confirmPassword: confirmPass) {
             register(firstName: name, email: emailText, password: password, confirmPassword: confirmPass)
         } else {
-            showAlertError(title: "Couldnot register", message: "Please try again later.")
+            showAlertError(title: "Could not register", message: "Please try again later.")
         }
     }
     
@@ -63,15 +63,15 @@ extension RegisterViewController {
                 switch message {
                 case "ErrorAllInfoIsNotFound":
                     isSuccess = false
-                    self.showAlertError(title: "Missing Information", message: "please, enter all the required information.")
+                    self.showAlertError(title: "Missing Information", message: "Please, enter all the required information.")
                     
                 case "ErrorPassword":
                     isSuccess = false
-                    self.showAlertError(title: "Check Password", message: "please, enter password again.")
+                    self.showAlertError(title: "Invalid Password", message: "Please, enter your password again.")
                     
                 case "ErrorEmail":
                     isSuccess = false
-                    self.showAlertError(title: "Invalid Email", message: "please, enter correct email.")
+                    self.showAlertError(title: "Invalid Email", message: "Please, enter a correct email.")
                     
                 default:
                     isSuccess = true
@@ -89,23 +89,25 @@ extension RegisterViewController {
                     
             guard error == nil else {
                 DispatchQueue.main.async {
-                    self.showAlertError(title: "Couldnot register", message: "Please, try again later.")
+                    self.showAlertError(title: "Could not register", message: "Please, try again later.")
                 }
                 return
             }
             
             guard response?.statusCode != 422 else {
                 DispatchQueue.main.async {
-                    self.showAlertError(title: "Couldnot register", message: "Please, try another email.")
+                    self.showAlertError(title: "Could not register", message: "Please, try another email.")
                 }
                 return
             }
                     
             print("registered successfully")
-            
+            DispatchQueue.main.async {
+                self.showToastMessage(message: "Registered successfully!", color: .green)
+            }
             HelperConstant.savPassword(Password: password)
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 let vc = UIStoryboard(name: Storyboards.login.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.login.rawValue) as! LoginViewController
                 vc.loginStatus = .showBack
                 vc.modalPresentationStyle = .fullScreen

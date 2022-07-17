@@ -90,7 +90,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 4:
             
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Log out", message: "Are you wanna log out", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
                     
                     UserDefaultsManager.shared.setUserStatus(userIsLogged: false)

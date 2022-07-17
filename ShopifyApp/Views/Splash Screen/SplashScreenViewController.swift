@@ -18,6 +18,7 @@ class SplashScreenViewController: UIViewController {
 
         animationView = .init(name: "22380-e-commerce")
         animationView?.frame = view.bounds
+        animationView?.animationSpeed = 0.5
         animationView?.loopMode = .loop
         view.addSubview(animationView!)
         animationView?.play()

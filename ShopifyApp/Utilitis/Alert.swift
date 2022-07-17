@@ -13,7 +13,7 @@ import NVActivityIndicatorView
 extension UIViewController{
     func showAlertError(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let Action = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        let Action = UIAlertAction(title: "Ok", style: .destructive, handler: nil)
         alert.addAction(Action)
         self.present(alert, animated: true, completion: nil)
     }
@@ -21,7 +21,7 @@ extension UIViewController{
     func showAlert(title:String, message:String, complition:@escaping ()->Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let okButton = UIAlertAction(title: "OK", style: .destructive) { _ in
+        let okButton = UIAlertAction(title: "Ok", style: .destructive) { _ in
             complition()
         }
         alert.addAction(cancelButton)
@@ -30,8 +30,8 @@ extension UIViewController{
     }
 
     func showAlertForInterNetConnection() {
-        let alert = UIAlertController(title: "Network Error", message: "please, check your internet connection.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: "Network Error", message: "Please, check your internet connection!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
@@ -56,4 +56,23 @@ extension UIViewController{
             indicator.stopAnimating()
         }
     }
+    
+    func showToastMessage(message: String, color: UIColor) {
+            let toastLabel = UILabel(frame: CGRect(x: self.view.frame.width/2-120, y: self.view.frame.height-100, width: 260, height: 30))
+
+            toastLabel.textAlignment = .center
+            toastLabel.backgroundColor = color
+            toastLabel.textColor = .black
+            toastLabel.alpha = 1.0
+            toastLabel.layer.cornerRadius = 10
+            toastLabel.clipsToBounds = true
+            toastLabel.text = message
+            self.view.addSubview(toastLabel)
+            UIView.animate(withDuration: 3.0, delay: 1.0, options: .curveEaseIn, animations: {
+                toastLabel.alpha = 0.0
+            }) { (isCompleted) in
+                toastLabel.removeFromSuperview()
+            }
+        }
+    
 }
