@@ -258,7 +258,23 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ordersCellID", for: indexPath) as! OrdersTableViewCell
         cell.orderCreatedAt.text = "Created at: \(ordersArray[indexPath.row].created_at ?? "time not set")"
-        cell.ordersPrice.text = "Price: \(ordersArray[indexPath.row].total_line_items_price ?? "amount not set")"
+        //cell.ordersPrice.text = "Price: \(ordersArray[indexPath.row].total_line_items_price ?? "amount not set")"
+        
+        if HelperConstant.getseDefaultCurrency() == "EG" {
+            
+            cell.ordersPrice.text = "Price: \(ordersArray[indexPath.row].total_line_items_price ?? "amount not set")" + "  EG"
+            
+        }else if HelperConstant.getseDefaultCurrency() == "USD" {
+            
+            cell.ordersPrice.text = "Price: \(Double((Double((ordersArray[indexPath.row].total_line_items_price ?? "amount not set")) ?? 0.0) / Double(18.87)).rounded(toPlaces: 2))" + "  USD"
+            
+        }else {
+            
+            cell.ordersPrice.text = "Price: \(ordersArray[indexPath.row].total_line_items_price ?? "amount not set")" + "  EG"
+            
+        }
+            
+        
         return cell    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

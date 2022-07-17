@@ -193,8 +193,8 @@ class ConfirmOrderViewController: UIViewController {
             
             if HelperConstant.getseDefaultCurrency() == "EG" {
                 
-                finalTotalPriceString = "\(Double((Double(totalPrice ?? 0.0)) / Double(18.87)).rounded(toPlaces: 2))" + "  USD"
-                priceLabelOutlet.text = "  USD  " + "\(Double((Double(totalPrice ?? 0.0)) / Double(18.87)).rounded(toPlaces: 2))"
+                finalTotalPriceString = "\(Double((Double(totalPrice ?? 0.0))).rounded(toPlaces: 2))" + "  EG"
+                priceLabelOutlet.text = "  EG  " + "\(Double((Double(totalPrice ?? 0.0))).rounded(toPlaces: 2))"
                 
             }else if HelperConstant.getseDefaultCurrency() == "USD" {
                 
