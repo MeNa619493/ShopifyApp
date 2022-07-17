@@ -61,7 +61,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onBackButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        print("back button working")
+        let mainPageVC = UIStoryboard(name: Storyboards.home.rawValue, bundle: nil).instantiateViewController(withIdentifier: StoryboardID.tabScreen.rawValue) as! mainTabBarControllerViewController
+            mainPageVC.modalPresentationStyle = .fullScreen
+            self.present(mainPageVC, animated: true, completion: nil)
     }
     
 //    @IBAction func skipButtonAction(_ sender: Any) {
@@ -74,7 +77,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     func login(){
-        guard let email = email.text, !email.isEmpty, let password = password.text, !password.isEmpty else {
+        guard let email = email.text?.trimmingCharacters(in: .whitespacesAndNewlines), !email.isEmpty, let password = password.text?.trimmingCharacters(in: .whitespacesAndNewlines), !password.isEmpty else {
             self.showAlertError(title: "Missing Information", message: "To log in you must fill all the information below.")
             return
         }

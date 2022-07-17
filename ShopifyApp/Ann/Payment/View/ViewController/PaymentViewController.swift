@@ -258,7 +258,7 @@ extension PaymentViewController {
                     }
                     
                     DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Done", message: "This orders submit Successfully", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Done", message: "Order submitted Successfully", preferredStyle: .alert)
                         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
                             
                             

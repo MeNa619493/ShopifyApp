@@ -30,10 +30,10 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func onRegisterButtonPressed(_ sender: Any) {
-        guard let name = customerName.text else {return}
-        guard let emailText = email.text else {return}
-        guard let password = password.text else {return}
-        guard let confirmPass = confirmPassword.text else {return}
+        guard let name = customerName.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
+        guard let emailText = email.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
+        guard let password = password.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
+        guard let confirmPass = confirmPassword.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
         if ValdiateCustomerInfomation(firstName: name, email: emailText, password: password, confirmPassword: confirmPass) {
             register(firstName: name, email: emailText, password: password, confirmPassword: confirmPass)
         } else {
